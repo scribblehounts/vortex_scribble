@@ -28,14 +28,16 @@ bot.on('message', (message) => {
         roblox.getIdFromUsername(username).then(id => {
           var tokenID = message.author.id
           
-          message.channel.send(new Discord.RichEmbed().setTitle("Please put this in your profiles description").setDescription(`${tokenID}`).set)
+          message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757"))
         
+          
+          
         }).catch(function (err) {
           
-          message.channel.send("Sorry, that user doesn't seem to exist, double check your spelling and try again.")
+          message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Sorry, that user doesn't seem to exist, double check your spelling and try again.**`).setFooter("Verification").setColor("#ff4757"))
         })
     	} else {
-    		message.channel.send("Please enter a username.")
+    		message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Please enter a username.**`).setFooter("Verification").setColor("#ff4757"))
     	}
     	return;
     }

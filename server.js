@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client()
-var roblox = require('noblox.js');
-const prefix = "!"
+const roblox = require('noblox.js');
+const prefix = "!";
 bot.on("ready", async () => {
   
   bot.user.setActivity("u and your mama", {type: "WATCHING"});
@@ -34,7 +34,10 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
           message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
             message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time']})
             .then(collected => {
-              message.channel.send(`nice`)
+              var playerStatus = roblox.getStatus(`${id}`)
+                console.log(playerStatus)
+
+
             })
             .catch(collected => {
               message.channel.send("Verification Timed out!")

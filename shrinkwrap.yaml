@@ -1,7 +1,6 @@
 dependencies:
   discord.js: 11.5.1
   express: 4.16.4
-  fs: 0.0.2
   noblox.js: 4.2.6
 packages:
   /@types/node/12.7.8:
@@ -387,10 +386,6 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
-  /fs/0.0.2:
-    dev: false
-    resolution:
-      integrity: sha1-4fJE7zkzwbKmS9R5kTYGDQ9ZFPg=
   /getpass/0.1.7:
     dependencies:
       assert-plus: 1.0.0
@@ -955,5 +950,4 @@ shrinkwrapVersion: 3
 specifiers:
   discord.js: ^11.5.1
   express: ^4.16.4
-  fs: ^0.0.2
   noblox.js: ^4.2.6

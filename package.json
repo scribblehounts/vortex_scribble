@@ -10,7 +10,10 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "discord.js": "^11.5.1",
+    "fs": "^0.0.2",
+    "noblox.js": "^4.2.6"
   },
   "engines": {
     "node": "8.x"

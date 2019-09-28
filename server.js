@@ -7,10 +7,13 @@ bot.on("ready", async () => {
   
   bot.user.setActivity("u and your mama", {type: "WATCHING"});
   console.log("Online!")
-  console.log(roblox.getStatus(13094490))
 });
 
-
+function getStatus(id){
+  roblox.getBlurb(`${id}`).tap(function(user){
+    console.log(user)
+  })
+}
 
 
 function isCommand(command, message){
@@ -35,8 +38,10 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
           message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
             message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time']})
             .then(collected => {
-              var playerStatus = roblox.getStatus(`${id}`)
-                console.log(playerStatus)
+                if (getStatus(id) === message.author.id){
+                  console.log("Successful!")
+                  message.channel.send(`Successfully Verified as ${roblox.getIdFromUsername(id)}`)
+                }
 
 
             })

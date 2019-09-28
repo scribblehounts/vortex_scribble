@@ -39,12 +39,13 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
        if (user === (message.author.id)){
      console.log("successful")
          message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
-         message.member.
+         message.member.setNickname(`${username}`)
+         } else {
+                         message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757"))
          }
   })
 
-
-            })
+  })
             .catch(collected => {
               message.channel.send(new Discord.RichEmbed().setTitle("Timed out!").setDescription(`**Session Timed out!**`).setFooter("Verification").setColor("#ff4757"))
             })

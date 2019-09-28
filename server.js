@@ -2,10 +2,17 @@ const discord = require("discord.js")
 const roblox = require("noblox.js") 
 
 const fs = require("fs")
-const roblox = require("noblox.js")
-const discord = require("discord.js")
+const bot = new discord.Client();
 
- require("./modules/functions.js")(bot);
+const token = ('NjI3NDA3MDU1MTk1NjAyOTQ0.XY8MbA.EX0bdUCr8SzwTOiS-wYBziMH2is')
+
+bot.on('ready', () =>{
+    console.log('Im alive!')
+    bot.user.setStatus('available')
+bot.user.setActivity("playing with joe mama")
+})
+
+require("./modules/functions.js")(bot);
     // sends bot to the cmd folder where cmds are stored, yknow, to keep index clean :D
     // insert your commands in a folder called cmds
     fs.readdir("./cmds/", (err, files) => { 
@@ -26,3 +33,5 @@ const discord = require("discord.js")
             console.log(`${i + 1}: ${f} loaded!`) // loaded
         })
     })
+
+bot.login(token);

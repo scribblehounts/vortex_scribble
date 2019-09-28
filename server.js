@@ -9,11 +9,6 @@ bot.on("ready", async () => {
   console.log("Online!")
 });
 
-function getStatus(id){
-  roblox.getBlurb(`${id}`).tap(function(user){
-    console.log(user)
-  })
-}
 
 
 function isCommand(command, message){
@@ -38,15 +33,20 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
           message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
             message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time']})
             .then(collected => {
-                if (getStatus(id) === message.author.id){
-                  console.log("Successful!")
-                  message.channel.send(`Successfully Verified as ${roblox.getIdFromUsername(id)}`)
-                }
+  roblox.getBlurb(`${id}`).tap(function(user){
+    console.log(user)
+    console.log(message.author.id)
+       if (user === (message.author.id)){
+     console.log("successful")
+         message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
+         message.member.
+         }
+  })
 
 
             })
             .catch(collected => {
-              message.channel.send("Verification Timed out!")
+              message.channel.send(new Discord.RichEmbed().setTitle("Timed out!").setDescription(`**Session Timed out!**`).setFooter("Verification").setColor("#ff4757"))
             })
           })
         

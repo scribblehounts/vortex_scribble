@@ -1,7 +1,6 @@
 const discord = require("discord.js")
 const roblox = require("noblox.js") 
 
-const fs = require("fs")
 const bot = new discord.Client();
 
 const token = ('NjI3NDA3MDU1MTk1NjAyOTQ0.XY8MbA.EX0bdUCr8SzwTOiS-wYBziMH2is')
@@ -28,7 +27,8 @@ bot.on('message', (message) => {
     	var username = args[1];
     	if (username){
         roblox.getIdFromUsername(username).then(id => {
-         message.reply('')
+          var tokenID = message.author.id
+         message.reply(`Please put this in your profiles description ${tokenID}`)
         }).catch(function (err) {
           message.channel.send("Sorry, that user doesn't seem to exist, double check your spelling and try again.")
         })

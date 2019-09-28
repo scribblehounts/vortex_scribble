@@ -19,6 +19,9 @@ function isCommand(command, message){
 }
 
 bot.on('message', (message) => {
+  const filter = m => m.content.includes('done');
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+  
 	if (message.author.bot) return; // Dont answer yourself.
     var args = message.content.split(/[ ]+/)
     
@@ -28,7 +31,15 @@ bot.on('message', (message) => {
         roblox.getIdFromUsername(username).then(id => {
           var tokenID = message.author.id
           
-          message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757"))
+          message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
+            message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time']})
+            .then(collected => {
+              message.channel.send(`nice`)
+            })
+            .catch(collected => {
+              message.channel.send("Verification Timed out!")
+            })
+          })
         
           
           

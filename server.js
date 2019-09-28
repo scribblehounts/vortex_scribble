@@ -1,42 +1,42 @@
-const discord = require("discord.js")
-const roblox = require("noblox.js") 
+const botconfig = require("./botconfig.json");
+const Discord = require("discord.js");
+const fs = require("fs");
+const bot = new Discord.Client({disableEveryone: true});
+bot.commands = new Discord.Collection();
 
-const bot = new discord.Client();
+fs.readdir("./commands/", (err, files) => {
 
-const token = ('NjI3NDA3MDU1MTk1NjAyOTQ0.XY8MbA.EX0bdUCr8SzwTOiS-wYBziMH2is')
+  if(err) console.log(err);
+  let jsfile = files.filter(f => f.split(".").pop() === "js");
+  if(jsfile.length <= 0){
+    console.log("Couldn't find commands.");
+    return;
+  }
 
-bot.on('ready', () =>{
-    console.log('Im alive!')
-    bot.user.setStatus('available')
-bot.user.setActivity("playing with myself mama") // GAY
-})
-
-var prefix = '!';
-
-function isCommand(command, message){
-	var command = command.toLowerCase();
-	var content = message.content.toLowerCase();
-	return content.startsWith(prefix + command);
-}
-
-bot.on('message', (message) => {
-	if (message.author.bot) return; // Dont answer yourself.
-    var args = message.content.split(/[ ]+/)
-    
-    if(isCommand('verify', message)){
-    	var username = args[1];
-    	if (username){
-        roblox.getIdFromUsername(username).then(id => {
-          var tokenID = message.author.id
-         message.reply(`Please put this in your profiles description ${tokenID}`)
-        }).catch(function (err) {
-          message.channel.send("Sorry, that user doesn't seem to exist, double check your spelling and try again.")
-        })
-    	} else {
-    		message.channel.send("Please enter a username.")
-    	}
-    	return;
-    }
+  jsfile.forEach((f, i) =>{
+    let props = require(`./commands/${f}`);
+    console.log(`${f} loaded!`);
+    bot.commands.set(props.help.name, props);
+  });
 });
 
-bot.login(token);
+bot.on("ready", async () => {
+  console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
+  bot.user.setActivity("yo mama", {type: "WATCHING"});
+
+});
+
+bot.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefix = botconfig.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+  let commandfile = bot.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(bot,message,args);
+
+});
+
+bot.login(botconfig.token);

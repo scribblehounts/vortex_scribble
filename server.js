@@ -36,10 +36,11 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
   roblox.getBlurb(`${id}`).tap(function(user){
     console.log(user)
     console.log(message.author.id)
-       if (user === (message.author.id)){
+       if (user.match(message.author.id)){
      console.log("successful")
          message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
          message.member.setNickname(`${username}`)
+         message.member.addRole(message.guild.roles.find(role => role.name === "Verified"));
          } else {
                          message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757"))
          }

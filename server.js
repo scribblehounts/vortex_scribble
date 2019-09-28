@@ -9,7 +9,7 @@ const token = ('NjI3NDA3MDU1MTk1NjAyOTQ0.XY8MbA.EX0bdUCr8SzwTOiS-wYBziMH2is')
 bot.on('ready', () =>{
     console.log('Im alive!')
     bot.user.setStatus('available')
-bot.user.setActivity("playing with joe mama")
+bot.user.setActivity("playing with myself mama") // GAY
 })
 
 var prefix = '!';
@@ -27,8 +27,11 @@ bot.on('message', (message) => {
     if(isCommand('verify', message)){
     	var username = args[1];
     	if (username){
-    		message.channel.send(`Checking ROBLOX for ${username}`)
-        require("./cmds/search.js")(username)
+        roblox.getIdFromUsername(username).then(id => {
+         message.reply('')
+        }).catch(function (err) {
+          message.channel.send("Sorry, that user doesn't seem to exist, double check your spelling and try again.")
+        })
     	} else {
     		message.channel.send("Please enter a username.")
     	}

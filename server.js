@@ -7,6 +7,7 @@ bot.on("ready", async () => {
   
   bot.user.setActivity("u and your mama", {type: "WATCHING"});
   console.log("Online!")
+  console.log(roblox.getStatus(13094490))
 });
 
 

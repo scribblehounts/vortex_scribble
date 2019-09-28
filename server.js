@@ -12,26 +12,28 @@ bot.on('ready', () =>{
 bot.user.setActivity("playing with joe mama")
 })
 
-require("./modules/functions.js")(bot);
-    // sends bot to the cmd folder where cmds are stored, yknow, to keep index clean :D
-    // insert your commands in a folder called cmds
-    fs.readdir("./cmds/", (err, files) => { 
-        if(err) { return console.error(err) };
-        // allow the files to be detectable by glitch, pop the "." so it can be read
-        let jsfiles = files.filter(f => f.split(".").pop() === "js")
-        if(jsfiles.length <= 0) {
-            // log in console if no cmds are present
-            console.log("No commands are present.") 
-            return
-        }
+var prefix = '!';
 
-        console.log(`Loading ${jsfiles.length} js files.`) 
+function isCommand(command, message){
+	var command = command.toLowerCase();
+	var content = message.content.toLowerCase();
+	return content.startsWith(prefix + command);
+}
 
-        jsfiles.forEach((f, i) => {
-            let props = require(`./cmds/${f}`)
-            bot.commands.set(props.help.name, props)
-            console.log(`${i + 1}: ${f} loaded!`) // loaded
-        })
-    })
+bot.on('message', (message) => {
+	if (message.author.bot) return; // Dont answer yourself.
+    var args = message.content.split(/[ ]+/)
+    
+    if(isCommand('verify', message)){
+    	var username = args[1];
+    	if (username){
+    		message.channel.send(`Checking ROBLOX for ${username}`)
+        require("./cmds/search.js")(username)
+    	} else {
+    		message.channel.send("Please enter a username.")
+    	}
+    	return;
+    }
+});
 
 bot.login(token);

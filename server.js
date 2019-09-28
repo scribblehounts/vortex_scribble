@@ -1,3 +1,5 @@
+require("http").createServer(async (req,res) => { res.statusCode = 200; res.write("ok"); res.end(); }).listen(3000, () => console.log("Now listening on port 3000"));
+
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client()
@@ -5,7 +7,7 @@ const roblox = require('noblox.js');
 const prefix = "!";
 bot.on("ready", async () => {
   
-  bot.user.setActivity("u and your mama", {type: "WATCHING"});
+  bot.user.setActivity("You while your in bed", {type: "WATCHING"});
   console.log("Online!")
 });
 

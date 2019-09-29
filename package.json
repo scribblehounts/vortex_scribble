@@ -13,7 +13,8 @@
     "express": "^4.16.4",
     "discord.js": "^11.5.1",
     "noblox.js": "^4.2.6",
-    "enmap": "^5.1.0"
+    "enmap": "^5.1.0",
+    "djs-simplecmd": "^1.1.1"
   },
   "engines": {
     "node": "8.x"

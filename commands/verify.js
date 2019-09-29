@@ -1,4 +1,10 @@
+const Discord = require("discord.js");
+const fs = require("fs");
+const bot = new Discord.Client()
+const roblox = require('noblox.js');
+
 exports.run = (client, message, args) => {
+  console.log("hello")
 	if (message.author.bot) return; // Dont answer yourself.
     var args = message.content.split(/[ ]+/)
     

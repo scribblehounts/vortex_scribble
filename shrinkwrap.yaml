@@ -1,5 +1,6 @@
 dependencies:
   discord.js: 11.5.1
+  enmap: 5.1.2
   express: 4.16.4
   noblox.js: 4.2.6
 packages:
@@ -267,6 +268,14 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /enmap/5.1.2:
+    dependencies:
+      lodash: 4.17.15
+    dev: false
+    peerDependencies:
+      better-sqlite3: ^5.4.1
+    resolution:
+      integrity: sha512-64l4FqcXJbwMRdBD399cRX/KVpVrayDwAm23Bi2aI7h2VYNMFtf587h8gB2DCLBjWPP3sJFDCuRcnTJepaOnxA==
   /entities/1.1.2:
     dev: false
     resolution:
@@ -949,5 +958,6 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   discord.js: ^11.5.1
+  enmap: ^5.1.0
   express: ^4.16.4
   noblox.js: ^4.2.6

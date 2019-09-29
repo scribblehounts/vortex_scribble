@@ -28,7 +28,8 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
      console.log("successful")
          message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
          message.member.setNickname(`${username}`)
-         message.member.addRole(message.guild.roles.find(role => role.name === "Verified"));
+         message.member.addRole(message.guild.roles.find(role => role.name === "Customer"));
+         message.member.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
          } else {
                          message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757"))
          }

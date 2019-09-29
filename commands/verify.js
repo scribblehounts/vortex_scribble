@@ -1,11 +1,19 @@
 
 module.export = class verify {
-  constructor
+  constructor(){
+    this.name = "verify",
+      this.alias = ['v'],
+      this.usage = "!verify"
+  }
+  
+  run(bot, message, args){
+    message.reply(this.name + " worked!")
+  }
 }
 
 
 
-
+/*
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client()
@@ -55,4 +63,4 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
     		message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Please enter a username.**`).setFooter("Verification").setColor("#ff4757"))
     	}
     	return;
-}
+} */

@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const client = new Discord.Client();
 
-const { CommandHandler } = require("djs-commands");
+const {CommandHandler} = require("djs-commands");
 
 const CH = new CommandHandler({
     folder: __dirname + '/commands/',

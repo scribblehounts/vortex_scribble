@@ -17,7 +17,40 @@ bot.on('ready', () => {
     });
 });
 
+// This loop reads the /events/ folder and attaches each event file to the appropriate event.
+fs.readdir("./events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    // If the file is not a JS file, ignore it (thanks, Apple)
+    if (!file.endsWith(".js")) return;
+    // Load the event file itself
+    const event = require(`./events/${file}`);
+    // Get just the event name from the file name
+    let eventName = file.split(".")[0];
+    // super-secret recipe to call events with all their proper arguments *after* the `client` var.
+    // without going into too many details, this means each event will be called with the client argument,
+    // followed by its "normal" arguments, like message, member, etc etc.
+    // This line is awesome by the way. Just sayin'.
+    bot.on(eventName, event.bind(null, bot));
+    delete require.cache[require.resolve(`./events/${file}`)];
+  });
+});
 
+bot.commands = new Discord.Collection();
+
+fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    // Load the command file itself
+    let props = require(`./commands/${file}`);
+    // Get just the command name from the file name
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command ${commandName}`);
+    // Here we simply store the whole thing in the Collection. We're not running it right now.
+    bot.commands.set(commandName, props);
+  });
+});
 
 function isCommand(command, message){
 	var command = command.toLowerCase();
@@ -25,66 +58,10 @@ function isCommand(command, message){
 	return content.startsWith(prefix + command);
 }
 
-bot.on('message', (message) => {
+bot.on('message', async message => {
 
   
-	if (message.author.bot) return; // Dont answer yourself.
-    var args = message.content.split(/[ ]+/)
-    
-    if(isCommand('verify', message)){
-        const filter = m => m.content.includes('done');
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
-    	var username = args[1];
-    	if (username){
-        roblox.getIdFromUsername(username).then(id => {
-          var tokenID = message.author.id
-          
-          message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
-            message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time']})
-            .then(collected => {
-  roblox.getBlurb(`${id}`).tap(function(user){
-    console.log(user)
-    console.log(message.author.id)
-       if (user.match(message.author.id)){
-     console.log("successful")
-         message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
-         message.member.setNickname(`${username}`)
-         message.member.addRole(message.guild.roles.find(role => role.name === "Verified"));
-         } else {
-                         message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757"))
-         }
-  })
 
-  })
-            .catch(collected => {
-              message.channel.send(new Discord.RichEmbed().setTitle("Timed out!").setDescription(`**Session Timed out!**`).setFooter("Verification").setColor("#ff4757"))
-            })
-          })
-        
-          
-          
-        }).catch(function (err) {
-          
-          message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Sorry, that user doesn't seem to exist, double check your spelling and try again.**`).setFooter("Verification").setColor("#ff4757"))
-        })
-    	} else {
-    		message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Please enter a username.**`).setFooter("Verification").setColor("#ff4757"))
-    	}
-    	return;
-    }
-  
-  if(isCommand('apply ally', message)){
-    message.delete()
-    message.author.send(new Discord.RichEmbed().setTitle("Application").setDescription("Thank you for requesting an application to be one of our allies, please answer the following questions as truthly as you can").setColor("#2ecc71"))
-    message.channel.awaitMessages(m => m.content.includes('start'), { maxMatches: 1, time:30000, errors: ['time']})      .catch(collected => {
-      message.author.send("Application Timed out!")
-    })
-    .then(collected => {
-      message.author.send("Okay lets start")
-    })
-
-    
-  }
 });
 
 bot.login(process.env.TOKEN);

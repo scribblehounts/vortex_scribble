@@ -14,7 +14,9 @@
     "discord.js": "^11.5.1",
     "noblox.js": "^4.2.6",
     "enmap": "^5.1.0",
-    "djs-commands": "^1.2.2"
+    "djs-commands": "^1.2.2",
+    "dotenv": "^8.1.0",
+    "ascii-table": "^0.0.9"
   },
   "engines": {
     "node": "8.x"

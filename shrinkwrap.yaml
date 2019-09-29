@@ -1,6 +1,8 @@
 dependencies:
+  ascii-table: 0.0.9
   discord.js: 11.5.1
   djs-commands: 1.2.2
+  dotenv: 8.1.0
   enmap: 5.1.2
   express: 4.16.4
   noblox.js: 4.2.6
@@ -31,6 +33,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
+  /ascii-table/0.0.9:
+    dev: false
+    resolution:
+      integrity: sha1-BqZgTWpV1L9BqaR9mHLXp42jHnM=
   /asn1/0.2.4:
     dependencies:
       safer-buffer: 2.1.2
@@ -258,6 +264,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Lgd2XcJ/NjEw+7tFvfKxOzCYKZsdct5lczQ2ZaQY8Djz7pfAD3Gbp8ySJWtreII/vDlMVmxwa6pHmdxIYgttDg==
+  /dotenv/8.1.0:
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-GUE3gqcDCaMltj2++g6bRQ5rBJWtkWTmqmD0fo1RnnMuUqHNCt2oTPeDnS9n6fKYvlhn7AeBkb38lymBtWBQdA==
   /ecc-jsbn/0.1.2:
     dependencies:
       jsbn: 0.1.1
@@ -968,8 +980,10 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  ascii-table: ^0.0.9
   discord.js: ^11.5.1
   djs-commands: ^1.2.2
+  dotenv: ^8.1.0
   enmap: ^5.1.0
   express: ^4.16.4
   noblox.js: ^4.2.6

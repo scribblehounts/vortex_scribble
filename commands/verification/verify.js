@@ -1,16 +1,12 @@
-
-module.export = class verify {
-  constructor(){
-    this.name = "verify",
-      this.alias = ['v'],
-      this.usage = "!verify"
-  }
-  
-  run(bot, message, args){
-    message.reply(this.name + " worked!")
+module.exports = {
+  name: "verify",
+  category: "verification",
+  description: "To verify yourself",
+  run: async(client, message, args) => {
+    const msg = await message.channel.send("Yo");
+    
   }
 }
-
 
 
 /*

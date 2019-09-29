@@ -67,7 +67,7 @@ client.on("message", async message => {
     const embed = new Discord.RichEmbed()
     .setColor("#2ecc71")
     .setTitle(`**Welcome**`)
-    .setDescription(`**Welcome!** ${member} **To Vero!**`)
+    .setDescription(`**Welcome!** ${member} **to Vero! We hope you have a good time here!**`)
     .setAuthor("VeroAPI","https://i.imgur.com/UaHfuUX.png")
     .setTimestamp()
     .setImage("https://i.imgur.com/UaHfuUX.png")

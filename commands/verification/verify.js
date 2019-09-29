@@ -27,7 +27,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
        if (user.match(message.author.id)){
      console.log("successful")
          message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
-         message.member.setNickname(`${username}`)
+         message.member.setNickname(roblox.getUsernameFromId(id))
          message.member.addRole(message.guild.roles.find(role => role.name === "Customer"));
          message.member.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
          } else {

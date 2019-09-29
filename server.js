@@ -13,7 +13,7 @@ client.on('ready', () => {
     client.user.setStatus('available')
     client.user.setPresence({
         game: {
-            name: 'with depression',
+            name: 'with happiness',
             type: "STREAMING",
             url: "https://twitch.tv/scribblehounts"
         }

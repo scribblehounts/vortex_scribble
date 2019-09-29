@@ -26,13 +26,14 @@ function isCommand(command, message){
 }
 
 bot.on('message', (message) => {
-  const filter = m => m.content.includes('done');
-const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+
   
 	if (message.author.bot) return; // Dont answer yourself.
     var args = message.content.split(/[ ]+/)
     
     if(isCommand('verify', message)){
+        const filter = m => m.content.includes('done');
+const collector = message.channel.createMessageCollector(filter, { time: 15000 });
     	var username = args[1];
     	if (username){
         roblox.getIdFromUsername(username).then(id => {
@@ -71,9 +72,18 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
     	}
     	return;
     }
-  if(isCommand('embed', message)){
+  
+  if(isCommand('apply ally', message)){
     message.delete()
-    message.channel.send(new Discord.RichEmbed().setTitle("Rules").setDescription(`****`).setFooter("Server System").setColor("#2ecc71"))
+    message.author.send(new Discord.RichEmbed().setTitle("Application").setDescription("Thank you for requesting an application to be one of our allies, please answer the following questions as truthly as you can").setColor("#2ecc71"))
+    message.channel.awaitMessages(m => m.content.includes('start'), { maxMatches: 1, time:30000, errors: ['time']})      .catch(collected => {
+      message.author.send("Application Timed out!")
+    })
+    .then(collected => {
+      message.author.send("Okay lets start")
+    })
+
+    
   }
 });
 

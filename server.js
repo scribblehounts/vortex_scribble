@@ -60,16 +60,20 @@ client.on("message", async message => {
 
 // WELCOME MESSAGe
 
-client.on('guildMemberAdd', member => {
-  client.on('message', message => {
-    
-    member.guild.channels.get('welcome').send(new Discord.RichEmbed())
+ client.on("guildMemberAdd", (member) => {
+
+    let channel = client.channels.get('627712783957491712');
+
+    const embed = new Discord.RichEmbed()
     .setColor("#2ecc71")
     .setTitle(`**Welcome**`)
-    .setDescription(`**Welcome!** @${member} **To Vero!**`)
+    .setDescription(`**Welcome!** ${member} **To Vero!**`)
     .setAuthor("VeroAPI","https://i.imgur.com/UaHfuUX.png")
     .setTimestamp()
-  })
-})
+    .setImage("https://i.imgur.com/UaHfuUX.png")
+    
+    channel.send(embed)
+});
+
 
 client.login(process.env.TOKEN);

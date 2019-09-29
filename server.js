@@ -5,10 +5,16 @@ const fs = require("fs");
 const bot = new Discord.Client()
 const roblox = require('noblox.js');
 const prefix = "!";
-bot.on("ready", async () => {
-  
-  bot.user.setActivity("You while your in bed", {type: "WATCHING"});
+bot.on('ready', () => {
   console.log("Online!")
+    bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'with depression',
+            type: "STREAMING",
+            url: "https://twitch.tv/scribblehounts"
+        }
+    });
 });
 
 
@@ -65,6 +71,9 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
     	}
     	return;
     }
+  if(isCommand('embed', message)){
+    message.channel.send(new Discord.RichEmbed().setTitle("Verification").setDescription(`**Please type !verify (Your RBLX Username) in #verify`))
+  }
 });
 
 bot.login(process.env.TOKEN);

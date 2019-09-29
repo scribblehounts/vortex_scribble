@@ -1,23 +1,14 @@
-module.exports = {
-  name: "verify",
-  category: "verification",
-  description: "To verify yourself",
-  run: async(client, message, args) => {
-    const msg = await message.channel.send("Yo");
-    
-  }
-}
-
-
-/*
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client()
 const roblox = require('noblox.js');
 
-exports.run = (client, message, args) => {
-  console.log("hello")
-	if (message.author.bot) return; // Dont answer yourself.
+module.exports = {
+  name: "verify",
+  category: "verification",
+  description: "To verify yourself",
+  run: async(client, message, args) => {
+if (message.author.bot) return; // Dont answer yourself.
     var args = message.content.split(/[ ]+/)
     
         const filter = m => m.content.includes('done');
@@ -59,4 +50,15 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
     		message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Please enter a username.**`).setFooter("Verification").setColor("#ff4757"))
     	}
     	return;
+    
+  }
+}
+
+
+/*
+
+
+exports.run = (client, message, args) => {
+  console.log("hello")
+	
 } */

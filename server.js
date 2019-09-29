@@ -1,6 +1,6 @@
 require("http").createServer(async (req,res) => { res.statusCode = 200; res.write("ok"); res.end(); }).listen(3000, () => console.log("Now listening on port 3000"));
 
-
+const Discord = require("discord.js");
 const { Client, Collection } = require("discord.js");
 const { config } = require("dotenv");
 
@@ -57,5 +57,19 @@ client.on("message", async message => {
     if (command) 
         command.run(client, message, args);
 });
+
+// WELCOME MESSAGe
+
+client.on('guildMemberAdd', member => {
+  client.on('message', message => {
+    
+    member.guild.channels.get('welcome').send(new Discord.RichEmbed())
+    .setColor("#2ecc71")
+    .setTitle(`**Welcome**`)
+    .setDescription(`**Welcome!** @${member} **To Vero!**`)
+    .setAuthor("VeroAPI","https://i.imgur.com/UaHfuUX.png")
+    .setTimestamp()
+  })
+})
 
 client.login(process.env.TOKEN);

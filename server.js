@@ -72,7 +72,8 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
     	return;
     }
   if(isCommand('embed', message)){
-    message.channel.send(new Discord.RichEmbed().setTitle("Verification").setDescription(`**Please type !verify (Your RBLX Username) in #verify`))
+    message.delete()
+    message.channel.send(new Discord.RichEmbed().setTitle("Rules").setDescription(`****`).setFooter("Server System").setColor("#2ecc71"))
   }
 });
 

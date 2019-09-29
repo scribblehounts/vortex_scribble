@@ -16,8 +16,7 @@ client.on('ready', () => {
     });
 });
 
-const Enmap = require("enmap");
-// We also need to make sure we're attaching the config to the CLIENT so it's accessible everywhere!
+client.config = require("./config.js");
 
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
@@ -28,7 +27,7 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-client.commands = new Enmap();
+client.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
   if (err) return console.error(err);

@@ -27,7 +27,7 @@ if (message.author.bot) return; // Dont answer yourself.
                  SEND_MESSAGES: true
     })
 
-        channel.send(new Discord.RichEmbed().setAuthor(`${message.author.name}`,"https://i.imgur.com/UaHfuUX.png").setFooter("Support").setColor("#2ecc71").setDescription(`**reason**`))
+        channel.send(new Discord.RichEmbed().setAuthor(`${message.author.username}'s Ticket`,"https://i.imgur.com/UaHfuUX.png").setFooter("Support").setColor("#2ecc71").setDescription(`Reason: **${reason}**`))
   }).catch(console.error);
       
     } else {

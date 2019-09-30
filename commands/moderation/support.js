@@ -23,7 +23,7 @@ if (message.author.bot) return; // Dont answer yourself.
     channel.overwritePermissions(message.author.id, {
         VIEW_CHANNEL: true
     })
-        channel.send(new Discord.RichEmbed().setAuthor("Support","https://i.imgur.com/UaHfuUX.png").setFooter("Support").setColor("#2ecc71").setDescription(reason))
+        channel.send(new Discord.RichEmbed().setAuthor(`${message.author.name}`,"https://i.imgur.com/UaHfuUX.png").setFooter("Support").setColor("#2ecc71").setDescription(reason).setThumbnail(`${Discord.users.get(message.author.id).avatarURL}`))
   }).catch(console.error);
       
     } else {

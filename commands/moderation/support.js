@@ -11,12 +11,12 @@ if (message.author.bot) return; // Dont answer yourself.
     if (reason){
       message.reply(new Discord.RichEmbed().setTitle("Started a Ticket!").setAuthor("Support","https://i.imgur.com/UaHfuUX.png",).setFooter("Support").setColor("#2ecc71"))
       
-      message.guild.createChannel(message.author.Id, "text")
+      message.guild.createChannel(message.author.id, "text")
   .then(channel => {
-    let category = message.guild.channels.find(c => c.name == "Text Channels" && c.type == "category");
-
+    let category = message.guild.channels.find(c => c.name == "support" && c.type == "category");
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
+    channel.lockPermissions();
   }).catch(console.error);
       
     } else {

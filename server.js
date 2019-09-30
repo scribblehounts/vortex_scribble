@@ -75,22 +75,4 @@ client.on("message", async message => {
     channel.send(embed)
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 client.login(process.env.TOKEN);

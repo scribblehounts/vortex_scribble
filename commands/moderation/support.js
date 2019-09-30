@@ -16,7 +16,14 @@ if (message.author.bot) return; // Dont answer yourself.
     let category = message.guild.channels.find(c => c.name == "support" && c.type == "category");
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
-    channel.lockPermissions();
+         channel.overwritePermissions(message.guild.id, {
+        VIEW_CHANNEL: false
+    })
+
+    channel.overwritePermissions(message.author.id, {
+        VIEW_CHANNEL: true
+    })
+        channel.send(new Discord.RichEmbed().setAuthor("Support","https://i.imgur.com/UaHfuUX.png").setFooter("Support").setColor("#2ecc71").setDescription(reason))
   }).catch(console.error);
       
     } else {

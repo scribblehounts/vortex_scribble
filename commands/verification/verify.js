@@ -19,7 +19,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
           var tokenID = message.author.id
           
           message.channel.send(new Discord.RichEmbed().setTitle("Please put the following token in your profiles description").setDescription(`**${tokenID}**`).setFooter("When you have done that, say done").setColor("#ff4757")).then(() => {
-            message.channel.awaitMessages(filter, { maxMatches: 1, time: 30000, errors: ['time']})
+            message.channel.awaitMessages(filter, { maxMatches: 1, time: 300000, errors: ['time']})
             .then(collected => {
   roblox.getBlurb(`${id}`).tap(function(user){
     console.log(user)

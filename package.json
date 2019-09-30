@@ -16,7 +16,8 @@
     "enmap": "^5.1.0",
     "djs-commands": "^1.2.2",
     "dotenv": "^8.1.0",
-    "ascii-table": "^0.0.9"
+    "ascii-table": "^0.0.9",
+    "firebase-tools": "^5.1.1"
   },
   "engines": {
     "node": "8.x"

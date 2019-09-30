@@ -3,26 +3,33 @@ const Discord = require("discord.js");
 module.exports = {
   name: "support",
   category: "moderation",
-  description: "To request support",
+  description: "To request a support",
   run: async(client, message, args) => {
-if (message.author.bot) return;
-    var fakemessage = message.channel.send("support")
-message.react('✅').then();
+if (message.author.bot) return; // Dont answer yourself.
+    var args = message.content.split(/[ ]+/)
+    var reason = args[1]
+    if (reason){
+      message.reply(new Discord.RichEmbed().setTitle("Started a Ticket!").setAuthor("Support","https://i.imgur.com/UaHfuUX.png",).setFooter("Support").setColor("#2ecc71"))
+      
+      message.guild.createChannel(message.author.Id, "text")
+  .then(channel => {
+    let category = message.guild.channels.find(c => c.name == "Text Channels" && c.type == "category");
 
-const filter = (reaction, user) => {
-	return ['✅'].includes(reaction.emoji.name) && user.id === message.author.id;
-};
-
-fakemessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
-	.then(collected => {
-		const reaction = collected.first();
-
-		if (reaction.emoji.name === '✅') {
-			message.reply('Check your DMs!')
-		}
-	})
-	.catch(collected => {
-		message.reply('Support ran out of time.');
-	});
-  }
+    if (!category) throw new Error("Category channel does not exist");
+    channel.setParent(category.id);
+  }).catch(console.error);
+      
+    } else {
+      message.reply(new Discord.RichEmbed().setTitle("You must have a valid reason!").setAuthor("Support","https://i.imgur.com/UaHfuUX.png",).setFooter("Support").setColor("#ff4757"))
+    }
+    }
 }
+
+
+/*
+
+
+exports.run = (client, message, args) => {
+  console.log("hello")
+	
+} */

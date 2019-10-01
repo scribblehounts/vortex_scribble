@@ -10,6 +10,5 @@ module.exports = {
   run: async(client, message, args, db) => {
 if (message.author.bot) return;
     db.collection('users').create('193104495')
-    })
+    }
   }
-}

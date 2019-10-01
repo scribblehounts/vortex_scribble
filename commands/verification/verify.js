@@ -36,7 +36,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
                     message.member.setNickname(name)
          message.member.addRole(message.guild.roles.find(role => role.name === "Customer"));
          message.member.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
-           boblox.ownsAsset(id, 1008690009).then(ownsAsset=>{
+           boblox.ownsAsset(id, "19398728").then(ownsAsset=>{
              console.log(`${id} ${ownsAsset}`);
                 db.collection('users').doc(message.author.id).set({'RBLX' : `${name}`, 'VeroP' : `${ownsAsset}`}, {merge: true});
            }) 

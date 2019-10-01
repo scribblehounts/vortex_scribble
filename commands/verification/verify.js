@@ -3,9 +3,6 @@ const fs = require("fs");
 const bot = new Discord.Client()
 const roblox = require('noblox.js');
 
-const bloxy = require('bloxy');
-const boblox = new bloxy();
-
 let FieldValue = require('firebase-admin').firestore.FieldValue;
 
 module.exports = {
@@ -36,10 +33,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
                     message.member.setNickname(name)
          message.member.addRole(message.guild.roles.find(role => role.name === "Customer"));
          message.member.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
-           boblox.ownsAsset(id, "19398728").then(ownsAsset=>{
-             console.log(`${id} ${ownsAsset}`);
-                db.collection('users').doc(message.author.id).set({'RBLX' : `${name}`, 'VeroP' : `${ownsAsset}`}, {merge: true});
-           }) 
+                db.collection('users').doc(message.author.id).set({'RBLX' : `${name}`, 'VeroP' : false}, {merge: true});
            })
          } else {
                          message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757"))

@@ -8,6 +8,18 @@ const client = new Client({
     disableEveryone: true
 })
 
+const firebase = require('firebase/app');
+const FieldValue = require('firebase-admin').firestore.FieldValue;
+const admin = require('firebase-admin')
+const serviceAccount = require('./serviceAccount.json');
+
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+})
+
+let db = admin.firestore();
+
 client.on('ready', () => {
   console.log("Online!")
     client.user.setStatus('available')
@@ -55,7 +67,7 @@ client.on("message", async message => {
 
     // If a command is finally found, run the command
     if (command) 
-        command.run(client, message, args);
+        command.run(client, message, args, db);
 });
 
 // WELCOME MESSAGe

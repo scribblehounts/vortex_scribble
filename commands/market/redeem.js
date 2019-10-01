@@ -1,5 +1,6 @@
-
-
+let Discord = require('discord.js');
+let FieldValue = require('firebase-admin').firestore.FieldValue;
+let roblox = require('noblox.js')
 
 module.exports = {
   name: "redeem",
@@ -7,7 +8,6 @@ module.exports = {
   description: "To redeem an item",
   run: async(client, message, args) => {
 if (message.author.bot) return;
-    message.delete()
-    message.author.send("You have requested to purchase.")
+    
   }
 }

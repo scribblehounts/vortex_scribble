@@ -18,7 +18,8 @@
     "dotenv": "^8.1.0",
     "ascii-table": "^0.0.9",
     "firebase-tools": "^7.4.0",
-    "firebase": "^6.1.0"
+    "firebase": "^6.1.0",
+    "firebase-admin": "^8.6.0"
   },
   "engines": {
     "node": "8.x"

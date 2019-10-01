@@ -9,8 +9,5 @@ module.exports = {
   description: "To redeem an item",
   run: async(client, message, args, db) => {
 if (message.author.bot) return;
-    db.collection('users').doc("193104495").set({
-      'VeroP' : true
-    })
     }
   }

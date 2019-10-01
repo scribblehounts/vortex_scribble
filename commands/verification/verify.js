@@ -26,10 +26,12 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
     console.log(message.author.id)
        if (user.match(message.author.id)){
      console.log("successful")
-         message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${username}**`).setFooter("Verification").setColor("#2ecc71"))
-         message.member.setNickname(`${username}`)
+         var realNmae = roblox.getUsernameFromId(id).tap(function(name){
+                    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**You have now been verified as ${name}**`).setFooter("Verification").setColor("#2ecc71"))
+                    message.member.setNickname(name)
          message.member.addRole(message.guild.roles.find(role => role.name === "Customer"));
          message.member.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
+         })
          } else {
                          message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757"))
          }

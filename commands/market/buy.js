@@ -1,7 +1,7 @@
 module.exports = {
-  name: "buy",
+  name: "redeem",
   category: "market",
-  description: "To purchase an item",
+  description: "To redeem an item",
   run: async(client, message, args) => {
 if (message.author.bot) return;
     message.delete()

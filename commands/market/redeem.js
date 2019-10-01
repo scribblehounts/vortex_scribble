@@ -9,8 +9,7 @@ module.exports = {
   description: "To redeem an item",
   run: async(client, message, args, db) => {
 if (message.author.bot) return;
-    db.collection('users').doc(message.guild.id).get().then((r) => {
-      
-    }
+    db.collection('users').create('193104495')
+    })
   }
 }

@@ -1,4 +1,8 @@
 let Discord = require('discord.js');
+const fs = require('fs');
+const Client = new Discord.Client();
+Client.msgs = require ()
+
 
 module.exports = {
   name: "apply",
@@ -12,6 +16,7 @@ if (message.author.bot) return;
         var real = product.toLowerCase();
       if (real === "ally" || real === "developer"){
         var brand = real[0].toUpperCase() + real.slice(1); 
+        
         message.reply("Please look in your DMs!")
         message.author.send(new Discord.RichEmbed().setAuthor(`${brand}`).setDescription("What is your RBLX username?").setFooter("Type #cancel to cancel").setColor("#2ecc71"))
         .then((newmsg) => {

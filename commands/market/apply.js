@@ -1,4 +1,4 @@
-let Discord = require('discord.js');
+/*let Discord = require('discord.js');
 const fs = require('fs');
 const Client = new Discord.Client();
 Client.msgs = require('./applications.json');
@@ -37,4 +37,4 @@ if (message.author.bot) return;
       message.channel.send(new Discord.RichEmbed().setAuthor("You must choose a rank,","https://i.imgur.com/UaHfuUX.png").setDescription("**Ally**\n**Developer** ").setFooter("Application System").setColor("#ff4757"));
     }
     }
-  }
+  }*/

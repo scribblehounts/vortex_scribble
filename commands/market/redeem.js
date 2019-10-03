@@ -1,4 +1,4 @@
-let Discord = require('discord.js');
+/*let Discord = require('discord.js');
 let FieldValue = require('firebase-admin').firestore.FieldValue;
 const bloxy = require('bloxy');
 const roblox = new bloxy();
@@ -11,4 +11,4 @@ module.exports = {
 if (message.author.bot) return;
     message.reply("You do not own any Vero Tech!")
     }
-  }
+  }*/

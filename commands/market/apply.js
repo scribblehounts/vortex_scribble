@@ -1,7 +1,7 @@
 let Discord = require('discord.js');
 const fs = require('fs');
 const Client = new Discord.Client();
-Client.msgs = require ()
+Client.msgs = require('./applications.json');
 
 
 module.exports = {
@@ -28,7 +28,7 @@ if (message.author.bot) return;
             if (collected.first().content === "#cancel"){
             newmsg.channel.send(`Cancelled!`)
           } else {
-            newmsg.channel.send("Ok")
+            newmsg.channel
           }
           })
         })

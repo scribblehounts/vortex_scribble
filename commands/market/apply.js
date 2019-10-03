@@ -10,10 +10,10 @@ if (message.author.bot) return;
     var product = args[1]
     if (product){
         var real = product.toLowerCase();
-      if (real === "ally"){
+      if (real === "ally" || real === "developer"){
+        var brand = real[0].toUpperCase() + real.slice(1); 
         message.reply("Please look in your DMs!")
-        message.author.send(new Discord.RichEmbed().setAuthor(`${real}`,"https://i.imgur.com/UaHfuUX.png").setFooter("Any complaints,suggestions please contact Scribble#1771").setColor("#2ecc71"))
-        message.author.send("https://www.roblox.com/catalog/4020813989/veroPlus")
+        message.author.send(new Discord.RichEmbed().setAuthor(`${brand}`).setDescription("What is your RBLX username?").setFooter("Type #cancel to cancel").setColor("#2ecc71"))
       }
     } else {
       message.channel.send(new Discord.RichEmbed().setAuthor("You must choose a rank,","https://i.imgur.com/UaHfuUX.png").setDescription("**Ally**\n**Developer** ").setFooter("Application System").setColor("#ff4757"));

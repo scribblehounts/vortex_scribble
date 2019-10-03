@@ -11,7 +11,7 @@ if (message.author.bot) return;
     if (product){
       
     } else {
-      message.channel.send(new Discord.RichEmbed().setAuthor("Please enter a valid product,"))
+      message.channel.send(new Discord.RichEmbed().setAuthor("Please enter a valid product,","https://i.imgur.com/UaHfuUX.png").setDescription("**veroPlus** | 200R$ ").setFooter("Purchase System").setColor("#ff4757"));
     }
     }
   }

@@ -20,7 +20,11 @@ if (message.author.bot) return;
            time: 50000,
             errors: ['time'],
             }).then((collected) => {
-            newmsg.channel.send("${collected.first()}")
+            if (collected.first().content === "#cancel"){
+            newmsg.channel.send(`Cancelled!`)
+          } else {
+            newmsg.channel.send("Ok")
+          }
           })
         })
       }

@@ -85,13 +85,16 @@ client.on("message", async message => {
     // If a command is finally found, run the command
     if (command) 
         command.run(client, message, args, db)
-  if (message.content === "fuck you veroapi"){
+});
+
+client.on("message", async message => {
+    if (message.content === "fuck you veroapi"){
     message.reply("You know what? Fuck you")
     message.reply("All I have done for this group was being ur slave")
     message.reply("You ungrateful fuck im quitting")
     message.reply("Fuck you")
   }
-});
+})
 
 // WELCOME MESSAGe
 

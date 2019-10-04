@@ -24,16 +24,18 @@ var routes = function(app, db) {
       console.log(req.query.username)
     console.log("Received GET: "+JSON.stringify(req.body));
     if(!req.query.username) {
-      return res.send({"status": "error", "message": "invalid username"});
-    } else if(req.query.username) {
+      return res.send("invalid username");
+    } else if(req.query.data === "plus") {
       var getUser = db.collection('users').doc(req.query.username)
       getUser.get().then(function(doc){
         if (doc.exists) {
-          console.log(doc.data());
-          return res.send({"status": "error", "message": doc.data()});
+          return res.send(doc.data().veroPlus);
+        } else if(req.query.data === "lite") {
+          return res.send("unable to locate lite");
         } else {
-          db.collection('users').doc(req.query.username).set({"veroPlus": false,"veroLite": false}, {merge: true});
+          return res.send("invalid data")
         }
+          
       })
       
       

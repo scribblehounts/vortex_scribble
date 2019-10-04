@@ -29,7 +29,7 @@ var routes = function(app, db) {
       var getUser = db.collection('users').doc(req.query.username)
       getUser.get().then(function(doc){
         if (doc.exists) {
-          return res.send(doc.data().veroPlus);
+          return res.send({"veroStatus" : doc.data().veroPlus});
         } else if(req.query.data === "lite") {
           return res.send("unable to locate lite");
         } else {

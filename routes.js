@@ -24,16 +24,16 @@ var routes = function(app, db) {
       console.log(req.query.username)
     console.log("Received GET: "+JSON.stringify(req.body));
     if(!req.query.username) {
-      return res.send({"error": "cannot find user"});
+      return res.send({"errormessage" : "cannot find user"});
     } else if(req.query.data === "plus") {
       var getUser = db.collection('users').doc(req.query.username)
       getUser.get().then(function(doc){
         if (doc.exists) {
           return res.send({"veroStatus" : doc.data().veroPlus});
         } else if(req.query.data === "lite") {
-          return res.send("unable to locate lite");
+          return res.send({"errormessage" : "cannot locate lite"});
         } else {
-          return res.send("invalid data")
+          return res.send({"errormessage" : "cannot find data"})
         }
           
       })

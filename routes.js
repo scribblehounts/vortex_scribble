@@ -24,7 +24,7 @@ var routes = function(app, db) {
       console.log(req.query.username)
     console.log("Received GET: "+JSON.stringify(req.body));
     if(!req.query.username) {
-      return res.send("invalid username");
+      return res.send({"error": "cannot find user"});
     } else if(req.query.data === "plus") {
       var getUser = db.collection('users').doc(req.query.username)
       getUser.get().then(function(doc){

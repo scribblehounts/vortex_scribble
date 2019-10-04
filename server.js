@@ -1,4 +1,18 @@
-require("http").createServer(async (req,res) => { res.statusCode = 200; res.write("ok"); res.end(); }).listen(3000, () => console.log("Now listening on port 3000"));
+
+
+var express = require("express");
+var bodyParser = require("body-parser");
+var app = express();
+ 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+ 
+var routes = require("./routes.js")(app);
+
+var server = app.listen(3000, function () {
+  console.log("Listening on port %s", server.address().port);
+});
+
 
 const Discord = require("discord.js");
 const { Client, Collection } = require("discord.js");

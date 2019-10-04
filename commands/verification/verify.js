@@ -33,7 +33,8 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
                     message.member.setNickname(name)
          message.member.addRole(message.guild.roles.find(role => role.name === "Customer"));
          message.member.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
-                db.collection('users').doc(`${id}`).set(message.author.id, {merge: true});
+           var discord = message.author.id
+                db.collection('users').doc(`${id}`).set({discord,"veroPlus": false,"veroLite": false}, {merge: true});
            })
          } else {
                          message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**Cannot find code on description**`).setFooter("Verification").setColor("#ff4757"))

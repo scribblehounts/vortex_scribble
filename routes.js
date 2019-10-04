@@ -1,6 +1,3 @@
-
-
-
 var routes = function(app, db) {
   
     app.get("/", function(req, res) {
@@ -27,15 +24,19 @@ var routes = function(app, db) {
       console.log(req.query.username)
     console.log("Received GET: "+JSON.stringify(req.body));
     if(!req.query.username) {
-      return res.send({"status": "error", "message": "no username"});
-    } else if(!req.query.data) {
-      return res.send({"status": "error", "message": "no data"});
+      return res.send({"status": "error", "message": "invalid username"});
     } else if(req.query.username) {
-      db.collection('users').doc("test").set({'RBLX' : `${req.query.username}`}, {merge: true});
+      var getUser = db.collection('users').doc(req.query.username)
+      getUser.get().then(function(doc){
+        if (doc.exists) {
+          console.log(doc.data());
+          return res.send({"status": "error", "message": doc.data()});
+        } else {
+          db.collection('users').doc(req.query.username).set({"veroPlus": false,"veroLite": false}, {merge: true});
+        }
+      })
       
       
-      return res.send({"status": "error", "message": (req.query.username)});
-    } else {
     }
   });  
   

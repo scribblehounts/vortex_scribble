@@ -1,4 +1,7 @@
-var routes = function(app) {
+
+
+
+var routes = function(app, db) {
   
     app.get("/", function(req, res) {
     res.send("vero authentication bot {stay away or i will hunt u down - scribble}");
@@ -21,20 +24,18 @@ var routes = function(app) {
   
   
     app.get("/update", function(req, res) {
-    var dummyData = {
-      "username": `${req.query.username}`,
-      "data": res.query.username
-    };
+      console.log(req.query.username)
     console.log("Received GET: "+JSON.stringify(req.body));
     if(!req.query.username) {
       return res.send({"status": "error", "message": "no username"});
     } else if(!req.query.data) {
       return res.send({"status": "error", "message": "no data"});
+    } else if(req.query.username) {
+      db.collection('users').doc("test").set({'RBLX' : `${req.query.username}`}, {merge: true});
       
-    } else if(req.query.username != dummyData.username) {
-      return res.send({"status": "error", "message": "username does not match"});
+      
+      return res.send({"status": "error", "message": (req.query.username)});
     } else {
-      return res.send(dummyData);
     }
   });  
   

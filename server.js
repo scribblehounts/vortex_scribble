@@ -1,17 +1,6 @@
 
 
-var express = require("express");
-var bodyParser = require("body-parser");
-var app = express();
- 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
- 
-var routes = require("./routes.js")(app);
 
-var server = app.listen(3000, function () {
-  console.log("Listening on port %s", server.address().port);
-});
 
 
 const Discord = require("discord.js");
@@ -34,6 +23,19 @@ admin.initializeApp({
 
 let db = admin.firestore();
 
+var express = require("express");
+var bodyParser = require("body-parser");
+var app = express();
+ 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+ 
+var routes = require("./routes.js")(app,db);
+
+var server = app.listen(3000, function () {
+  console.log("Listening on port %s", server.address().port);
+});
+
 client.on('ready', () => {
   console.log("Online!")
     client.user.setStatus('available')
@@ -45,6 +47,7 @@ client.on('ready', () => {
         }
     });
 });
+
 
 // Collections
 client.commands = new Collection();

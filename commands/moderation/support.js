@@ -10,7 +10,7 @@ if (message.author.bot) return; // Dont answer yourself.
     args.shift();
     var reason = args.join(' ')
     if (reason){
-      message.reply(new Discord.RichEmbed().setTitle("Started a Ticket!").setAuthor("Support","https://i.imgur.com/UaHfuUX.png",).setFooter("Support").setColor("#2ecc71"))
+      message.reply(new Discord.RichEmbed().setTitle("Started a Ticket!").setAuthor("Support","https://i.imgur.com/FbTPWBk.png",).setFooter("Support").setColor("#2ecc71"))
       
       message.guild.createChannel(message.author.id, "text")
   .then(channel => {
@@ -27,11 +27,11 @@ if (message.author.bot) return; // Dont answer yourself.
                  SEND_MESSAGES: true
     })
 
-        channel.send(new Discord.RichEmbed().setAuthor(`${message.author.username}'s Ticket`,"https://i.imgur.com/UaHfuUX.png").setFooter("Support").setColor("#2ecc71").setDescription(`Reason: **${reason}**`))
+        channel.send(new Discord.RichEmbed().setAuthor(`${message.author.username}'s Ticket`,"https://i.imgur.com/FbTPWBk.png").setFooter("Support").setColor("#2ecc71").setDescription(`Reason: **${reason}**`))
   }).catch(console.error);
       
     } else {
-      message.reply(new Discord.RichEmbed().setTitle("You must have a valid reason!").setAuthor("Support","https://i.imgur.com/UaHfuUX.png",).setFooter("Support").setColor("#ff4757"))
+      message.reply(new Discord.RichEmbed().setTitle("You must have a valid reason!").setAuthor("Support","https://i.imgur.com/FbTPWBk.png",).setFooter("Support").setColor("#ff4757"))
     }
     }
 }

@@ -100,9 +100,9 @@ client.on("message", async message => {
     .setColor("#2ecc71")
     .setTitle(`**Welcome**`)
     .setDescription(`**Welcome!** ${member} **to Oasis! We hope you have a good time here!**`)
-    .setAuthor("Oasis","https://i.imgur.com/UaHfuUX.png")
+    .setAuthor("Oasis","https://i.imgur.com/FbTPWBk.png")
     .setTimestamp()
-    .setImage("https://i.imgur.com/UaHfuUX.png")
+    .setImage("https://i.imgur.com/FbTPWBk.png")
     
     channel.send(embed)
 });

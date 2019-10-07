@@ -71,13 +71,18 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-    if (message.member.has(630652005400051743)){
+    if (message.member.roles.some(role => role.name === 'Mod')) {
       var username = args[1];
       var tokenID = message.mentions.users.first().id
+      var chosenName = client.fetchUser(args[2])
       if (username || tokenID){
         roblox.getIdFromUsername(username).then(id => {
           var RealName = roblox.getUsernameFromId(id).tap(function(name){
-            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**`))
+            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[2]} Has been force verified!**`).setFooter("Verification").setColor("#2ecc71"))
+            chosenName.setNickname(name)
+            chosenName.addRole(message.guild.roles.find(role => role.name === "Customer"))
+           chosenName.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
+            db.collection('users').doc(`${id}`).set({tokenID},{merge: true});
           })
         })
       } else {

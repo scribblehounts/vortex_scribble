@@ -75,8 +75,7 @@ module.exports = {
       var username = args[1];
       var tokenID = message.mentions.users.first().id.replace('<@', '').replace('>', '').replace('!', '');
       console.log(tokenID)
-      var chosenName = message.guild.members.get("id", tokenID);
-      console.log(chosenName)
+      var chosenName = message.guild.members.get(tokenID);
       if (username || tokenID){
         roblox.getIdFromUsername(username).then(id => {
           var RealName = roblox.getUsernameFromId(id).tap(function(userna){
@@ -90,6 +89,8 @@ module.exports = {
       } else {
         message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**You must have the persons username and discord tokenID!.**`).setFooter("Verification").setColor("#ff4757"))
       }
+    } else {
+      message.reply("you dont have sufficient permissions")
     }
   }
 }

@@ -87,26 +87,20 @@ client.on("message", async message => {
         command.run(client, message, args, db)
 });
 
-client.on("message", async message => {
-    if (message.content === "fuck you veroapi"){
-    message.reply("You know what? Fuck you")
-    message.reply("All I have done for this group was being ur slave")
-    message.reply("You ungrateful fuck im quitting")
-    message.reply("Fuck you")
-  }
-})
-
 // WELCOME MESSAGe
 
  client.on("guildMemberAdd", (member) => {
 
-    let channel = client.channels.get('627712783957491712');
+    let channel = client.channels.get('630613599110430720');
 
+     var role = member.guild.roles.find('name', 'Non-Verified');
+      member.addRole(role);
+   
     const embed = new Discord.RichEmbed()
     .setColor("#2ecc71")
     .setTitle(`**Welcome**`)
-    .setDescription(`**Welcome!** ${member} **to Vero! We hope you have a good time here!**`)
-    .setAuthor("VeroAPI","https://i.imgur.com/UaHfuUX.png")
+    .setDescription(`**Welcome!** ${member} **to Oasis! We hope you have a good time here!**`)
+    .setAuthor("Oasis","https://i.imgur.com/UaHfuUX.png")
     .setTimestamp()
     .setImage("https://i.imgur.com/UaHfuUX.png")
     

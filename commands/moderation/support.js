@@ -9,7 +9,7 @@ if (message.author.bot) return; // Dont answer yourself.
     var args = message.content.trim().split(' ');
     args.shift();
     var reason = args.join(' ')
-    if (reason){
+    if (reason){ 
       message.reply(new Discord.RichEmbed().setTitle("Started a Ticket!").setAuthor("Support","https://i.imgur.com/FbTPWBk.png",).setFooter("Support").setColor("#2ecc71"))
       
       message.guild.createChannel(message.author.id, "text")

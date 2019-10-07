@@ -73,16 +73,17 @@ module.exports = {
     var args = message.content.split(/[ ]+/)
     if (message.member.roles.some(role => role.name === 'Mod')) {
       var username = args[1];
-      var tokenID = message.mentions.users.first().id
-      console.log(args[2])
-      var chosenName = message.guild.members.get("id", args[2])
+      var tokenID = message.mentions.users.first().id.replace('<@', '').replace('>', '').replace('!', '');
+      console.log(tokenID)
+      var chosenName = message.guild.members.get("id", tokenID);
+      console.log(chosenName)
       if (username || tokenID){
         roblox.getIdFromUsername(username).then(id => {
           var RealName = roblox.getUsernameFromId(id).tap(function(userna){
             message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[2]} Has been force verified!**`).setFooter("Verification").setColor("#2ecc71"))
-            chosenName.setNickname(userna)
-            chosenName.addRole(message.guild.roles.find(role => role.name === "Customer"))
-           chosenName.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
+            chosenName.setNickname(userna);
+            chosenName.addRole(message.guild.roles.find(role => role.name === "Customer"));
+           chosenName.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"));
             db.collection('users').doc(`${id}`).set({tokenID},{merge: true});
           })
         })

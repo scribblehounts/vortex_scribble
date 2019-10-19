@@ -1,8 +1,5 @@
 var routes = function(app, db) {
   app.get("/", function(req, res) {
-    res.send(
-      "vero authentication bot {stay away or i will hunt u down - scribble}"
-    );
     console.log("Received GET");
   });
 

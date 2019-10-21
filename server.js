@@ -104,4 +104,27 @@ client.on("guildMemberAdd", member => {
   channel.send(embed);
 });
 
+const { inspect } = require('util');
+
+client.on('message', async message => {
+  const args = message.content.split(' ');
+  const command = args.shift().toLowerCase();
+  
+  if (command === 'eval') {
+    // Put your userID here
+    if (message.author.id !== 'ownerID') return;
+    
+    let evaled;
+    try {
+      evaled = await eval(args.join(' '));
+      message.channel.send(inspect(evaled));
+      console.log(inspect(evaled));
+    }
+    catch (error) {
+      console.error(error);
+      message.reply('there was an error during evaluation.');
+    }
+  }
+});
+
 client.login(process.env.TOKEN);

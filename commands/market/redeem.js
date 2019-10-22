@@ -1,7 +1,7 @@
 let Discord = require('discord.js');
 let FieldValue = require('firebase-admin').firestore.FieldValue;
 
-const availableProducts = ""
+let products = [{'Watch':{ "name": "Watch", "price": 200, "availability": false}}];
 
 module.exports = {
   name: "redeem",
@@ -11,7 +11,7 @@ module.exports = {
 if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
     var product = args[1]
-    
-    message.reply("You do not own any Vero Tech!")
+    var obj = products.find(o => o[product]);
+    message.reply(obj[product])
     }
   }

@@ -1,6 +1,7 @@
 var routes = function(app, db) {
   app.get("/", function(req, res) {
     console.log("Received GET");
+    res.send("sent")
   });
 
   app.post("/update", function(req, res) {

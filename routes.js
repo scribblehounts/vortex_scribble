@@ -1,8 +1,7 @@
 var routes = function(app, db) {
-  app.get("/", function(req, res) {
+  /*app.get("/", function(req, res) {
     console.log("Received GET");
-    res.send("hi")
-  });
+  });*/
 
   app.post("/update", function(req, res) {
     if (!req.body.username || !req.body.data) {

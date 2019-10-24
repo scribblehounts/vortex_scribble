@@ -1,5 +1,5 @@
 
-//var routes = function(app, db) {
+var routes = function(app, db) {
   /*app.get("/", function(req, res) {
     console.log("Received GET");
   });*/
@@ -35,4 +35,3 @@
 };
 
 module.exports = routes;
-/*

@@ -17,7 +17,7 @@ var routes = function(app, db) {
 
   app.get("/checkuser", function(req, res) {
     var user = req.query.username;
-    res.send({"success":true})
+    res.send({user: true})
     
 });
   

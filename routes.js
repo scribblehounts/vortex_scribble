@@ -1,3 +1,4 @@
+const roblox = require("noblox.js");
 
 var routes = function(app, db) {
   /*app.get("/", function(req, res) {
@@ -14,6 +15,12 @@ var routes = function(app, db) {
     }
   });
 
+  app.get("/checkuser", function(req, res) {
+    var user = req.query.username;
+    
+    
+});
+  
   app.get("/update", function(req, res) {
     console.log(req.query.username);
     console.log("Received GET: " + JSON.stringify(req.body));

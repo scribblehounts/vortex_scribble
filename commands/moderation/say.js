@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 module.exports = {
   name: "say",
   category: "moderation",
@@ -12,10 +14,18 @@ module.exports = {
     message.delete()
     if(mChannel) {
         argsresult = args.slice(1).join(" ")
-        mChannel.send(argsresult)
+          var Embed = new Discord.RichEmbed()
+    .setAuthor("Oasis","https://i.imgur.com/FbTPWBk.png")
+    .setColor("#2ecc71")
+    .setDescription(argsresult);
+        mChannel.send(Embed)
     } else {
         argsresult = args.join(" ")
-        message.channel.send(argsresult)
+          var Embed = new Discord.RichEmbed()
+    .setAuthor("Oasis","https://i.imgur.com/FbTPWBk.png")
+    .setColor("#2ecc71")
+    .setDescription(argsresult);
+        message.channel.send(Embed)
     }
 
     }

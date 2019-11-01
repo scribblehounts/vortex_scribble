@@ -18,11 +18,15 @@ var routes = function(app, db) {
   app.get("/checkuser", function(req, res) {
     if (req.query.username){
     var user = req.query.username;
+      var docRef = db.collection("users").doc(user);
+docRef.get().then(function(doc) {
+    if (doc.exists) {
     res.send("i guess so")
     } else {
       res.send("null")
     }
-    
+      })
+}
 });
   
   app.get("/update", function(req, res) {

@@ -16,8 +16,12 @@ var routes = function(app, db) {
   });
 
   app.get("/checkuser", function(req, res) {
+    if (req.query.username){
     var user = req.query.username;
-    res.send({user: true})
+    res.send("i guess so")
+    } else {
+      res.send("null")
+    }
     
 });
   

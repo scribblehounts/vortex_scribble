@@ -15,14 +15,14 @@ module.exports = {
     if(mChannel) {
         argsresult = args.slice(1).join(" ")
           var Embed = new Discord.RichEmbed()
-    .setAuthor("Oasis","https://i.imgur.com/FbTPWBk.png")
+    .setAuthor(message.guild.name,message.guild.iconURL)
     .setColor("#2ecc71")
     .setDescription(argsresult);
         mChannel.send(Embed)
     } else {
         argsresult = args.join(" ")
           var Embed = new Discord.RichEmbed()
-    .setAuthor("Oasis","https://i.imgur.com/FbTPWBk.png")
+    .setAuthor(message.guild.name,message.guild.iconURL)
     .setColor("#2ecc71")
     .setDescription(argsresult);
         message.channel.send(Embed)

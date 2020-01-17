@@ -4,7 +4,7 @@ dependencies:
   common-tags: 1.8.0
   discord.js: 11.5.1
   djs-commands: 1.2.2
-  dotenv: 8.1.0
+  dotenv: 8.2.0
   enmap: 5.1.2
   express: 4.17.1
   firebase: 6.6.2
@@ -1442,12 +1442,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
-  /dotenv/8.1.0:
+  /dotenv/8.2.0:
     dev: false
     engines:
       node: '>=8'
     resolution:
-      integrity: sha512-GUE3gqcDCaMltj2++g6bRQ5rBJWtkWTmqmD0fo1RnnMuUqHNCt2oTPeDnS9n6fKYvlhn7AeBkb38lymBtWBQdA==
+      integrity: sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
   /duplexer3/0.1.4:
     dev: false
     resolution:
@@ -4528,7 +4528,7 @@ specifiers:
   common-tags: ^1.8.0
   discord.js: ^11.5.1
   djs-commands: ^1.2.2
-  dotenv: ^8.1.0
+  dotenv: ^8.2.0
   enmap: ^5.1.0
   express: ^4.16.4
   firebase: ^6.1.0

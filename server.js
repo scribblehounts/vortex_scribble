@@ -60,10 +60,32 @@ client.on("ready", () => {
     }
   });
   
-  
-  
-  
+  let myGuild = client.guilds.get('670903593737519104');
+  let memberCount = myGuild.memberCount;
+  let memberCountChannel = myGuild.channels.get('671261326483390464')
+  memberCountChannel.setName('Members: ' + memberCount)
+  .then(result => console.log(result))
+  .catch(error => console.log(error));
 });
+
+client.on('guildMemberAdd', member => {
+  let myGuild = client.guilds.get('670903593737519104');
+  let memberCount = myGuild.memberCount;
+  let memberCountChannel = myGuild.channels.get('671261326483390464')
+  memberCountChannel.setName('Members: ' + memberCount)
+  .then(result => console.log(result))
+  .catch(error => console.log(error));
+});
+
+client.on('guildMemberRemove', member => {
+  let myGuild = client.guilds.get('670903593737519104');
+  let memberCount = myGuild.memberCount;
+  let memberCountChannel = myGuild.channels.get('671261326483390464')
+  memberCountChannel.setName('Members: ' + memberCount)
+  .then(result => console.log(result))
+  .catch(error => console.log(error));
+});
+
 
 // Collections
 client.commands = new Collection();

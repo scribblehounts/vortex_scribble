@@ -24,18 +24,16 @@ var app = express();
 client.on("guildMemberAdd", member => {
   let channel = client.channels.get("630613599110430720");
 
-  var role = member.guild.roles.find("name", "Non-Verified");
+  var role = member.guild.roles.find("name", "unverified");
   member.addRole(role);
 
   const embed = new Discord.RichEmbed()
     .setColor("#2ecc71")
     .setTitle(`**Welcome**`)
     .setDescription(
-      `**Welcome!** ${member} **to Oasis! We hope you have a good time here!**`
+      `**Welcome!** ${member} **to Vortex! We hope you have a good time here!**`
     )
-    .setAuthor("Oasis", "https://i.imgur.com/FbTPWBk.png")
     .setTimestamp()
-    .setImage("https://i.imgur.com/FbTPWBk.png");
 
   channel.send(embed);
 });

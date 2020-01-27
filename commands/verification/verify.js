@@ -67,7 +67,7 @@ module.exports = {
                           );
                           message.member.removeRole(
                             message.guild.roles.find(
-                              role => role.name === "Non-Verified"
+                              role => role.name === "unverified"
                             )
                           );
                           var discord = message.author.id;

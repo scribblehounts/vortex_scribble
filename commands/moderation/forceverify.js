@@ -71,7 +71,7 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-    if (message.member.roles.some(role => role.name === 'Mod')) {
+    if (message.member.roles.some(role => role.name === 'High Ranks')) {
       var username = args[1];
       var tokenID = message.mentions.users.first().id.replace('<@', '').replace('>', '').replace('!', '');
       console.log(tokenID)
@@ -82,7 +82,7 @@ module.exports = {
             message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[2]} Has been force verified!**`).setFooter("Verification").setColor("#2ecc71"))
             chosenName.setNickname(userna);
             chosenName.addRole(message.guild.roles.find(role => role.name === "Customer"));
-           chosenName.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"));
+           chosenName.removeRole(message.guild.roles.find(role => role.name === "unverified"));
             db.collection('users').doc(`${id}`).set({tokenID},{merge: true});
           })
         })

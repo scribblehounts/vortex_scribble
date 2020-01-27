@@ -10,16 +10,16 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "discord.js": "^11.5.1",
-    "noblox.js": "^4.2.6",
-    "enmap": "^5.1.0",
+    "noblox.js": "^4.3.0",
+    "enmap": "^5.2.4",
     "djs-commands": "^1.2.2",
     "dotenv": "^8.2.0",
     "ascii-table": "^0.0.9",
-    "firebase-tools": "^7.4.0",
-    "firebase": "^6.1.0",
-    "firebase-admin": "^8.6.0",
+    "firebase-tools": "^7.12.1",
+    "firebase": "^7.7.0",
+    "firebase-admin": "^8.9.2",
     "bloxy": "^2.15.0",
     "common-tags": "^1.8.0"
   },

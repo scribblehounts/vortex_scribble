@@ -1,5 +1,6 @@
 {
   "projects": {
-    "vero": "vero-database"
+    "default": "vero-database",
+    "vortex": "vortex-database"
   }
 }

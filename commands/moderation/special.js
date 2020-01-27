@@ -15,17 +15,18 @@ module.exports = {
     if(mChannel) {
         argsresult = args.slice(1).join(" ")
           var Embed = new Discord.RichEmbed()
-    .setAuthor(message.guild.name,message.guild.iconURL)
+    .setAuthor("Announcements",message.guild.iconURL)
     .setColor("#2ecc71")
     .setDescription(argsresult)
-    .setImage()
+    .setImage("https://imgur.com/a/OZj6cHw")
         mChannel.send(Embed)
     } else {
         argsresult = args.join(" ")
           var Embed = new Discord.RichEmbed()
-    .setAuthor(message.guild.name,message.guild.iconURL)
-    .setColor("#2ecc71")
-    .setDescription(argsresult);
+    .setAuthor("Allies",message.guild.iconURL)
+    .setColor("#3B3B3B")
+    .setDescription(argsresult)
+              .setImage("https://i.imgur.com/S9mN2R4.png")
         message.channel.send(Embed)
     }
 

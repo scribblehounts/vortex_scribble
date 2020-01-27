@@ -22,7 +22,7 @@ var bodyParser = require("body-parser");
 var app = express();
 
 client.on("guildMemberAdd", member => {
-  let channel = client.channels.get("630613599110430720");
+  let channel = client.channels.get("671258373303566336");
 
   var role = member.guild.roles.find("name", "unverified");
   member.addRole(role);
@@ -59,6 +59,10 @@ client.on("ready", () => {
       url: "https://twitch.tv/scribblehounts"
     }
   });
+  
+  
+  
+  
 });
 
 // Collections

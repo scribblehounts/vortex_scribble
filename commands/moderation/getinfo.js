@@ -6,15 +6,13 @@ const roblox = require('noblox.js');
 let FieldValue = require('firebase-admin').firestore.FieldValue;
 
 module.exports = {
-  name: "transfer",
+  name: "getinfo",
   category: "moderation",
   description: "To give a product to another player",
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[]+/)
-    if (args[3]) {
-      if (message.member.roles.some(role => role.name === "Mod")) {
-        var tokenID = message.mentions.users.first().id.replace('>', '').replace('!', '');
+        var tokenID = message.author.id
         var chosenName = message.guild.members.get(tokenID);
         if (tokenID){
           
@@ -22,18 +20,11 @@ module.exports = {
           let queryRef = (ref.where('tokenID', '==', `${tokenID}`));
           return queryRef.get()
           .then(res => {
-            res.forEach(doc => {})
-          })
-          
-          
+            res.forEach(doc => {
+              var userID = (doc.id, '=>', doc.data());
+              message.channel.send(new Discord.RichEmbed().setTitle(userID).setImage())
+            })
+          })       
         }
-        
-        
-      }
-      
-      
-    }
-    
-    
   }
 }

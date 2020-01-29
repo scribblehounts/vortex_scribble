@@ -16,13 +16,14 @@ module.exports = {
       var tokenID = message.mentions.users.first().id.replace('<@', '').replace('>', '').replace('!', '');
       var chosenName = message.guild.members.get(tokenID);
       if (tokenID){
-        db.ref("users").orderByChild("tokenID").on("child_added", function(snapshot) {
-          console.log(snapshot.key + " was " + snapshot.val().height + " meters tall");
-          
-            chosenName.addRole(message.guild.roles.find(role => role.name === `${args[2]}`));
-            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been successfully given **` + `${args[2]}`).setFooter("Verification").setColor("#2ecc71"))
+
+          let ref = db.collection('users');
+        let queryRef = (ref.where('tokenID', '==', `${tokenID}`));
+        console.log(queryRef)
+            //chosenName.addRole(message.guild.roles.find(role => role.name === `${args[2]}`));
+            //message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been successfully given **` + `${args[2]}`).setFooter("Verification").setColor("#2ecc71"))
             //db.collection('users').doc(`${tokenID}`).set({tokenID},{merge: true});
-                  })
+
       } else {
         message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**You must have the persons discord!.**`).setFooter("Verification").setColor("#ff4757"))
       }

@@ -21,9 +21,9 @@ var routes = function(app, db) {
       var docRef = db.collection("users").doc(user);
 docRef.get().then(function(doc) {
     if (doc.exists) {
-    res.send("i guess so")
+    return res.send({ success: "true" })
     } else {
-      res.send("null")
+    return res.send({ errormessage: "yes" })
     }
       })
 }

@@ -36,12 +36,13 @@ docRef.get().then(function(doc) {
       if (req.query.data === "ife") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-      
+      db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
     return res.send({ success: "true" })
     } else {
     return res.send({ errormessage: "yes" })
     }
       })
+      }
 }
 });
   

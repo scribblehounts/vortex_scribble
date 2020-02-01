@@ -30,15 +30,15 @@ docRef.get().then(function(doc) {
 });
   
   app.get("/update", function(req, res) {
-    console.log(req.query.username);
+    console.log(req.query.id);
     console.log("Received GET: " + JSON.stringify(req.body));
-    if (!req.query.username) {
+    if (!req.query.id) {
       return res.send({ errormessage: "cannot find user" });
-    } else if (req.query.data === "plus") {
-      var getUser = db.collection("users").doc(req.query.username);
+    } else if (req.query.data === "ife") {
+      var getUser = db.collection("users").doc(req.query.id);
       getUser.get().then(function(doc) {
         if (doc.exists) {
-          return res.send({ veroStatus: doc.data().veroPlus });
+          return res.send({ success: doc.data().veroPlus });
         } else if (req.query.data === "lite") {
           return res.send({ errormessage: "cannot locate lite" });
         } else {

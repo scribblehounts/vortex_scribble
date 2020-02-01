@@ -29,6 +29,22 @@ docRef.get().then(function(doc) {
 }
 });
   
+    app.get("/addproduct", function(req, res) {
+    if (req.query.id){
+    var user = req.query.id;
+      var docRef = db.collection("users").doc(user);
+      if (req.query.data === "ife") {
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+      
+    return res.send({ success: "true" })
+    } else {
+    return res.send({ errormessage: "yes" })
+    }
+      })
+}
+});
+  
   app.get("/update", function(req, res) {
     console.log(req.query.id);
     console.log("Received GET: " + JSON.stringify(req.body));
@@ -38,9 +54,7 @@ docRef.get().then(function(doc) {
       var getUser = db.collection("users").doc(req.query.id);
       getUser.get().then(function(doc) {
         if (doc.exists) {
-          return res.send({ success: doc.data().veroPlus });
-        } else if (req.query.data === "lite") {
-          return res.send({ errormessage: "cannot locate lite" });
+          return res.send({ success: doc.data().ife });
         } else {
           return res.send({ errormessage: "cannot find data" });
         }

@@ -14,7 +14,7 @@ if (message.author.bot) return; // Dont answer yourself.
       
       message.guild.createChannel(message.author.id, "text")
   .then(channel => {
-    let category = message.guild.channels.find(c => c.name == "support" && c.type == "category");
+    let category = message.guild.channels.find(c => c.name == "||< Support >||" && c.type == "category");
     if (!category) throw new Error("Category channel does not exist");
     channel.setParent(category.id);
          channel.overwritePermissions(message.guild.id, {

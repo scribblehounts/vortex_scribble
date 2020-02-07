@@ -5,6 +5,10 @@ var routes = function(app, db) {
     console.log("Received GET");
   });*/
 
+  app.get("/", (request, response) => {
+  response.sendStatus(200);
+});
+  
   app.post("/update", function(req, res) {
     if (!req.body.username || !req.body.data) {
       console.log("Received incomplete POST: " + JSON.stringify(req.body));

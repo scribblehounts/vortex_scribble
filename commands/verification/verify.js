@@ -30,6 +30,7 @@ module.exports = {
                 .setTitle(
                   "Please put the following token in your profiles description"
                 )
+            .setImage("https://i.imgur.com/KuqLo8l.png")
                 .setDescription(`**${tokenID}**`)
                 .setFooter("When you have done that, say done")
                 .setColor("#ff4757")

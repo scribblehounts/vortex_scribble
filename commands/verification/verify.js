@@ -71,6 +71,7 @@ module.exports = {
                               role => role.name === "unverified"
                             )
                           );
+                           if(message.member.roles.find(r => r.name === "Admin"))
                           var discord = message.author.id;
                           db.collection("users")
                             .doc(`${id}`)

@@ -83,6 +83,15 @@ module.exports = {
             chosenName.setNickname(userna);
             chosenName.addRole(message.guild.roles.find(role => role.name === "Customer"));
            chosenName.removeRole(message.guild.roles.find(role => role.name === "unverified"));
+                                       if(message.member.roles.find(r => r.name === "Customer")){
+                             
+                           } else {
+                        message.member.addRole(
+                            message.guild.roles.find(
+                              role => role.name === "Customer"
+                            )
+                          );
+                           }
             db.collection('users').doc(`${id}`).set({discord},{merge: true});
           })
         })

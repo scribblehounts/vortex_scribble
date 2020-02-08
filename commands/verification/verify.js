@@ -71,7 +71,15 @@ module.exports = {
                               role => role.name === "unverified"
                             )
                           );
-                           if(message.member.roles.find(r => r.name === "Admin"))
+                           if(message.member.roles.find(r => r.name === "Customer")){
+                             
+                           } else {
+                        message.member.addRole(
+                            message.guild.roles.find(
+                              role => role.name === "Customer"
+                            )
+                          );
+                           }
                           var discord = message.author.id;
                           db.collection("users")
                             .doc(`${id}`)

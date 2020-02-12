@@ -19,11 +19,15 @@ module.exports = {
         if (data.tokenID){
 if (data.ife){
                   message.channel.send(new Discord.RichEmbed().setTitle(`**${doc.data().tokenID}**`).setDescription("you own it yes").setFooter("Product System").setColor("#2ecc71"))
-}
+}                   else {
+                    message.channel.send(new Discord.RichEmbed().setTitle(`**${doc.data().discord}**`).setDescription("you do not own it nuu").setFooter("Product System").setColor("#2ecc71"))
+                  }
         }
                 if (data.discord){
                   if (data.ife){
                   message.channel.send(new Discord.RichEmbed().setTitle(`**${doc.data().discord}**`).setDescription("you own it yes").setFooter("Product System").setColor("#2ecc71"))
+                  } else {
+                    message.channel.send(new Discord.RichEmbed().setTitle(`**${doc.data().discord}**`).setDescription("you do not own it nuu").setFooter("Product System").setColor("#2ecc71"))
                   }
         }
       })

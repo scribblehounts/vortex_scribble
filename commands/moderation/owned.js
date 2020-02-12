@@ -12,17 +12,22 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
+    
+    db.collection("users").where("discord" || "tokenID", "==", "230165427165069312").get().then(function(querySnapShot){
+      querySnapShot.forEach(function(doc){
+        var data = doc.data();
+        if (data.tokenID){
+                  message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${doc.data().tokenID} Has been added!**``).setFooter("Product System").setColor("#2ecc71"))
+        }
+      })
+    })
 
-        if (args[2] === ("ife")){
-      var docRef = db.collection("users").doc(message.author.id);
-docRef.get().then(function(doc) {
-    if (doc.exists) {
-      db.collection('users').doc(`${message.author.id}`).set({ife: "owned"},{merge: true});
+    
+    
 
-            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been added!**`).setFooter("Product System").setColor("#2ecc71"))
-      }
+      
 
-})
-  }
+
+
   }
 }

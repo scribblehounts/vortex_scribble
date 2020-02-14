@@ -26,7 +26,7 @@ module.exports = {
 
   const filter = m => m.author.id === message.author.id
   const collector = message.channel.createMessageCollector(filter, { max: '1', maxMatches: "1", time: "200000" }) //This is the collector to collect the Message for getting the username.
-  const robloxEmbed = new Discord.MessageEmbed()
+  const robloxEmbed = new Discord.RichEmbed()
 .setColor("BLUE")
 .setTitle("Prompt")
 .setDescription("❓ What's your ROBLOX username?")
@@ -42,7 +42,7 @@ module.exports = {
    rbx.getIdFromUsername(m.content).then(foundId => { //Get the userID from username
      const Id = foundId
      const newString = makeid() + makeid() + makeid() + makeid() + makeid() //Emoji thing
-   const foundUsername = new Discord.MessageEmbed()
+   const foundUsername = new Discord.RichEmbed()
 .setColor("BLUE")
 .setTitle("Prompt")
 .setDescription("Hello **" + m.content + "**, to verify that you are that user. Please put this in your blurb, or status. \n `" + newString + "`\n\nSay **done** when complete.\nSay **cancel** to cancel. ")
@@ -52,7 +52,7 @@ module.exports = {
        const collector2 = message.channel.createMessageCollector(filter, { max: '1', maxMatches: "1", time: "200000" }) // Collector2
 collector2.on('collect', async mag => {
       if(mag.content.includes('done') & mag.content.includes("done") && mag.author.id == message.author.id) {
-        const fetchingBlurb = new Discord.MessageEmbed()
+        const fetchingBlurb = new Discord.RichEmbed()
 .setColor("BLUE")
 .setTitle("Prompt")
 .setDescription("Fetching your emojis, please wait as I am going to fetch it.")
@@ -64,17 +64,22 @@ rbx.getStatus(foundId).then(status => { //Check status
             console.log(status) //Console.log the status
           rbx.getBlurb(foundId).then(blurb => { // Checks the blurb
             if(status.includes(newString) || blurb.includes(newString)) { // If code is in blurb procceds with operation
-              const verified = new Discord.MessageEmbed()
+              const verified = new Discord.RichEmbed()
 .setColor("GREEN")
 .setTitle("Prompt")
 .setDescription("You have now been verified! Please wait shortly as you are going to recieve the Verified role.")
 .setFooter("Verifying..")
 .setTimestamp() 
                msg.channel.send(verified) // Sent if user has put code
-              message.member.roles.add(message.guild.roles.find(r => r.name == "Customer")) // Add the users role
+              message.member.addRole(message.guild.roles.find(r => r.name == "Customer")) // Add the users role
+              message.member.removeRole(message.guild.roles.find(role => role.name === "unverified"));
               message.member.setNickname(m.content) // Sets the users nickname
 
-
+ var discord = message.author.id;
+                          db.collection("users")
+                            .doc(`${foundId}`)
+                            .set({ discord }, { merge: true });
+                        
 
                } else {
                message.channel.send("Can not find the emojis.") // Sent if user has not put code

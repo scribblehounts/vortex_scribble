@@ -30,7 +30,7 @@ module.exports = {
                 .setTitle(
                   "Please put the following token in your profiles description"
                 )
-            .setImage("https://i.imgur.com/KuqLo8l.png")
+                .setImage("https://i.imgur.com/KuqLo8l.png")
                 .setDescription(`**${tokenID}**`)
                 .setFooter("When you have done that, say done")
                 .setColor("#ff4757")
@@ -71,15 +71,18 @@ module.exports = {
                               role => role.name === "unverified"
                             )
                           );
-                           if(message.member.roles.find(r => r.name === "Customer")){
-                             
-                           } else {
-                        message.member.addRole(
-                            message.guild.roles.find(
-                              role => role.name === "Customer"
+                          if (
+                            message.member.roles.find(
+                              r => r.name === "Customer"
                             )
-                          );
-                           }
+                          ) {
+                          } else {
+                            message.member.addRole(
+                              message.guild.roles.find(
+                                role => role.name === "Customer"
+                              )
+                            );
+                          }
                           var discord = message.author.id;
                           db.collection("users")
                             .doc(`${id}`)

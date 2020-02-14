@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client();
-const roblox = require("noblox.js");
+const rbx = require("noblox.js");
 
 let FieldValue = require("firebase-admin").firestore.FieldValue;
 
@@ -11,131 +11,88 @@ module.exports = {
   description: "To verify yourself",
   run: async (client, message, args, db) => {
     if (message.author.bot) return; // Dont answer yourself.
-    var args = message.content.split(/[ ]+/);
+ let msg = await message.channel.send("Awaiting Prompt") // Send a message for awaiting.
+  
+  
+  function makeid() {
+    var text = "";
+    var selectFruit = ['😀','😁','😂','🤣','😃','😄','😅','😆','😉','😲','😝','🤑','🤯','😭','😑','😶','😋','🙆','👉','👇','🧠','💼','👮🏻','👍🏼','👎🏼','🐵','🌨','☁️','💧','🎬','🎧','🎮','🎲','🏅','🥇','🥈','🥉','🏆','🏒','🍎','🍫','🍿','🍪','🥛','🍽','🍴','🐑','🦀','🐔','🐭','🦊','🐧','🐞','🌍','🌏','🌕','🌖','🌚','🌝','🌵','🎄','🌲','☀️','⛅️','☔️','🍋']; // Emoji list This can be used for words.
+    text += selectFruit[Math.floor(Math.random() * selectFruit.length)];
+    text += selectFruit[Math.floor(Math.random() * selectFruit.length)]; // This will random the emojis 
+    text += selectFruit[Math.floor(Math.random() * selectFruit.length)];
+    text += selectFruit[Math.floor(Math.random() * selectFruit.length)];
+    return text;
+  }
 
-    const filter = m => m.content.includes("done");
-    const collector = message.channel.createMessageCollector(filter, {
-      time: 15000
-    });
-    var username = args[1];
-    if (username) {
-      roblox
-        .getIdFromUsername(username)
-        .then(id => {
-          var tokenID = message.author.id;
+  const filter = m => m.author.id === message.author.id
+  const collector = message.channel.createMessageCollector(filter, { max: '1', maxMatches: "1", time: "200000" }) //This is the collector to collect the Message for getting the username.
+  const robloxEmbed = new Discord.MessageEmbed()
+.setColor("BLUE")
+.setTitle("Prompt")
+.setDescription("❓ What's your ROBLOX username?")
+.setFooter("This prompt will cancel after 200 seconds.")
+.setTimestamp()
+ msg.channel.send(robloxEmbed) //Send the first Embed
+  
+ collector.on("collect", m => {
+   if(m.content === 'cancel' || m.content === 'Cancel') {
+     message.channel.send('**Cancelled prompt.**')
+     return
+   } //Collector1 End
+   rbx.getIdFromUsername(m.content).then(foundId => { //Get the userID from username
+     const Id = foundId
+     const newString = makeid() + makeid() + makeid() + makeid() + makeid() //Emoji thing
+   const foundUsername = new Discord.MessageEmbed()
+.setColor("BLUE")
+.setTitle("Prompt")
+.setDescription("Hello **" + m.content + "**, to verify that you are that user. Please put this in your blurb, or status. \n `" + newString + "`\n\nSay **done** when complete.\nSay **cancel** to cancel. ")
+.setFooter("Player ID is " + foundId)
+.setTimestamp()
+ msg.channel.send(foundUsername) //The part where it asks you to add the Code
+       const collector2 = message.channel.createMessageCollector(filter, { max: '1', maxMatches: "1", time: "200000" }) // Collector2
+collector2.on('collect', async mag => {
+      if(mag.content.includes('done') & mag.content.includes("done") && mag.author.id == message.author.id) {
+        const fetchingBlurb = new Discord.MessageEmbed()
+.setColor("BLUE")
+.setTitle("Prompt")
+.setDescription("Fetching your emojis, please wait as I am going to fetch it.")
+.setFooter("Fetching..")
+.setTimestamp()
+         msg.channel.send(fetchingBlurb) //Checks the Blurb / Status
+        setTimeout(function() { //Timeout Stuff
+rbx.getStatus(foundId).then(status => { //Check status
+            console.log(status) //Console.log the status
+          rbx.getBlurb(foundId).then(blurb => { // Checks the blurb
+            if(status.includes(newString) || blurb.includes(newString)) { // If code is in blurb procceds with operation
+              const verified = new Discord.MessageEmbed()
+.setColor("GREEN")
+.setTitle("Prompt")
+.setDescription("You have now been verified! Please wait shortly as you are going to recieve the Verified role.")
+.setFooter("Verifying..")
+.setTimestamp() 
+               msg.channel.send(verified) // Sent if user has put code
+              message.member.roles.add(message.guild.roles.find(r => r.name == "Customer")) // Add the users role
+              message.member.setNickname(m.content) // Sets the users nickname
 
-          message.channel
-            .send(
-              new Discord.RichEmbed()
-                .setTitle(
-                  "Please put the following token in your profiles description"
-                )
-                .setImage("https://i.imgur.com/KuqLo8l.png")
-                .setDescription(`**${tokenID}**`)
-                .setFooter("When you have done that, say done")
-                .setColor("#ff4757")
-            )
-            .then(() => {
-              message.channel
-                .awaitMessages(filter, {
-                  maxMatches: 1,
-                  time: 300000,
-                  errors: ["time"]
-                })
-                .then(collected => {
-                  roblox.getBlurb(`${id}`).tap(function(user) {
-                    console.log(user);
-                    console.log(message.author.id);
-                    if (user.match(message.author.id)) {
-                      console.log("successful");
-                      var realNmae = roblox
-                        .getUsernameFromId(id)
-                        .tap(function(name) {
-                          message.channel.send(
-                            new Discord.RichEmbed()
-                              .setTitle("Success")
-                              .setDescription(
-                                `**You have now been verified as ${name}**`
-                              )
-                              .setFooter("Verification")
-                              .setColor("#2ecc71")
-                          );
-                          message.member.setNickname(name);
-                          message.member.addRole(
-                            message.guild.roles.find(
-                              role => role.name === "Customer"
-                            )
-                          );
-                          message.member.removeRole(
-                            message.guild.roles.find(
-                              role => role.name === "unverified"
-                            )
-                          );
-                          if (
-                            message.member.roles.find(
-                              r => r.name === "Customer"
-                            )
-                          ) {
-                          } else {
-                            message.member.addRole(
-                              message.guild.roles.find(
-                                role => role.name === "Customer"
-                              )
-                            );
-                          }
-                          var discord = message.author.id;
-                          db.collection("users")
-                            .doc(`${id}`)
-                            .set({ discord }, { merge: true });
-                        });
-                    } else {
-                      message.channel.send(
-                        new Discord.RichEmbed()
-                          .setTitle("Error")
-                          .setDescription(`**Cannot find code on description**`)
-                          .setFooter("Verification")
-                          .setColor("#ff4757")
-                      );
-                    }
-                  });
-                })
-                .catch(collected => {
-                  message.channel.send(
-                    new Discord.RichEmbed()
-                      .setTitle("Timed out!")
-                      .setDescription(`**Session Timed out!**`)
-                      .setFooter("Verification")
-                      .setColor("#ff4757")
-                  );
-                });
-            });
-        })
-        .catch(function(err) {
-          message.channel.send(
-            new Discord.RichEmbed()
-              .setTitle("Error")
-              .setDescription(
-                `**Sorry, that user doesn't seem to exist, double check your spelling and try again.**`
-              )
-              .setFooter("Verification")
-              .setColor("#ff4757")
-          );
-        });
-    } else {
-      message.channel.send(
-        new Discord.RichEmbed()
-          .setTitle("Error")
-          .setDescription(`**Please enter a username.**`)
-          .setFooter("Verification")
-          .setColor("#ff4757")
-      );
-    }
-    return;
+
+
+               } else {
+               message.channel.send("Can not find the emojis.") // Sent if user has not put code
+               }
+          })
+        }, 5000)
+      })
+      } else
+        if(mag.content.includes('cancel') && mag.author.id == message.author.id) {
+          message.channel.send('**Cancelled prompt.**') // If user says `Cancel`
+                               return
+        }
+    })
+ })
+})
   }
 };
-
 /*
-
 
 exports.run = (client, message, args) => {
   console.log("hello")

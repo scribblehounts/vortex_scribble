@@ -20,12 +20,22 @@ if (message.member.roles.some(role => role.name === 'Mod')){
     if (second === "ife"){
             var docRef = db.collection("users").doc(username);
 docRef.get().then(function(doc) {
+  var data = doc.data();
+  
   if (doc.exists){
+    
+  }else  {
+    message.channel.send("the person isn't even on the server lol")
+    return
+  }
+
+  if (data.ife){
       message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
   } else {
     
     message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))
   }
+
 })
     }
   }

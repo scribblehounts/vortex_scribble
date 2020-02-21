@@ -71,7 +71,7 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-    if (message.member.roles.some(role => role.name === 'High Ranks')) {
+    if (message.member.roles.some(role => role.name === 'Mod')) {
       var username = args[1];
       var discord = message.mentions.users.first().id.replace('<@', '').replace('>', '').replace('!', '');
       console.log(discord)

@@ -6,7 +6,7 @@ const roblox = require('noblox.js');
 let FieldValue = require('firebase-admin').firestore.FieldValue;
 
 module.exports = {
-  name: "transferife",
+  name: "transfer",
   category: "moderation",
   description: "To verify another player",
   run: async(client,message,args,db) => {
@@ -16,13 +16,15 @@ module.exports = {
       var username = args[1];
       var second = args[2];
       if (username){
-        if (args[2] === ("ife")){
+        if (args[3] === ("ife")){
       var docRef = db.collection("users").doc(username);
 docRef.get().then(function(doc) {
     if (doc.exists) {
-      db.collection('users').doc(`${username}`).set({ife: "removed"},{merge: true});
+      db.collection('users').doc(`${username}`).update({ ife: FieldValue.delete() })
+      
+      db.collection('users').doc(`${second}`).set({ife: "owned"},{merge: true});
 
-            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been removed!**`).setFooter("Product System").setColor("#2ecc71"))
+            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
       }
 
 })

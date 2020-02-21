@@ -19,7 +19,7 @@ module.exports = {
       var docRef = db.collection("users").doc(username);
 docRef.get().then(function(doc) {
     if (doc.exists) {
-      db.collection('users').doc(`${username}`).update({ ife: })
+      db.collection('users').doc(`${username}`).update({ ife: FieldValue.delete() })
 
             message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been removed!**`).setFooter("Product System").setColor("#2ecc71"))
       }

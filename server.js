@@ -120,9 +120,16 @@ client.on("message", async message => {
         if (exist.empty){
           message.reply("error: you don't seem to exist in our database???? how?")
         } else {
+           if(!message.member.roles.find(r => r.name === "IFE Client")){
           exist.forEach(doc => {
-            message.reply(doc.data().ife)
+            if (doc.data().ife){
+              message.member.addRole(message.guild.roles.find(role => role.name === "IFE Client"));
+              message.author.send("hello " + `**${message.author.username}**` + " thank you for buying our ife, we have given you the IFE Client role in the Vortex Server!")
+            }
           })
+           }
+             
+           
         }
       })
   

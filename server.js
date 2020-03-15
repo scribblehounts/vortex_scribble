@@ -112,12 +112,26 @@ config({
 });
 
 client.on("message", async message => {
+    if (message.author.bot) return;
   const prefix = "!";
 
-  if (message.author.bot) return;
+  // rankup for IFE CLIENT
+    db.collection('users').where('discord','==',message.author.id).get().then(exist => {
+        if (exist.empty){
+          message.reply("error: you don't seem to exist in our database???? how?")
+        } else {
+          exist.forEach(doc => {
+            message.reply(doc.data().ife)
+          })
+        }
+      })
+  
   if (!message.guild) return;
   if (!message.content.startsWith(prefix)) return;
 
+
+  
+  
   // If message.member is uncached, cache it.
   if (!message.member)
     message.member = await message.guild.fetchMember(message);

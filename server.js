@@ -118,7 +118,7 @@ client.on("message", async message => {
   // rankup for IFE CLIENT
     db.collection('users').where('discord','==',message.author.id).get().then(exist => {
         if (exist.empty){
-          message.reply("error: you don't seem to exist in our database???? how?")
+
         } else {
            if(!message.member.roles.find(r => r.name === "IFE Client")){
           exist.forEach(doc => {

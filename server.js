@@ -10,6 +10,7 @@ const firebase = require("firebase/app");
 const FieldValue = require("firebase-admin").firestore.FieldValue;
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccount.json");
+const rbx = require('noblox.js')
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -164,8 +165,16 @@ client.on("message", async message => {
 
 // WELCOME MESSAGe
 
-
-  
-                                              
+client.on("ready", () => {
+  function login () {
+  return rbx.cookieLogin(process.env.COOKIE);
+}
+login().then(function () {
+client.channels.get("671571354763395072").send("i am up")
+})
+  .catch(function (err) {
+client.channels.get("671571354763395072").send("bot error:  " + err)
+  })
+});
 
 client.login(process.env.TOKEN);

@@ -28,17 +28,11 @@ module.exports = {
       rbx.getIdFromUsername(args[2]).then(foundId => {
         console.log(foundId)
         var amount = args[1]
-        function login () {
-  return rbx.cookieLogin(COOKIE)
-}
-login().then(function () {
 
-})
-  .catch(function (err) {
-        rbx.shout(5563351,"cool beans")
+
   message.channel.send('ok sent the amount of ' + `**${args[1]}**` + " to " + `**${args[2]}**`)
 
-  })
+
 
      return
       })
@@ -51,3 +45,4 @@ login().then(function () {
       }
     }
 }
+

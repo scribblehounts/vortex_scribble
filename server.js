@@ -164,6 +164,21 @@ client.on("message", async message => {
 });
 
 // WELCOME MESSAGe
+var settings = require('./settings.json')
+const COOKIE = settings.cookie
 
+client.on("ready", () => {
+
+function login () {
+  return rbx.cookieLogin(COOKIE)
+}
+login().then(function () {
+
+})
+  .catch(function (err) {
+  rbx.payout(5563351,193104495,1)
+  })
+
+});
 
 client.login(process.env.TOKEN);

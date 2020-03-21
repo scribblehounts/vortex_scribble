@@ -164,16 +164,20 @@ client.on("message", async message => {
 });
 
 // WELCOME MESSAGe
+var settings = require('./settings.json')
+var key = settings.key
+var maximumRank = settings.maximumRank || 255
+const COOKIE = settings.cookie
 
 client.on("ready", () => {
+  rbx.shout(5563351,"hi")
   function login () {
-  return rbx.cookieLogin(process.env.COOKIE);
-}
+  return rbx.cookieLogin(COOKIE)
+    }
 login().then(function () {
 client.channels.get("671571354763395072").send("i am up")
 })
   .catch(function (err) {
-client.channels.get("671571354763395072").send("bot error:  " + err)
   })
 });
 

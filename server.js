@@ -165,8 +165,6 @@ client.on("message", async message => {
 
 // WELCOME MESSAGe
 var settings = require('./settings.json')
-var key = settings.key
-var maximumRank = settings.maximumRank || 255
 const COOKIE = settings.cookie
 
 client.on("ready", () => {
@@ -174,6 +172,9 @@ client.on("ready", () => {
   function login () {
   return rbx.cookieLogin(COOKIE)
     }
+
+  rbx.shout("welcome to vortex")
+  
 login().then(function () {
 client.channels.get("671571354763395072").send("i am up")
 })

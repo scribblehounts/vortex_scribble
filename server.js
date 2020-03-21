@@ -170,7 +170,6 @@ var maximumRank = settings.maximumRank || 255
 const COOKIE = settings.cookie
 
 client.on("ready", () => {
-  rbx.shout(5563351,"hi")
   function login () {
   return rbx.cookieLogin(COOKIE)
     }

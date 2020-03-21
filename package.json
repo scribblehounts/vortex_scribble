@@ -11,17 +11,18 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "discord.js": "^11.5.1",
-    "noblox.js": "^4.3.0",
+    "discord.js": "^12.0.2",
+    "noblox.js": "^4.5.0",
     "enmap": "^5.2.4",
     "djs-commands": "^1.2.2",
     "dotenv": "^8.2.0",
     "ascii-table": "^0.0.9",
-    "firebase-tools": "^7.12.1",
-    "firebase": "^7.7.0",
-    "firebase-admin": "^8.9.2",
+    "firebase-tools": "^7.15.1",
+    "firebase": "^7.12.0",
+    "firebase-admin": "^8.10.0",
     "bloxy": "^2.15.0",
-    "common-tags": "^1.8.0"
+    "common-tags": "^1.8.0",
+    "bloxy-testing": "^2.0.266"
   },
   "engines": {
     "node": "8.x"

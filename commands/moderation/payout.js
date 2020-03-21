@@ -21,9 +21,15 @@ module.exports = {
    }
     if(m.content === 'yes' || m.content === 'Yes') {
       rbx.getIdFromUsername(args[2]).then(foundId => {
+        console.log(foundId)
         var amount = args[1]
-        rbx.groupPayout(5563351,foundId,amount)
-     message.channel.send('ok sent the amount of ' + `**${args[1]}**` + " to " + `**${args[2]}**`)
+        rbx.groupPayout(5563351, foundId, amount).then(function(){
+               message.channel.send('ok sent the amount of ' + `**${args[1]}**` + " to " + `**${args[2]}**`)
+        })
+        .catch(function(error){
+          message.reply("error: " + error.message)
+        })
+
      return
       })
    }   

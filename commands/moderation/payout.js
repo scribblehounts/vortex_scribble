@@ -1,6 +1,7 @@
 const ownerid = "230165427165069312"
 const { inspect } = require("util")
 const rbx = require('noblox.js')
+const bloxy = require('bloxy')
 
 module.exports = { 
   name: "payout",
@@ -23,13 +24,24 @@ module.exports = {
       rbx.getIdFromUsername(args[2]).then(foundId => {
         console.log(foundId)
         var amount = args[1]
-        rbx.groupPayout(5563351, foundId, amount).then(function(){
+        let b = bloxy.getGroup(5563351);
+         b.payout({
+           members: [
+             {
+               userId: foundId,
+               amount: amount
+             }
+           ],
+           recurring: false,
+           usePercentage: false
+         })
+        .then(function(){
                message.channel.send('ok sent the amount of ' + `**${args[1]}**` + " to " + `**${args[2]}**`)
         })
         .catch(function(error){
           message.reply("error: " + error.message)
-        })
-
+         })
+        
      return
       })
    }   

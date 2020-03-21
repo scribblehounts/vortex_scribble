@@ -25,7 +25,9 @@ client.on("guildMemberAdd", member => {
   let channel = client.channels.get("671258373303566336");
 
   var role = member.guild.roles.find("name", "unverified");
-  member.addRole(role);
+  member.addRole(role).then(function(){
+    console.log('added role')
+  });
 
   const embed = new Discord.RichEmbed()
     .setColor("#2ecc71")

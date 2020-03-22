@@ -7,7 +7,7 @@ module.exports = {
   run: async(client,message,args) => {
  let uEmbed = new Discord.RichEmbed()
     .setColor("#ff4757")
-    .setTitle("User Info")
+    .setTitle("Server Info")
     .setThumbnail(message.guild.iconURL)
     .setAuthor(`${message.author.username} Info`, message.author.displayAvatarURL)
     .addField("**Username:**", `${message.author.username}`, true)

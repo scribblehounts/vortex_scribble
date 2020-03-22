@@ -71,14 +71,11 @@ rbx.getStatus(foundId).then(status => { //Check status
 .setFooter("Verifying..")
 .setTimestamp() 
                msg.channel.send(verified) // Sent if user has put code
-              
-              message.member.setNickname(m.content).then(function(){
-                message.member.addRole(message.guild.roles.find(r => r.name == "Customer")).then(function(){
-                  message.member.removeRole(message.guild.roles.find(role => role.name === "unverified")).then(function(){
-                    
-                  })
-                })
-              })
+              message.member.addRole(message.guild.roles.find(r => r.name == "Customer")) // Add the users role
+              message.member.removeRole(message.guild.roles.find(role => role.name === "unverified"));
+              message.member.setNickname(m.content).then(function({
+                
+              }))
 
  var discord = message.author.id;
                           db.collection("users")

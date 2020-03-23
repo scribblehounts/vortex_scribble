@@ -1,8 +1,10 @@
 const ownerid = "230165427165069312"
+const omrooshi = "357838978801729536"
 const { inspect } = require("util")
 const rbx = require('noblox.js')
 
-const COOKIE = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_DF47DD3F30DF4AC1771FBBF7D4567A132A3C99DBF1303B9BEB73FCACFBEB5DD4354C9F90EA1653381C24C08C73A83C5D4478247CF04BF12A20FF8F956E169FF40389710C4286826BCF1EDEAE8230AF78E183D3603AA018EA8851BD1B75ABFCA070B31363260E89FA5A31B9F8DA30B6A2286FCC122D53466677A2ABA991CD04278787378C47EB2A83D9FFE5A5944C1930D4A00976870072657D88E96172E1DC47A5A9FC2EB98DEB7CBB38954D25C1C189E5C2C08B5DA9F3160360A79BC14C2183CAB4E1D786AB244DAD1544AA4E8D7CFE813AC5E1AC6A3D4442E38C0E0D8447778648B1EBF12C77D01E5A8AE4371BEAD3D5AAA6F1C415C21BBDE585C23CC21BE5A27B73EFBB805344926729800DF5B85AA8AEFBE477AB0683359095D1F80E0F5E428764EF00B03C29BE06EB4FA8321C153C897F74"
+  const bloxy = require("bloxy");
+const roblox = new bloxy.Client()
 
 
 module.exports = { 
@@ -11,7 +13,7 @@ module.exports = {
   description: "To payout an amount of funds",
     run: async (bot, message, args) => {
           var args = message.content.split(/[ ]+/)
-    if(message.author.id == ownerid) {
+    if(message.author.id == ownerid || message.author.id == omrooshi) {
       let msg = await message.reply("are you sure you want to payout " + `**${args[1]}**` + " to " + `**${args[2]}**`)  
       
 
@@ -30,7 +32,29 @@ module.exports = {
         var amount = args[1]
 
 
-  message.channel.send('ok sent the amount of ' + `**${args[1]}**` + " to " + `**${args[2]}**`)
+roblox.login({
+    cookie: "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_56AE48EC241DE1E16B7D416C73B639940223849660604E7451AF4CE9DE26B33CD2F5BF6F266A86D2BB8134B624881E4A85B1F09549408D6053481C0C39F5E9226A2BC4362CC206A8A0211301283DF4567308E9E6EA5C62EE312E18E91E5A48DEBBE65F5508709C65C53BE189680DF5B8DFA13C0FF0A2E433293C1B865CBD9629ECC1E403FFA488D835C8197D82334D5B90616CA9C84A13A897862AC22213125E9E3211A5A520A3AB3F31CEE150EDBD494F6AAB1B7CC5F6833D42E30B8CFA9DA3760854638ACBD71300EF53D17876CB8F816772B88C9AA3EC3CF3A9EADF61CC9B32273526957199D587661179D6218D6971D1C96267DAC268B6CCCCB98F377A5A03C100FB952FFC94F100E558B40EECBDB48BC71CE49BF154307BFA35C4ACB4847E935A27683730DFA1F154222312FB5E94CB0EC4"
+}).then(()=>{
+  
+  roblox.getGroup(5563351).then(group=>{
+
+
+ group.payoutUsers([
+   {
+     userId: foundId,
+     amount: amount
+   }
+ ])
+  
+      message.channel.send('ok sent the amount of ' + `**${args[1]}**` + " to " + `**${args[2]}**`)
+    
+  }).catch(function(err){
+      message.channel.send('error detected when trying to payout .. ' + err)
+  })
+  })
+        
+        
+
 
 
 

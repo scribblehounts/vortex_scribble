@@ -25,9 +25,9 @@ var app = express();
 client.on("guildMemberAdd", member => {
   let channel = client.channels.get("671258373303566336");
 
-  var role = member.guild.roles.find("name", "unverified");
+  var role = member.guild.roles.find("name", "Customer");
   member.addRole(role).then(function(){
-    console.log('added role')
+    
   });
 
   const embed = new Discord.RichEmbed()
@@ -77,27 +77,21 @@ client.on("ready", () => {
   let myGuild = client.guilds.get('670903593737519104');
   let memberCount = myGuild.memberCount;
   let memberCountChannel = myGuild.channels.get('671261326483390464')
-  memberCountChannel.setName('Members: ' + memberCount)
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
+  memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
 });
 
 client.on('guildMemberAdd', member => {
   let myGuild = client.guilds.get('670903593737519104');
   let memberCount = myGuild.memberCount;
   let memberCountChannel = myGuild.channels.get('671261326483390464')
-  memberCountChannel.setName('Members: ' + memberCount)
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
+  memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
 });
 
 client.on('guildMemberRemove', member => {
   let myGuild = client.guilds.get('670903593737519104');
   let memberCount = myGuild.memberCount;
   let memberCountChannel = myGuild.channels.get('671261326483390464')
-  memberCountChannel.setName('Members: ' + memberCount)
-  .then(result => console.log(result))
-  .catch(error => console.log(error));
+  memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
 });
 
 
@@ -164,6 +158,7 @@ client.on("message", async message => {
 });
 
 // WELCOME MESSAGe
+
 
 
 

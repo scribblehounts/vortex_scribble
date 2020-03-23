@@ -1,5 +1,17 @@
 const roblox = require("noblox.js");
 
+var randomString = function (len, bits)
+{
+    bits = bits || 36;
+    var outStr = "", newStr;
+    while (outStr.length < len)
+    {
+        newStr = Math.random().toString(bits).slice(2);
+        outStr += newStr.slice(0, Math.min(newStr.length, (len - outStr.length)));
+    }
+    return outStr.toLowerCase();
+};
+
 var routes = function(app, db) {
   /*app.get("/", function(req, res) {
     console.log("Received GET");
@@ -30,6 +42,51 @@ docRef.get().then(function(doc) {
     return res.send({ errormessage: "yes" })
     }
       })
+}
+});
+  
+      app.get("/verify", function(req, res) {
+    if (req.query.id){
+    var user = req.query.id;
+      var docRef = db.collection("verification").doc(user);
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+    return res.send({ code: `${doc.get("Code")}` })
+    } else {
+      var code = randomString(4)
+      db.collection('verification').doc(user).set({
+        RBLX: user,
+        Code: code
+      })
+      .then(function(){
+        console.log("created")
+        res.send({code: code})
+      });
+      setTimeout(function(){
+        db.collection('verification').doc(user).delete()
+      },900000);
+    }
+      })
+}
+});
+  
+  
+  
+  app.get("/check", function(req, res) {
+        var user = req.query.id;
+    if (req.query.id){
+
+      db.collection('users').where('RBLX','==',user).get().then(exist => {
+        if (exist.empty){
+          console.log("empty")
+return res.send({ errormessage: "yes" });
+        } else {
+          console.log("true")
+          return res.send({ success: "true" })
+        }
+      })
+
+          
 }
 });
   

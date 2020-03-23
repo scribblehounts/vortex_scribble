@@ -1,8 +1,9 @@
 dependencies:
   ascii-table: 0.0.9
-  bloxy: 2.15.0
+  bloxy: 4.0.0-alpha3
+  body-parser: 1.19.0
   common-tags: 1.8.0
-  discord.js: 12.0.2
+  discord.js: 11.6.3
   djs-commands: 1.2.2
   dotenv: 8.2.0
   enmap: 5.2.4
@@ -12,10 +13,6 @@ dependencies:
   firebase-tools: 7.15.1
   noblox.js: 4.5.0
 packages:
-  /@discordjs/collection/0.1.5:
-    dev: false
-    resolution:
-      integrity: sha512-CU1q0UXQUpFNzNB7gufgoisDHP7n+T3tkqTsp3MNUkVJ5+hS3BCvME8uCXAUFlz+6T2FbTCu75A+yQ7HMKqRKw==
   /@firebase/analytics-types/0.2.8:
     dev: false
     resolution:
@@ -448,6 +445,38 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-8qvUtGg77G2ZT2HqdqYoM/OY97gQd/0crSG34xNmZ4ZOsv3aQT/FQV9QfZPazTGna6MIoyUd+u6AxsoZjJ/VMQ==
+  /@hapi/address/2.1.4:
+    dev: false
+    resolution:
+      integrity: sha512-QD1PhQk+s31P1ixsX0H0Suoupp3VMXzIVMSwobR3F3MSUO2YCV0B7xqLcUw/Bh8yuvd3LhpyqLQWTNcRmp6IdQ==
+  /@hapi/formula/1.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-UFbtbGPjstz0eWHb+ga/GM3Z9EzqKXFWIbSOFURU0A/Gku0Bky4bCk9/h//K2Xr3IrCfjFNhMm4jyZ5dbCewGA==
+  /@hapi/hoek/8.5.1:
+    dev: false
+    resolution:
+      integrity: sha512-yN7kbciD87WzLGc5539Tn0sApjyiGHAJgKvG9W8C7O+6c7qmoQMfVs0W4bX17eqz6C78QJqqFrtgdK5EWf6Qow==
+  /@hapi/joi/16.1.8:
+    dependencies:
+      '@hapi/address': 2.1.4
+      '@hapi/formula': 1.2.0
+      '@hapi/hoek': 8.5.1
+      '@hapi/pinpoint': 1.0.2
+      '@hapi/topo': 3.1.6
+    dev: false
+    resolution:
+      integrity: sha512-wAsVvTPe+FwSrsAurNt5vkg3zo+TblvC5Bb1zMVK6SJzZqw9UrJnexxR+76cpePmtUZKHAPxcQ2Bf7oVHyahhg==
+  /@hapi/pinpoint/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-dtXC/WkZBfC5vxscazuiJ6iq4j9oNx1SHknmIr8hofarpKUZKmlUVYVIhNVzIEgK5Wrc4GMHL5lZtt1uS2flmQ==
+  /@hapi/topo/3.1.6:
+    dependencies:
+      '@hapi/hoek': 8.5.1
+    dev: false
+    resolution:
+      integrity: sha512-tAag0jEcjwH+P2quUfipd7liWCNX2F8NvYjQp2wtInsZxnMlypdw0FtAOLxtvvkO+GSRRbmNi8m/5y42PQJYCQ==
   /@protobufjs/aspromise/1.1.2:
     dev: false
     resolution:
@@ -501,19 +530,19 @@ packages:
   /@types/bytebuffer/5.0.40:
     dependencies:
       '@types/long': 4.0.1
-      '@types/node': 13.9.2
+      '@types/node': 13.9.3
     dev: false
     resolution:
       integrity: sha512-h48dyzZrPMz25K6Q4+NCwWaxwXany2FhQg/ErOcdZS1ZpsaDnDMZg8JYLMTGz7uvXKrcKGJUZJlZObyfgdaN9g==
   /@types/duplexify/3.6.0:
     dependencies:
-      '@types/node': 13.9.2
+      '@types/node': 13.9.3
     dev: false
     resolution:
       integrity: sha512-5zOA53RUlzN74bvrSGwjudssD9F3a797sDZQkiYpUOxW+WHaXTCPz4/d5Dgi6FKnOqZ2CpaTo0DhgIfsXAOE/A==
   /@types/fs-extra/8.1.0:
     dependencies:
-      '@types/node': 13.9.2
+      '@types/node': 13.9.3
     dev: false
     resolution:
       integrity: sha512-UoOfVEzAUpeSPmjm7h1uk5MH6KZma2z2O7a75onTGjnNvAvMVrPzPL/vBbT65iIGHWj6rokwfmYcmxmlSf2uwg==
@@ -529,10 +558,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-gpNnRnZP3VWzzj5k3qrpRC6Rk3H/uclhAVo1aIvwzK5p5cOrs9yEyQ8H/HBsBY0u5rrWxXEiVPQ0dEB6pkjE8Q==
-  /@types/node/13.9.2:
+  /@types/node/13.9.3:
     dev: false
     resolution:
-      integrity: sha512-bnoqK579sAYrQbp73wwglccjJ4sfRdKU7WNEZ5FW4K2U6Kc0/eZ5kvXG0JKsEKFB50zrFmfFt52/cvBbZa7eXg==
+      integrity: sha512-01s+ac4qerwd6RHD+mVbOEsraDHSgUaefQlEdBbUolnQFjKwCr7luvAlEwW1RFojh67u0z4OUTjPn9LEl4zIkA==
   /@types/node/8.10.59:
     dev: false
     resolution:
@@ -734,6 +763,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-z/WhQ5FPySLdvREByI2vZiTWwCnF0moMJ1hK9YQwDTHKh6I7/uSckMetoRGb5UBZPC1z0jlw+n/XCgjeH7y1AQ==
+  /async-limiter/1.0.1:
+    dev: false
+    resolution:
+      integrity: sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
   /async/1.0.0:
     dev: false
     resolution:
@@ -824,15 +857,16 @@ packages:
     dev: false
     resolution:
       integrity: sha512-j4OH8f6Qg2bGuWfRiltT2HYGx0e1QcBTrK9KAHNMwMZdQnDZFk0ZSYIpADjYCB3U12nicC5tVJwSIhwOWjb4RQ==
-  /bloxy/2.15.0:
+  /bloxy/4.0.0-alpha3:
     dependencies:
-      cheerio: 1.0.0-rc.3
-      easydata: 1.0.1
+      '@hapi/joi': 16.1.8
+      lodash: 4.17.15
+      node-cache: 4.2.1
       request: 2.88.2
-      signalr-client: 0.0.18
+      signalr-client: 0.0.19
     dev: false
     resolution:
-      integrity: sha512-BPCPXTOB8ML+IpSmTGVFaMhDdv/VyR5c9vxURfbNzFvEuF6HCLdgdWxM/YtyhDd0fwjcrnXfTcbPj/z96a9Frw==
+      integrity: sha512-dEIdQSOZfppenvDt5p6EGreo7XDEh3DpSMnTfdguKe6MZPN+slpHCsTXSNrwLP7DbMGBQezjk+inRCiQBqKPvw==
   /bluebird/3.4.7:
     dev: false
     resolution:
@@ -1111,6 +1145,12 @@ packages:
       node: '>=0.8'
     resolution:
       integrity: sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
+  /clone/2.1.2:
+    dev: false
+    engines:
+      node: '>=0.8'
+    resolution:
+      integrity: sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
   /code-point-at/1.1.0:
     dev: false
     engines:
@@ -1464,7 +1504,7 @@ packages:
       integrity: sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
   /deep-equal/2.0.1:
     dependencies:
-      es-abstract: 1.17.4
+      es-abstract: 1.17.5
       es-get-iterator: 1.1.0
       is-arguments: 1.0.4
       is-date-object: 1.0.2
@@ -1539,28 +1579,27 @@ packages:
     dev: false
     resolution:
       integrity: sha1-6S7f2tplN9SE1zwBcv0eugxJdv8=
-  /discord.js/12.0.2:
+  /discord.js/11.6.3:
     dependencies:
-      '@discordjs/collection': 0.1.5
-      abort-controller: 3.0.0
-      form-data: 3.0.0
-      node-fetch: 2.6.0
-      prism-media: 1.2.1
-      setimmediate: 1.0.5
+      long: 4.0.0
+      prism-media: 0.0.4
+      snekfetch: 3.6.4
       tweetnacl: 1.0.3
-      ws: 7.2.3
+      ws: 6.2.1
     dev: false
     engines:
-      node: '>=12.0.0'
+      node: '>=6.0.0'
     peerDependencies:
-      bufferutil: ^4.0.1
+      '@discordjs/opus': ^0.1.0
+      '@discordjs/uws': ^10.149.0
+      bufferutil: ^4.0.0
       erlpack: discordapp/erlpack
-      libsodium-wrappers: ^0.7.6
-      sodium: ^3.0.2
-      utf-8-validate: ^5.0.2
-      zlib-sync: ^0.1.6
+      libsodium-wrappers: ^0.7.3
+      node-opus: ^0.2.7
+      opusscript: ^0.0.6
+      sodium: ^2.0.3
     resolution:
-      integrity: sha512-iZiEA4Y61gqq/EjFfLXnkRK9pLapnax/vTVDUhs/mAhyqozAy0GOlk/MZI9rSa1iIoKTWRq6P9CRKhLNT2wUnA==
+      integrity: sha512-dwIzHB5GPU9O/WiNw42d0yco0JED5bOjCPiHwU9VSSCkEhnyOdx5iqt7Dl2PQZAMNzWPI/t9oyCziOuzFlwm3Q==
   /djs-commands/1.2.2:
     dependencies:
       fs: 0.0.1-security
@@ -1671,10 +1710,6 @@ packages:
     optional: true
     resolution:
       integrity: sha512-DY3xVEmVHTv1wSzKNbwoU6nVjzI369Y6sPoqfYr0/xlx3IdX2n94xIszTcjPO8W8ZIv0Wb0PXNcjuZyT4wiICA==
-  /easydata/1.0.1:
-    dev: false
-    resolution:
-      integrity: sha512-6XMqPFvm+S5m++H/GMRQSsTot8H3YzqYRTsPdRKT6cR/i79ELHonFVvAzifQh/p8YEt1nca6K1+mKbdCPmZVCA==
   /ecc-jsbn/0.1.2:
     dependencies:
       jsbn: 0.1.1
@@ -1731,7 +1766,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw==
-  /es-abstract/1.17.4:
+  /es-abstract/1.17.5:
     dependencies:
       es-to-primitive: 1.2.1
       function-bind: 1.1.1
@@ -1749,10 +1784,10 @@ packages:
       node: '>= 0.4'
     optional: true
     resolution:
-      integrity: sha512-Ae3um/gb8F0mui/jPL+QiqmglkUsaQf7FwBEHYIFkztkneosu9imhqHpBzQ3h1vit8t5iQ74t6PEVvphBZiuiQ==
+      integrity: sha512-BR9auzDbySxOcfog0tLECW8l28eRGpDpU3Dm3Hp4q/N+VtLTmyj4EUN088XZWQDW/hzj6sYRDXeOFsaAODKvpg==
   /es-get-iterator/1.1.0:
     dependencies:
-      es-abstract: 1.17.4
+      es-abstract: 1.17.5
       has-symbols: 1.0.1
       is-arguments: 1.0.4
       is-map: 2.0.1
@@ -2128,16 +2163,6 @@ packages:
       node: '>= 0.12'
     resolution:
       integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
-  /form-data/3.0.0:
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      mime-types: 2.1.26
-    dev: false
-    engines:
-      node: '>= 6'
-    resolution:
-      integrity: sha512-CKMFDglpbMi6PyN+brwB9Q/GOw0eAnsrEZDgcsH5Krhz5Od/haKHAX0NmQfha2zPPz0JpWzA7GJHGSnvCRLWsg==
   /forwarded/0.1.2:
     dev: false
     engines:
@@ -3517,6 +3542,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-vOzBpib69eTscr4YIf+3AerY6hPrsaUSpexdH7PiVf+VEoqQWzd9kKJ52JOgyZEyOej7gpAUoiAW8p3CccU3NQ==
+  /node-cache/4.2.1:
+    dependencies:
+      clone: 2.1.2
+      lodash: 4.17.15
+    dev: false
+    engines:
+      node: '>= 0.4.6'
+    resolution:
+      integrity: sha512-BOb67bWg2dTyax5kdef5WfU3X8xu4wPg+zHzkvls0Q/QpYycIFRLEEIdAx9Wma43DxG6Qzn4illdZoYseKWa4A==
   /node-emoji/1.10.0:
     dependencies:
       lodash.toarray: 4.4.0
@@ -3749,7 +3783,7 @@ packages:
       integrity: sha1-iGmgQBJTZhxMTKPabCEh7VVfXu0=
   /parse5/3.0.3:
     dependencies:
-      '@types/node': 13.9.2
+      '@types/node': 13.9.3
     dev: false
     resolution:
       integrity: sha512-rgO9Zg5LLLkfJF9E6CCmXlSE4UVceloys8JrFqCcHloC3usd/kJCyPDwH2SOlzix2j3xaP9sUX3e8+kvkuleAA==
@@ -3839,15 +3873,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
-  /prism-media/1.2.1:
+  /prism-media/0.0.4:
     dev: false
-    peerDependencies:
-      '@discordjs/opus': ^0.1.0
-      ffmpeg-static: ^2.4.0 || ^3.0.0
-      node-opus: ^0.3.1
-      opusscript: ^0.0.6
     resolution:
-      integrity: sha512-R3EbKwJiYlTvGwcG1DpUt+06DsxOGS5W4AMEHT7oVOjG93MjpdhGX1whHyjnqknylLMupKAsKMEXcTNRbPe6Vw==
+      integrity: sha512-dG2w7WtovUa4SiYTdWn9H8Bd4JNdei2djtkP/Bk9fXq81j5Q15ZPHYSwhUVvBRbp5zMkGtu0Yk62HuMcly0pRw==
   /process-nextick-args/1.0.7:
     dev: false
     resolution:
@@ -4037,7 +4066,7 @@ packages:
   /regexp.prototype.flags/1.3.0:
     dependencies:
       define-properties: 1.1.3
-      es-abstract: 1.17.4
+      es-abstract: 1.17.5
     dev: false
     engines:
       node: '>= 0.4'
@@ -4280,7 +4309,7 @@ packages:
       integrity: sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
   /side-channel/1.0.2:
     dependencies:
-      es-abstract: 1.17.4
+      es-abstract: 1.17.5
       object-inspect: 1.7.0
     dev: false
     optional: true
@@ -4290,12 +4319,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
-  /signalr-client/0.0.18:
+  /signalr-client/0.0.19:
     dependencies:
       websocket: 1.0.31
     dev: false
     resolution:
-      integrity: sha512-GgsX7sFQoxi0AYQKsev+R4I3xJlKHF5BpAffPU2Q6vGKd6zZ3W42YWbDLz+L303UaqFVKOexZTRGQ3Yzf1MyzQ==
+      integrity: sha512-OXHcjsTkgZkiM+0NInTvkulfdd+FEHe2EdAjl8TvPJ6uXclLE7FTxe1AcLNVIuUdAgaAMpQlG2P9sZ+hVElWog==
   /signalr-client/0.0.20:
     dependencies:
       websocket: 1.0.31
@@ -4311,6 +4340,11 @@ packages:
     optional: true
     resolution:
       integrity: sha1-EMCI2LWOsHazIpu1oE4jLOEmQi0=
+  /snekfetch/3.6.4:
+    deprecated: use node-fetch instead
+    dev: false
+    resolution:
+      integrity: sha512-NjxjITIj04Ffqid5lqr7XdgwM7X61c/Dns073Ly170bPQHLm6jkmelye/eglS++1nfTWktpP6Y2bFXjdPlQqdw==
   /sprintf-js/1.0.3:
     dev: false
     resolution:
@@ -4984,15 +5018,12 @@ packages:
     optional: true
     resolution:
       integrity: sha512-AvHcyZ5JnSfq3ioSyjrBkH9yW4m7Ayk8/9My/DD9onKeu/94fwrMocemO2QAJFAlnnDN+ZDS+ZjAR5ua1/PV/Q==
-  /ws/7.2.3:
+  /ws/6.2.1:
+    dependencies:
+      async-limiter: 1.0.1
     dev: false
-    engines:
-      node: '>=8.3.0'
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: ^5.0.2
     resolution:
-      integrity: sha512-HTDl9G9hbkNDk98naoR/cHDws7+EyYMOdL1BmjsZXRUjf7d+MficC4B7HLUPlSiho0vg+CWKrGIt/VJBd1xunQ==
+      integrity: sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA==
   /xdg-basedir/2.0.0:
     dependencies:
       os-homedir: 1.0.2
@@ -5083,9 +5114,10 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   ascii-table: ^0.0.9
-  bloxy: ^2.15.0
+  bloxy: ^4.0.0-alpha3
+  body-parser: ^1.19.0
   common-tags: ^1.8.0
-  discord.js: ^12.0.2
+  discord.js: ^11.5.1
   djs-commands: ^1.2.2
   dotenv: ^8.2.0
   enmap: ^5.2.4

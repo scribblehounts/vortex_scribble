@@ -24,7 +24,7 @@ return message.reply("you are already linked to " + `**${a}**`);
           exist.forEach(doc => {
                   roblox.getUsernameFromId(doc.data().RBLX).then(a => {
                     db.collection('users').doc(message.author.id).collection('owned').doc('0').set({});
-                    message.member.setNickname(doc.data().RBLX);
+                    message.member.setNickname(a);
                       db.collection('users').doc(doc.data().RBLX).set({discord: message.author.id},{merge:true});
                         return message.reply("VERIFIED as: " + `**${a}**`);
                   })

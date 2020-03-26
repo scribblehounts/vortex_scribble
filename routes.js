@@ -36,7 +36,21 @@ var routes = function(app, db) {
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
 docRef.get().then(function(doc) {
-    if (doc.exists) {
+    if (doc.data().ife) {
+    return res.send({ success: "true" })
+    } else {
+    return res.send({ errormessage: "yes" })
+    }
+      })
+}
+});
+  
+  app.get("/checkimmigration", function(req, res) {
+    if (req.query.id){
+    var user = req.query.id;
+      var docRef = db.collection("users").doc(user);
+docRef.get().then(function(doc) {
+    if (doc.data().immigration) {
     return res.send({ success: "true" })
     } else {
     return res.send({ errormessage: "yes" })

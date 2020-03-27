@@ -12,7 +12,7 @@ var randomString = function (len, bits)
     return outStr.toLowerCase();
 };
 
-var routes = function(app, db) {
+var routes = function(app, db, discord) {
   /*app.get("/", function(req, res) {
     console.log("Received GET");
   });*/
@@ -111,13 +111,26 @@ return res.send({ errormessage: "yes" });
       if (req.query.data === "ife") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
+        discord.users.get(doc.data().discord).send("Thank you for purchasing the IFE! Please send a message in the Vortex Server to be Ranked to your role");         
       db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
     return res.send({ success: "true" })
     } else {
     return res.send({ errormessage: "yes" })
     }
       })
-      }
+      };
+      
+            if (req.query.data === "immigration") {
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+        discord.users.get(doc.data().discord).send("Thank you for purchasing the Immigration System! Please send a message in the Vortex Server to be Ranked to your role");         
+      db.collection('users').doc(`${req.query.id}`).set({immigration: "owned"},{merge: true});
+    return res.send({ success: "true" })
+    } else {
+    return res.send({ errormessage: "yes" })
+    }
+      })
+      };
 }
 });
   

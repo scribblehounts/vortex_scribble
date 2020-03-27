@@ -46,13 +46,17 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var routes = require("./routes.js")(app, db);
+var routes = require("./routes.js")(app, db,client);
 
 var server = app.listen(3000, function() {
   console.log("Listening on port %s", server.address().port);
 });
 
 client.on("ready", () => {
+  
+  
+  
+  
   const channel = client.channels.get("671261326483390464");
   if (!channel) return console.error("The channel does not exist!");
   channel.join().then(connection => {
@@ -121,10 +125,16 @@ client.on("message", async message => {
           exist.forEach(doc => {
             if (doc.data().ife){
               message.member.addRole(message.guild.roles.find(role => role.name === "IFE Client"));
-              message.author.send("hello " + `**${message.author.username}**` + " thank you for buying our ife, we have given you the IFE Client role in the Vortex Server!")
             }
           })
-           }
+           };
+                     if(!message.member.roles.find(r => r.name === "Immigration")){
+          exist.forEach(doc => {
+            if (doc.data().immigration){
+              message.member.addRole(message.guild.roles.find(role => role.name === "Immigration"));
+            }
+          })
+           };
              
            
         }

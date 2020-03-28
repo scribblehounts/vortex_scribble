@@ -125,7 +125,8 @@ return res.send({ errormessage: "yes" });
       if (req.query.data === "ife") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        discord.users.get(doc.data().discord).send("Thank you for purchasing the IFE! Please send a message in the Vortex Server to be Ranked to your role");         
+        discord.users.get(doc.data().discord).send("Thank you for purchasing the IFE! Please send a message in the Vortex Server to be Ranked to your role");      
+      discord.channels.get("693274563961815060").send("hi")
       db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
     return res.send({ success: "true" })
     } else {

@@ -126,8 +126,29 @@ return res.send({ errormessage: "yes" });
 docRef.get().then(function(doc) {
     if (doc.exists) {
         discord.users.get(doc.data().discord).send("Thank you for purchasing the IFE! Please send a message in the Vortex Server to be Ranked to your role");      
-      discord.channels.get("693274563961815060").send("hi")
-      db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
+            db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
+      roblox.getUsernameFromId(user).then(a => {
+        roblox.getPlayerInfo(user).then(function(info) {
+      discord.channels.get("693274563961815060").send({embed: {
+        color: 3447003,
+        author: {
+          name: info.username,
+          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+        },
+        title: user,
+        
+        fields: [{
+          name: "Purchase Received",
+          value: "Product: IFE"
+        }
+      ],
+        timestamp: new Date(),
+        footer: {
+          text: "Vortex Purchasing"
+        }
+      }})
+        })
+      })
     return res.send({ success: "true" })
     } else {
     return res.send({ errormessage: "yes" })
@@ -140,6 +161,28 @@ docRef.get().then(function(doc) {
     if (doc.exists) {
         discord.users.get(doc.data().discord).send("Thank you for purchasing the Immigration System! Please send a message in the Vortex Server to be Ranked to your role");         
       db.collection('users').doc(`${req.query.id}`).set({immigration: "owned"},{merge: true});
+            roblox.getUsernameFromId(user).then(a => {
+        roblox.getPlayerInfo(user).then(function(info) {
+      discord.channels.get("693274563961815060").send({embed: {
+        color: 3447003,
+        author: {
+          name: info.username,
+          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+        },
+        title: user,
+        
+        fields: [{
+          name: "Purchase Received",
+          value: "Product: Immigration"
+        }
+      ],
+        timestamp: new Date(),
+        footer: {
+          text: "Vortex Purchasing"
+        }
+      }})
+        })
+      })
     return res.send({ success: "true" })
     } else {
     return res.send({ errormessage: "yes" })

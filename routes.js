@@ -45,6 +45,20 @@ docRef.get().then(function(doc) {
 }
 });
   
+    app.get("/checkverified", function(req, res) {
+    if (req.query.id){
+    var user = req.query.id;
+      var docRef = db.collection("users").doc(user);
+docRef.get().then(function(doc) {
+if (doc.exists){
+    return res.send({ success: "true" })
+} else {
+    return res.send({ errormessage: "yes" })
+}
+      })
+}
+});
+  
   app.get("/checkimmigration", function(req, res) {
     if (req.query.id){
     var user = req.query.id;

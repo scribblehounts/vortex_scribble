@@ -17,49 +17,40 @@ if (message.member.roles.some(role => role.name === 'Mod')){
   var username = message.mentions.members.first()
   var second = args[2];
   
+  if (!username){
+    return message.reply("supply someone!")
+  }
+  
+  if (!second){
+    return message.reply("invalid format, !find [@someone] [product]")
+  }
+  
     if (second === "ife"){
-            var docRef = db.collection('users').where('discord','==',message.author.id).get().then(exist => {
-docRef.get().then(function(doc) {
-  var data = doc.data();
-  
-  if (doc.exists){
-    
-  }else  {
-    message.channel.send("the person isn't even on the server lol")
-    return
-  }
-
-  if (data.ife){
+  var docRef = db.collection('users').where('discord','==',username.id).get().then(exist => {
+              exist.forEach(doc => {
+            if (doc.data().ife){
       message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
-  } else {
-    
-    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))
+            } else {
+    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
   }
-
 })
-    }
-    
-        if (second === "immigration"){
-            var docRef = db.collection("users").doc(username);
-docRef.get().then(function(doc) {
-  var data = doc.data();
+})
+}
   
-  if (doc.exists){
-    
-  }else  {
-    message.channel.send("the person isn't even on the server lol")
-    return
-  }
-
-  if (data.immigration){
+    if (second === "immigration"){
+  var docRef = db.collection('users').where('discord','==',username.id).get().then(exist => {
+              exist.forEach(doc => {
+            if (doc.data().immigration){
       message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
-  } else {
-    
-    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))
+            } else {
+    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
   }
-
 })
-    }
+})
+}
+
+
+    
   }
 }
     

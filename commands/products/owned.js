@@ -17,17 +17,16 @@ module.exports = {
       querySnapShot.forEach(function(doc){
         var data = doc.data();
 delete data["discord"];
-        var json = JSON.stringify(data)
-        message.reply(json)
         
 
 
              let embed = new Discord.RichEmbed() // starts a new embed
 
-             .setColor("#f9ae00") // sets the color of the embed
+             .setColor(3447003) // sets the color of the embed
              .setTimestamp()
+             .setTitle("Purchased Products")
              for (var i in data) {
-               embed.addField("Owned",i)
+               embed.addField("Product:",i + "\n")
 }
                       message.channel.send({embed})
                                                    

@@ -7,19 +7,18 @@ let FieldValue = require('firebase-admin').firestore.FieldValue;
 
 module.exports = {
   name: "find",
-  category: "moderation",
+  category: "products",
   description: "To verify another player",
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
 if (message.member.roles.some(role => role.name === 'Mod')){
   
-  var username = args[1];
+  var username = message.mentions.members.first()
   var second = args[2];
   
-  if (username){
     if (second === "ife"){
-            var docRef = db.collection("users").doc(username);
+            var docRef = db.collection('users').where('discord','==',message.author.id).get().then(exist => {
 docRef.get().then(function(doc) {
   var data = doc.data();
   
@@ -64,5 +63,5 @@ docRef.get().then(function(doc) {
   }
 }
     
-    }
+    
 }

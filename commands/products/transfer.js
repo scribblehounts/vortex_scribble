@@ -7,7 +7,7 @@ let FieldValue = require('firebase-admin').firestore.FieldValue;
 
 module.exports = {
   name: "transfer",
-  category: "moderation",
+  category: "products",
   description: "To verify another player",
   run: async(client,message,args,db) => {
     if (message.author.bot) return;

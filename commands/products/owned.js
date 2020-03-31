@@ -20,15 +20,16 @@ delete data["discord"];
         var json = JSON.stringify(data)
         message.reply(json)
         
+
+
              let embed = new Discord.RichEmbed() // starts a new embed
 
              .setColor("#f9ae00") // sets the color of the embed
              .setTimestamp()
-             .addField("Owned", `Idk`)
-              message.channel.send({embed})
-for(let val of data) {
-    console.log(val)
-}    
+             for (var i in data) {
+               embed.addField("Owned",i)
+}
+                      message.channel.send({embed})
                                                    
            
       })

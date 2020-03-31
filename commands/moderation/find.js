@@ -52,7 +52,7 @@ docRef.get().then(function(doc) {
     return
   }
 
-  if (data.ife){
+  if (data.immigration){
       message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
   } else {
     

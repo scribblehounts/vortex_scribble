@@ -30,6 +30,10 @@ if (message.author.bot) return; // Dont answer yourself.
         VIEW_CHANNEL: true,
                  SEND_MESSAGES: true
     })
+    channel.overwritePermissions(message.guild.roles.find(c => c.name == "Support Staff Trainee"), {
+        VIEW_CHANNEL: true,
+                 SEND_MESSAGES: true
+    })
 
         channel.send(new Discord.RichEmbed().setAuthor(`${message.author.username}'s Ticket`,message.guild.iconURL).setFooter("Support").setColor("#2ecc71").setDescription(`Reason: **${reason}**`))
   }).catch(console.error);

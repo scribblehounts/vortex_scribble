@@ -15,6 +15,10 @@ module.exports = {
     if (message.member.roles.some(role => role.name === 'Mod')) {
       var username = args[1];
       var second = args[2];
+      if(!username){
+        return message.reply("format invalid: !transfer [removing person] [new person] [product]")
+      }
+      
       if (username){
         if (args[3] === ("ife")){
       var docRef = db.collection("users").doc(username);

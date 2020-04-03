@@ -1,10 +1,8 @@
 dependencies:
   ascii-table: 0.0.9
-  better-discord-antispam: 1.0.6
   bloxy: 4.0.0-alpha3
   body-parser: 1.19.0
   common-tags: 1.8.0
-  discord-anti-spam: 2.4.1
   discord.js: 11.6.3
   djs-commands: 1.2.2
   dotenv: 8.2.0
@@ -844,10 +842,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
-  /better-discord-antispam/1.0.6:
-    dev: false
-    resolution:
-      integrity: sha512-YPv+Ppki1Z4jfBRQ/llwK1dk3q4YyNLkMvIeOMwkYtkX+eYIVzP26iJ8DXyJ+OLWHErQ5xKAO8MgqP6KRSHCDA==
   /big-integer/1.6.48:
     dev: false
     engines:
@@ -1615,10 +1609,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-6S7f2tplN9SE1zwBcv0eugxJdv8=
-  /discord-anti-spam/2.4.1:
-    dev: false
-    resolution:
-      integrity: sha512-LuWYmeVYnsIDkLqQH811vod7jWnnYI03o0DAiV+7sY7tAKQjpqC9hYkP8f5PaODA9Jl4zoMNXDAVA4aAwmeuaA==
   /discord.js/11.6.3:
     dependencies:
       long: 4.0.0
@@ -5089,11 +5079,9 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   ascii-table: ^0.0.9
-  better-discord-antispam: ^1.0.6
   bloxy: ^4.0.0-alpha3
   body-parser: ^1.19.0
   common-tags: ^1.8.0
-  discord-anti-spam: ^2.4.1
   discord.js: ^11.5.1
   djs-commands: ^1.2.2
   dotenv: ^8.2.0

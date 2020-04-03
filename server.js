@@ -1,9 +1,23 @@
 const Discord = require("discord.js");
 const { Client, Collection } = require("discord.js");
 const { config } = require("dotenv");
+const antispam = require('better-discord-antispam');
 
 const client = new Client({
   disableEveryone: true
+});
+
+client.on('ready', () => {
+  // Module Configuration Constructor
+   antispam(client, {
+        limitUntilWarn: 3, // The amount of messages allowed to send within the interval(time) before getting a warn.
+        interval: 2000, // The interval(time) where the messages are sent. Practically if member X sent 5+ messages within 2 seconds, he get muted. (1000 milliseconds = 1 second, 2000 milliseconds = 2 seconds etc etc)
+        warningMessage: "if you don't stop from spamming, I'm going to punish you!", // Message you get when you are warned!
+        maxDuplicatesWarning: 7,// When people are spamming the same message, this will trigger when member X sent over 7+ messages.
+        logChannel: "logs" // This is the channel where every report about spamming goes to. If it's not set up, it will attempt to create the channel.
+      });
+      
+  // Rest of your code
 });
 
 const firebase = require("firebase/app");

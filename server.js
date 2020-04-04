@@ -138,6 +138,14 @@ client.on("message", async message => {
             }
           })
            };
+          
+                               if(!message.member.roles.find(r => r.name === "Staff Panel")){
+          exist.forEach(doc => {
+            if (doc.data().staffpanel){
+              message.member.addRole(message.guild.roles.find(role => role.name === "Staff Panel"));
+            }
+          })
+           };
              
            
         }

@@ -73,6 +73,20 @@ docRef.get().then(function(doc) {
 }
 });
   
+    app.get("/checkstaffpanel", function(req, res) {
+    if (req.query.id){
+    var user = req.query.id;
+      var docRef = db.collection("users").doc(user);
+docRef.get().then(function(doc) {
+    if (doc.data().staffpanel) {
+    return res.send({ success: "true" })
+    } else {
+    return res.send({ errormessage: "yes" })
+    }
+      })
+}
+});
+  
       app.get("/verify", function(req, res) {
     if (req.query.id){
     var user = req.query.id;
@@ -121,6 +135,7 @@ return res.send({ errormessage: "yes" });
     app.get("/addproduct", function(req, res) {
     if (req.query.id){
     var user = req.query.id;
+      var rating = req.query.rating;
       var docRef = db.collection("users").doc(user);
       if (req.query.data === "ife") {
 docRef.get().then(function(doc) {
@@ -140,6 +155,11 @@ docRef.get().then(function(doc) {
         fields: [{
           name: "Purchase Received",
           value: "Product: IFE"
+        }
+      ],
+        fields: [{
+        name: "Rating",
+        value: rating
         }
       ],
         timestamp: new Date(),
@@ -175,6 +195,43 @@ docRef.get().then(function(doc) {
           name: "Purchase Received",
           value: "Product: Immigration"
         }
+      ],
+
+    
+        timestamp: new Date(),
+        footer: {
+          text: "Vortex Purchasing"
+        }
+      }})
+        })
+      })
+    return res.send({ success: "true" })
+    } else {
+    return res.send({ errormessage: "yes" })
+    }
+      })
+      };
+      
+            if (req.query.data === "staffpanel") {
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+        discord.users.get(doc.data().discord).send("Thank you for purchasing the Staff Panel! Please send a message in the Vortex Server to be Ranked to your role");      
+            db.collection('users').doc(`${req.query.id}`).set({staffpanel: "owned"},{merge: true});
+      roblox.getUsernameFromId(user).then(a => {
+        roblox.getPlayerInfo(user).then(function(info) {
+      discord.channels.get("693274563961815060").send({embed: {
+        color: 3447003,
+        author: {
+          name: info.username,
+          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+        },
+        title: user,
+        
+        fields: [{
+          name: "Purchase Received",
+          value: "Product: Staff Panel"
+        }
+
       ],
         timestamp: new Date(),
         footer: {

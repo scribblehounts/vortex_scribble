@@ -167,6 +167,25 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
+                          discord.channels.get("674502197769404427").send({embed: {
+                color: 3447003,
+        author: {
+          name: info.username,
+          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+        },
+        title: user,
+        
+        fields: [{
+          name: "Ratings",
+          value: rating + " out of 100"
+        }
+
+      ],
+        timestamp: new Date(),
+        footer: {
+          text: "Vortex Purchasing"
+        }
+      }})
         })
       })
     return res.send({ success: "true" })
@@ -198,6 +217,25 @@ docRef.get().then(function(doc) {
       ],
 
     
+        timestamp: new Date(),
+        footer: {
+          text: "Vortex Purchasing"
+        }
+      }})
+                          discord.channels.get("674502197769404427").send({embed: {
+                color: 3447003,
+        author: {
+          name: info.username,
+          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+        },
+        title: user,
+        
+        fields: [{
+          name: "Ratings",
+          value: rating + " out of 100"
+        }
+
+      ],
         timestamp: new Date(),
         footer: {
           text: "Vortex Purchasing"
@@ -238,8 +276,28 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
+                discord.channels.get("674502197769404427").send({embed: {
+                color: 3447003,
+        author: {
+          name: info.username,
+          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+        },
+        title: user,
+        
+        fields: [{
+          name: "Ratings",
+          value: rating + " out of 100"
+        }
+
+      ],
+        timestamp: new Date(),
+        footer: {
+          text: "Vortex Purchasing"
+        }
+      }})
         })
       })
+
     return res.send({ success: "true" })
     } else {
     return res.send({ errormessage: "yes" })

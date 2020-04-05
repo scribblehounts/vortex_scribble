@@ -49,6 +49,17 @@ if (message.member.roles.some(role => role.name === 'Mod')){
 })
 }
 
+    if (second === "staffpanel"){
+  var docRef = db.collection('users').where('discord','==',username.id).get().then(exist => {
+              exist.forEach(doc => {
+            if (doc.data().staffpanel){
+      message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
+            } else {
+    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
+  }
+})
+})
+}
 
     
   }

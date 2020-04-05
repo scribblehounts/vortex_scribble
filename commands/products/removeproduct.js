@@ -26,6 +26,30 @@ docRef.get().then(function(doc) {
 
 })
         }
+        
+                if (args[2] === ("immigration")){
+      var docRef = db.collection("users").doc(username);
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+      db.collection('users').doc(`${username}`).update({ immigration: FieldValue.delete() })
+
+            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been removed!**`).setFooter("Product System").setColor("#2ecc71"))
+      }
+
+})
+        }
+        
+                if (args[2] === ("staffpanel")){
+      var docRef = db.collection("users").doc(username);
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+      db.collection('users').doc(`${username}`).update({ staffpanel: FieldValue.delete() })
+
+            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been removed!**`).setFooter("Product System").setColor("#2ecc71"))
+      }
+
+})
+        }
       }
   }
   }

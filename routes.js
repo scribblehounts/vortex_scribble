@@ -157,11 +157,6 @@ docRef.get().then(function(doc) {
           value: "Product: IFE"
         }
       ],
-        fields: [{
-        name: "Rating",
-        value: rating
-        }
-      ],
         timestamp: new Date(),
         footer: {
           text: "Vortex Purchasing"

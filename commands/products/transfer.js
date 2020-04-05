@@ -48,6 +48,19 @@ docRef.get().then(function(doc) {
 })
         }
         
+                        if (args[3] === ("staffpanel")){
+      var docRef = db.collection("users").doc(username);
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+      db.collection('users').doc(`${username}`).update({ staffpanel: FieldValue.delete() })
+      
+      db.collection('users').doc(`${second}`).set({staffpanel: "owned"},{merge: true});
+
+            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
+      }
+
+})
+        }
         
       }
   }

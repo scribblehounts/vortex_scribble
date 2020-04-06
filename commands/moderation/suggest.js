@@ -8,8 +8,9 @@ module.exports = {
     if (message.author.bot) return;
 const channel = message.guild.channels.find(ch => ch.name === 'suggestions');  //finds the channel named suggestions 
 
-var msg = channel.send(new Discord.RichEmbed() + args.join(' '))
-msg.react("👍")
-msg.react("👎")
+var msg = channel.send(new Discord.RichEmbed().setTitle("Suggestion by " + message.author.tag).setColor("#f9ae00").setDescription(args.join(' '))).then(function(message){
+message.react("❌")
+  message.react("✅")
+})
   }
 }

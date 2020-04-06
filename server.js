@@ -154,7 +154,6 @@ client.on("message", async message => {
   if (!message.guild) return;
   if (!message.content.startsWith(prefix)) return;
 
-
   
   
   // If message.member is uncached, cache it.

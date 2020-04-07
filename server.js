@@ -110,6 +110,8 @@ config({
   path: __dirname + "/.env"
 });
 
+var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports"];
+
 // Run the command loader
 ["command"].forEach(handler => {
   require(`./handlers/${handler}`)(client);
@@ -122,10 +124,11 @@ client.on("message", async message => {
   // anti raid fuck sakes
   
   
-  
-  if(message.content.toLowerCase().includes("you have been raided")) {
+  for (var i= 0; i < forbiddenwords.length; i++){
+  if(message.content.toLowerCase().includes(forbbidenwords[i])) {
        message.delete()
        message.member.ban({days:7,reason:"raiding alert!"})
+  }
 }
   //
   

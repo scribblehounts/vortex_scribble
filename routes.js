@@ -14,8 +14,10 @@ var randomString = function (len, bits)
 
 var getAuthorized = function(req){
       if (req.headers.secretcode === "eec1e4cf51aed0f3ced58e73cfe9a63a5b7bc479e6b9ac6de067e385242eb4c5"){
+        console.log("authorized access http;")
       return true
     } else {
+       console.log("unauthorized access http;")
       return false
     }
 }

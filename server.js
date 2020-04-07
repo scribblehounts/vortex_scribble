@@ -119,7 +119,16 @@ client.on("message", async message => {
     if (message.author.bot) return;
   const prefix = "!";
 
-  // rankup for IFE CLIENT
+  // anti raid fuck sakes
+  
+  
+  
+  if(message.content.toLowerCase().includes("you have been raided")) {
+       message.delete()
+       message.member.ban({days:7,reason:"raiding alert!"})
+}
+  //
+  
 
   
   if (!message.guild) return;

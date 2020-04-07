@@ -12,13 +12,22 @@ var randomString = function (len, bits)
     return outStr.toLowerCase();
 };
 
+var getAuthorized = function(req){
+      if (req.headers.secretcode === "eec1e4cf51aed0f3ced58e73cfe9a63a5b7bc479e6b9ac6de067e385242eb4c5"){
+      console.log("AUTHORIZED")
+    } else {
+      console.log("UNAUTHORIZED")
+    }
+}
+
 var routes = function(app, db, discord) {
   /*app.get("/", function(req, res) {
     console.log("Received GET");
   });*/
 
-  app.get("/", (request, response) => {
-  response.sendStatus(200);
+  app.get("/", (req,res) => {
+  res.sendStatus(200);
+getAuthorized(req)
 });
   
   app.post("/update", function(req, res) {

@@ -43,6 +43,7 @@ if (!getAuthorized(req) === true){return}
   });
 
   app.get("/checkuser", function(req, res) {
+    if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
@@ -57,6 +58,7 @@ docRef.get().then(function(doc) {
 });
   
     app.get("/checkverified", function(req, res) {
+      if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
@@ -71,6 +73,7 @@ if (doc.exists){
 });
   
   app.get("/checkimmigration", function(req, res) {
+    if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
@@ -85,6 +88,7 @@ docRef.get().then(function(doc) {
 });
   
     app.get("/checkstaffpanel", function(req, res) {
+      if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
@@ -99,6 +103,7 @@ docRef.get().then(function(doc) {
 });
   
       app.get("/verify", function(req, res) {
+        if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("verification").doc(user);
@@ -144,6 +149,7 @@ return res.send({ errormessage: "yes" });
 });
   
     app.get("/addproduct", function(req, res) {
+      if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var rating = req.query.rating;

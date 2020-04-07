@@ -120,36 +120,7 @@ client.on("message", async message => {
   const prefix = "!";
 
   // rankup for IFE CLIENT
-    db.collection('users').where('discord','==',message.author.id).get().then(exist => {
-        if (exist.empty){
 
-        } else {
-           if(!message.member.roles.find(r => r.name === "IFE Client")){
-          exist.forEach(doc => {
-            if (doc.data().ife){
-              message.member.addRole(message.guild.roles.find(role => role.name === "IFE Client"));
-            }
-          })
-           };
-                     if(!message.member.roles.find(r => r.name === "Immigration")){
-          exist.forEach(doc => {
-            if (doc.data().immigration){
-              message.member.addRole(message.guild.roles.find(role => role.name === "Immigration"));
-            }
-          })
-           };
-          
-                               if(!message.member.roles.find(r => r.name === "Staff Panel")){
-          exist.forEach(doc => {
-            if (doc.data().staffpanel){
-              message.member.addRole(message.guild.roles.find(role => role.name === "Staff Panel"));
-            }
-          })
-           };
-             
-           
-        }
-      })
   
   if (!message.guild) return;
   if (!message.content.startsWith(prefix)) return;

@@ -17,13 +17,13 @@ module.exports = {
 
         } else {
           
-          var retrievedlist = {}
+          var retrievedlist = []
           
            if(!message.member.roles.find(r => r.name === "IFE Client")){
           exist.forEach(doc => {
             if (doc.data().ife){
               message.member.addRole(message.guild.roles.find(role => role.name === "IFE Client"));
-              message.reply("retrieved ife")
+retrievedlist.push("IFE Client");
             }
           })
            };
@@ -31,7 +31,7 @@ module.exports = {
           exist.forEach(doc => {
             if (doc.data().immigration){
               message.member.addRole(message.guild.roles.find(role => role.name === "Immigration"));
-              message.reply("retrieved immigration")
+retrievedlist.push("Immigration");
             }
           })
            };
@@ -40,12 +40,24 @@ module.exports = {
           exist.forEach(doc => {
             if (doc.data().staffpanel){
               message.member.addRole(message.guild.roles.find(role => role.name === "Staff Panel"));
-              message.reply("retrieved staff panel")
+retrievedlist.push("Staff Panel");
             }
           })
            };
              
-           
+          if(retrievedlist.length < 0){
+            
+          }
+          
+            let embed = new Discord.RichEmbed()
+             .setColor(3447003)
+             .setTimestamp()
+             .setTitle("Retrieved!")
+            console.log(retrievedlist)
+                retrievedlist.forEach(function(i){
+               embed.addField("Given Role:",i + "\n")
+                         })
+              message.channel.send({embed})
         }
       })
   }

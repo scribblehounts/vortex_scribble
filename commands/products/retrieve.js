@@ -45,8 +45,14 @@ retrievedlist.push("Staff Panel");
           })
            };
              
-          if(retrievedlist.length < 0){
-            
+          if(retrievedlist.length < 1 || retrievedlist === undefined){
+                        let embed = new Discord.RichEmbed()
+             .setColor(3447003)
+             .setTimestamp()
+             .setTitle("Couldn't find any products!")
+              .setDescription("Sorry but I couldn't find any products to role you with!")
+              message.channel.send({embed})
+            return
           }
           
             let embed = new Discord.RichEmbed()

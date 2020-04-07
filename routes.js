@@ -14,9 +14,9 @@ var randomString = function (len, bits)
 
 var getAuthorized = function(req){
       if (req.headers.secretcode === "eec1e4cf51aed0f3ced58e73cfe9a63a5b7bc479e6b9ac6de067e385242eb4c5"){
-      console.log("AUTHORIZED")
+      return true
     } else {
-      console.log("UNAUTHORIZED")
+      return false
     }
 }
 
@@ -27,7 +27,9 @@ var routes = function(app, db, discord) {
 
   app.get("/", (req,res) => {
   res.sendStatus(200);
-getAuthorized(req)
+if (!getAuthorized(req) === true){return}
+  console.log("authorized")
+
 });
   
   app.post("/update", function(req, res) {

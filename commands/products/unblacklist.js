@@ -6,7 +6,7 @@ const roblox = require('noblox.js');
 let FieldValue = require('firebase-admin').firestore.FieldValue;
 
 module.exports = {
-  name: "blacklist",
+  name: "unblacklist",
   category: "products",
   description: "To verify another player",
   run: async(client,message,args,db) => {
@@ -20,9 +20,9 @@ if (message.member.roles.some(role => role.name === 'Owner')){
         var docRef = db.collection("users").doc(args[1]);
     docRef.get().then(function(doc) {
     if (doc.exists) {
-      db.collection('users').doc(`${args[1]}`).set({blacklisted: "by: "+ message.author.id + " alias: " + message.author.tag},{merge: true});
+      db.collection('users').doc(`${args[1]}`).update({blacklisted: FieldValue.delete() });
 
-            return message.channel.send(new Discord.RichEmbed().setTitle("Blacklisted").setDescription(`**BLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
+            return message.channel.send(new Discord.RichEmbed().setTitle("Unblacklisted").setDescription(`**UNBLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
       }
 
 })
@@ -34,9 +34,9 @@ if (message.member.roles.some(role => role.name === 'Owner')){
           return;
         }
           exist.forEach(doc => {
-                db.collection('users').doc(doc.id).set({blacklisted: "by: "+ message.author.id + " alias: " + message.author.tag},{merge: true});
+                db.collection('users').doc(doc.id).update({blacklisted: FieldValue.delete()});
 
-            return message.channel.send(new Discord.RichEmbed().setTitle("Blacklisted").setDescription(`**BLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
+            return message.channel.send(new Discord.RichEmbed().setTitle("Unblacklisted").setDescription(`**UNBLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
           })
         })
   

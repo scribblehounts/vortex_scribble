@@ -26,9 +26,21 @@ var routes = function(app, db, discord) {
   /*app.get("/", function(req, res) {
     console.log("Received GET");
   });*/
+  
+  var checkBlacklisted = function(x){
+      var docRef = db.collection("users").doc(x);
+docRef.get().then(function(doc) {
+    if (doc.data().blacklisted) {
+    return true
+    } else {
+    return false
+    }
+})
+}
 
   app.get("/", (req,res) => {
   res.sendStatus(200);
+    console.log(checkBlacklisted("193104495"))
 });
   
   app.post("/update", function(req, res) {

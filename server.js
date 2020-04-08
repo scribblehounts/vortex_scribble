@@ -125,9 +125,10 @@ client.on("message", async message => {
   
   
   for (var i= 0; i < forbiddenwords.length; i++){
-  if(message.content.toLowerCase().includes(forbbidenwords[i])) {
+  if(message.content.toLowerCase().includes(forbiddenwords[i])) {
        message.delete()
        message.member.ban({days:7,reason:"raiding alert!"})
+    break;
   }
 }
   //

@@ -15,8 +15,6 @@ module.exports = {
 if (message.member.roles.some(role => role.name === 'Owner')){
   
     try {
-    const settings = message.settings = client.getGuildSettings(message.guild);
-  var prefix = settings.prefix
     if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('Sorry, you don\'t have permission to lockdown or unlock!')
         .then(msg => msg.delete({
             timeout: 10000
@@ -25,7 +23,7 @@ if (message.member.roles.some(role => role.name === 'Owner')){
     let time = args.join(' ');
     let validUnlocks = ['release', 'unlock']
     let timeemb = new Discord.RichEmbed()
-    .setDescription(`You must set a duration for the lockdown in either hour(s), minute(s) or second(s)\nExample: **${prefix}lockdown 1h**`)
+    .setDescription(`You must set a duration for the lockdown in either hour(s), minute(s) or second(s)\nExample: **!lockdown 1h**`)
     .setColor(`GREEN`)
     if (!time) return message.channel.send(timeemb).then(msg => {
       msg.delete(10000)

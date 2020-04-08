@@ -29,9 +29,6 @@ var routes = function(app, db, discord) {
 
   app.get("/", (req,res) => {
   res.sendStatus(200);
-if (!getAuthorized(req) === true){return}
-  console.log("authorized")
-
 });
   
   app.post("/update", function(req, res) {

@@ -12,6 +12,8 @@ dependencies:
   firebase-admin: 8.10.0
   firebase-tools: 8.0.1
   noblox.js: 4.5.2
+  request-ip: 2.1.3
+  satelize: 0.2.0
 packages:
   /@firebase/analytics-types/0.3.0:
     dev: false
@@ -794,6 +796,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
+  /async/0.2.10:
+    dev: false
+    resolution:
+      integrity: sha1-trvgsGdLnXGXCMo43owjfLUmw9E=
   /async/1.5.2:
     dev: false
     resolution:
@@ -1147,6 +1153,25 @@ packages:
     dev: false
     resolution:
       integrity: sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
+  /cli/0.6.6:
+    dependencies:
+      exit: 0.1.2
+      glob: 3.2.11
+    dev: false
+    engines:
+      node: '>=0.2.5'
+    resolution:
+      integrity: sha1-Aq1Eo4Cr8nraxebwzdewQ9dMU+M=
+  /cliff/0.1.10:
+    dependencies:
+      colors: 1.0.3
+      eyes: 0.1.8
+      winston: 0.8.3
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-U74z6p9ZvshWCe4wCsQgdgPlIBM=
   /cliui/3.2.0:
     dependencies:
       string-width: 1.0.2
@@ -1205,6 +1230,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-+IiQMGhcfE/54qVZ9Qd+t2qBb5Y=
+  /colors/0.6.2:
+    dev: false
+    engines:
+      node: '>=0.1.90'
+    resolution:
+      integrity: sha1-JCP+ZnisDF2uiFLl0OW+CMmXq8w=
   /colors/1.0.3:
     dev: false
     engines:
@@ -1474,6 +1505,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-TLYUxX4/KZzKF7Y/3LStFnd39Ho=
+  /cycle/1.0.3:
+    dev: false
+    engines:
+      node: '>=0.4.0'
+    resolution:
+      integrity: sha1-IegLK+hYD5i0aPN5QwZisEbDStI=
   /d/1.0.1:
     dependencies:
       es5-ext: 0.10.53
@@ -1934,6 +1971,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-zhZYEcnxF69qX4gpQLlq5/muzDQ=
+  /exit/0.1.2:
+    dev: false
+    engines:
+      node: '>= 0.8.0'
+    resolution:
+      integrity: sha1-BjJjj42HfMghB9MKD/8aF8uhzQw=
   /express/4.17.1:
     dependencies:
       accepts: 1.3.7
@@ -2003,6 +2046,12 @@ packages:
       '0': node >=0.6.0
     resolution:
       integrity: sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
+  /eyes/0.1.8:
+    dev: false
+    engines:
+      node: '> 0.1.90'
+    resolution:
+      integrity: sha1-Ys8SAjTGg3hdkCNIqADvPgzCC8A=
   /fast-deep-equal/3.1.1:
     dev: false
     resolution:
@@ -2347,6 +2396,13 @@ packages:
     dev: false
     resolution:
       integrity: sha1-dHoOW7IiZC7hDT4FRD4QlJPLD44=
+  /glob/3.2.11:
+    dependencies:
+      inherits: 2.0.4
+      minimatch: 0.3.0
+    dev: false
+    resolution:
+      integrity: sha1-Spc/Y1uRkPcV0QmH1cAP0oFevj0=
   /glob/7.1.6:
     dependencies:
       fs.realpath: 1.0.0
@@ -2713,6 +2769,20 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-EEqOSqym09jNFXqO+L+rLXo//bY=
+  /ip-address/4.0.0:
+    dependencies:
+      cli: 0.6.6
+      cliff: 0.1.10
+      jsbn: 0.0.0
+      lodash.find: 3.2.1
+      lodash.merge: 3.3.2
+      sprintf: 0.1.5
+    dev: false
+    engines:
+      node: '>= 0.10'
+    hasBin: true
+    resolution:
+      integrity: sha1-B7+SzMkmrJq7EaESAoTpupuT1Kw=
   /ip-regex/2.1.0:
     dev: false
     engines:
@@ -2954,6 +3024,10 @@ packages:
       node: '>=v0.10.0'
     resolution:
       integrity: sha512-+WaJvnaA7aJySz2q/8sLjMb2Mw14KTplHmSwcSpZ/fWJPkUmqw3YTzSWbPJ7OAwRvdYTWF2Wg+yYJ1AdP5Z8CA==
+  /is_js/0.9.0:
+    dev: false
+    resolution:
+      integrity: sha1-CrlFQFArp6+iTIVqqYVWFmnpxS0=
   /isarray/0.0.1:
     dev: false
     resolution:
@@ -3002,6 +3076,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
+  /jsbn/0.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-xScBvc7b33CE4c/HAaf4ZGSteCg=
   /jsbn/0.1.1:
     dev: false
     resolution:
@@ -3163,6 +3241,73 @@ packages:
     dev: false
     resolution:
       integrity: sha1-hMinKrWcRyUyFIDJdeZQg0LnCTc=
+  /lodash._arraycopy/3.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-due3wfH7klRzdIeKVi7Qaj5Q9uE=
+  /lodash._arrayeach/3.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-urFWsqkNPxu9XGU0AzSeXlkz754=
+  /lodash._basecallback/3.3.1:
+    dependencies:
+      lodash._baseisequal: 3.0.7
+      lodash._bindcallback: 3.0.1
+      lodash.isarray: 3.0.4
+      lodash.pairs: 3.0.1
+    dev: false
+    resolution:
+      integrity: sha1-t7K7Q9whYEJKIczybFfkQ3cqjic=
+  /lodash._basecopy/3.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-jaDmqHbPNEwK2KVIghEd08XHyjY=
+  /lodash._baseeach/3.0.4:
+    dependencies:
+      lodash.keys: 3.1.2
+    dev: false
+    resolution:
+      integrity: sha1-z4cGVyyhROjZ11InyZDamC+TKvM=
+  /lodash._basefind/3.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-srugXMZF+XLeLPkl+iv2Og9gyK4=
+  /lodash._basefindindex/3.6.0:
+    dev: false
+    resolution:
+      integrity: sha1-8IM2ChsCJBjtgbyJm+sxLiHnSk8=
+  /lodash._basefor/3.0.3:
+    dev: false
+    resolution:
+      integrity: sha1-dVC06SGO8J+tJDQ7YSAhx5tMIMI=
+  /lodash._baseisequal/3.0.7:
+    dependencies:
+      lodash.isarray: 3.0.4
+      lodash.istypedarray: 3.0.6
+      lodash.keys: 3.1.2
+    dev: false
+    resolution:
+      integrity: sha1-2AJfdjOdKTQnZ9zIh85cuVpbUfE=
+  /lodash._bindcallback/3.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
+  /lodash._createassigner/3.1.1:
+    dependencies:
+      lodash._bindcallback: 3.0.1
+      lodash._isiterateecall: 3.0.9
+      lodash.restparam: 3.6.1
+    dev: false
+    resolution:
+      integrity: sha1-g4pbri/aymOsIt7o4Z+k5taXCxE=
+  /lodash._getnative/3.9.1:
+    dev: false
+    resolution:
+      integrity: sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
+  /lodash._isiterateecall/3.0.9:
+    dev: false
+    resolution:
+      integrity: sha1-UgOte6Ql+uhCRg5pbbnPPmqsBXw=
   /lodash._isnative/2.4.1:
     dev: false
     resolution:
@@ -3197,6 +3342,17 @@ packages:
     dev: false
     resolution:
       integrity: sha1-nMtOUF1Ia5FlE0V3KIWi3yf9AXw=
+  /lodash.find/3.2.1:
+    dependencies:
+      lodash._basecallback: 3.3.1
+      lodash._baseeach: 3.0.4
+      lodash._basefind: 3.0.0
+      lodash._basefindindex: 3.6.0
+      lodash.isarray: 3.0.4
+      lodash.keys: 3.1.2
+    dev: false
+    resolution:
+      integrity: sha1-BG4xnzrOkSrGySRsf2g8XsB7Nq0=
   /lodash.flatten/4.4.0:
     dev: false
     resolution:
@@ -3217,6 +3373,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-L1c9hcaiQon/AGY7SRwdM4/zRYo=
+  /lodash.isarray/3.0.4:
+    dev: false
+    resolution:
+      integrity: sha1-eeTriMNqgSKvhvhEqpvNhRtfu1U=
   /lodash.isboolean/3.0.3:
     dev: false
     resolution:
@@ -3239,6 +3399,14 @@ packages:
     dev: false
     resolution:
       integrity: sha1-PI+41bW/S/kK4G4U8qUwpO2TXh0=
+  /lodash.isplainobject/3.2.0:
+    dependencies:
+      lodash._basefor: 3.0.3
+      lodash.isarguments: 3.1.0
+      lodash.keysin: 3.0.8
+    dev: false
+    resolution:
+      integrity: sha1-moI4rhayAEMpYM1zRlEtASP79MU=
   /lodash.isplainobject/4.0.6:
     dev: false
     resolution:
@@ -3247,6 +3415,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
+  /lodash.istypedarray/3.0.6:
+    dev: false
+    resolution:
+      integrity: sha1-yaR3SYYHUB2OhJTSg7h8OSgc72I=
   /lodash.keys/2.4.1:
     dependencies:
       lodash._isnative: 2.4.1
@@ -3255,10 +3427,51 @@ packages:
     dev: false
     resolution:
       integrity: sha1-SN6kbfj/djKxDXBrissmWR4rNyc=
+  /lodash.keys/3.1.2:
+    dependencies:
+      lodash._getnative: 3.9.1
+      lodash.isarguments: 3.1.0
+      lodash.isarray: 3.0.4
+    dev: false
+    resolution:
+      integrity: sha1-TbwEcrFWvlCgsoaFXRvQsMZWCYo=
+  /lodash.keysin/3.0.8:
+    dependencies:
+      lodash.isarguments: 3.1.0
+      lodash.isarray: 3.0.4
+    dev: false
+    resolution:
+      integrity: sha1-IsRJPrvtsUJ5YqVLRFssinZ/tH8=
+  /lodash.merge/3.3.2:
+    dependencies:
+      lodash._arraycopy: 3.0.0
+      lodash._arrayeach: 3.0.0
+      lodash._createassigner: 3.1.1
+      lodash._getnative: 3.9.1
+      lodash.isarguments: 3.1.0
+      lodash.isarray: 3.0.4
+      lodash.isplainobject: 3.2.0
+      lodash.istypedarray: 3.0.6
+      lodash.keys: 3.1.2
+      lodash.keysin: 3.0.8
+      lodash.toplainobject: 3.0.0
+    dev: false
+    resolution:
+      integrity: sha1-DZDZPtY3sYeEN7s+IWASYNev6ZQ=
   /lodash.once/4.1.1:
     dev: false
     resolution:
       integrity: sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=
+  /lodash.pairs/3.0.1:
+    dependencies:
+      lodash.keys: 3.1.2
+    dev: false
+    resolution:
+      integrity: sha1-u+CNV4bu6qCaFckevw3LfSvjJqk=
+  /lodash.restparam/3.6.1:
+    dev: false
+    resolution:
+      integrity: sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
   /lodash.snakecase/4.1.1:
     dev: false
     resolution:
@@ -3267,6 +3480,13 @@ packages:
     dev: false
     resolution:
       integrity: sha1-JMS/zWsvuji/0FlNsRedjptlZWE=
+  /lodash.toplainobject/3.0.0:
+    dependencies:
+      lodash._basecopy: 3.0.1
+      lodash.keysin: 3.0.8
+    dev: false
+    resolution:
+      integrity: sha1-KHkK2ULSk9eKpmOgfs9/UsoEGY0=
   /lodash.union/4.6.0:
     dev: false
     resolution:
@@ -3315,6 +3535,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-G2Lj61tXDnVFFOi8VZds+SoQjtQC3dgokKdDG2mTm1tx4m50NUHBOZSBwQQHyy0V12A0JTG4icfZQH+xPyh8VA==
+  /lru-cache/2.7.3:
+    dev: false
+    resolution:
+      integrity: sha1-bUUk6LlV+V1PW1iFHOId1y+06VI=
   /lru-cache/4.1.5:
     dependencies:
       pseudomap: 1.0.2
@@ -3372,6 +3596,14 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-c+yYdCZJQrsRjTPhUx7VKkApw9bwDkNbHUKo1ovgcfDjb2kc8rLuRbIFyXL5WOEUwzSSKo3IXpph2K6DqB/KZg==
+  /maxmind-db-reader/0.2.1:
+    dependencies:
+      big-integer: 1.6.48
+      ip-address: 4.0.0
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha1-K5mHge/yxys1TTzYNkbhT0lR8SM=
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -3442,6 +3674,14 @@ packages:
     optional: true
     resolution:
       integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==
+  /minimatch/0.3.0:
+    dependencies:
+      lru-cache: 2.7.3
+      sigmund: 1.0.1
+    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+    dev: false
+    resolution:
+      integrity: sha1-J12O2qxPG7MyZHIInnlJyDlGmd0=
   /minimatch/3.0.4:
     dependencies:
       brace-expansion: 1.1.11
@@ -3814,6 +4054,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-5aSs0sEB/fPZpNB/DbxNtJ3SgXY=
+  /pkginfo/0.3.1:
+    dev: false
+    engines:
+      node: '>= 0.4.0'
+    resolution:
+      integrity: sha1-Wyn2qB9wcXFC4J52W76rl7T4HiE=
   /plist/3.0.1:
     dependencies:
       base64-js: 1.3.1
@@ -4055,6 +4301,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-PU74cPc93h138M+aOBQyRE4XSUI=
+  /request-ip/2.1.3:
+    dependencies:
+      is_js: 0.9.0
+    dev: false
+    resolution:
+      integrity: sha512-J3qdE/IhVM3BXkwMIVO4yFrvhJlU3H7JH16+6yHucadT4fePnR8dyh+vEs6FIx0S2x5TCt2ptiPfHcn0sqhbYQ==
   /request-promise-core/1.1.3/request@2.88.2:
     dependencies:
       lodash: 4.17.15
@@ -4190,6 +4442,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+  /satelize/0.2.0:
+    dependencies:
+      maxmind-db-reader: 0.2.1
+    dev: false
+    engines:
+      node: '>=0.8.x'
+    resolution:
+      integrity: sha1-+MYS22TAceg7bpfzVtvhkn8C2Jc=
   /semver-diff/2.1.0:
     dependencies:
       semver: 5.7.1
@@ -4273,6 +4533,10 @@ packages:
     optional: true
     resolution:
       integrity: sha512-7rL9YlPHg7Ancea1S96Pa8/QWb4BtXL/TZvS6B8XFetGBeuhAsfmUspK6DokBeZ64+Kj9TCNRD/30pVz1BvQNA==
+  /sigmund/1.0.1:
+    dev: false
+    resolution:
+      integrity: sha1-P/IfGYytIXX587eBhT/ZTQ0ZtZA=
   /signal-exit/3.0.3:
     dev: false
     resolution:
@@ -4309,6 +4573,13 @@ packages:
     dev: false
     resolution:
       integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
+  /sprintf/0.1.5:
+    deprecated: The sprintf package is deprecated in favor of sprintf-js.
+    dev: false
+    engines:
+      node: '>=0.2.4'
+    resolution:
+      integrity: sha1-j4PjmpMXwaUCy324BQ5Rxnn27c8=
   /sshpk/1.16.1:
     dependencies:
       asn1: 0.2.4
@@ -4937,6 +5208,20 @@ packages:
       node: '>= 6.4.0'
     resolution:
       integrity: sha512-B2wPuwUi3vhzn/51Uukcao4dIduEiPOcOt9HJ3QeaXgkJ5Z7UwpBzxS4ZGNHtrxrUvTwemsQiSys0ihOf8Mp1A==
+  /winston/0.8.3:
+    dependencies:
+      async: 0.2.10
+      colors: 0.6.2
+      cycle: 1.0.3
+      eyes: 0.1.8
+      isstream: 0.1.2
+      pkginfo: 0.3.1
+      stack-trace: 0.0.10
+    dev: false
+    engines:
+      node: '>= 0.6.0'
+    resolution:
+      integrity: sha1-ZLar9M0Brcrv1QCTk7HY6L7BnbA=
   /winston/3.2.1:
     dependencies:
       async: 2.6.3
@@ -5091,3 +5376,5 @@ specifiers:
   firebase-admin: ^8.10.0
   firebase-tools: ^8.0.1
   noblox.js: ^4.5.2
+  request-ip: ^2.1.3
+  satelize: ^0.2.0

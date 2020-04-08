@@ -31,8 +31,10 @@ var routes = function(app, db, discord) {
       var docRef = db.collection("users").doc(x);
 docRef.get().then(function(doc) {
     if (doc.data().blacklisted) {
+      console.log("blacklisted")
     return true
     } else {
+      console.log("not blacklisted")
     return false
     }
 })
@@ -40,7 +42,6 @@ docRef.get().then(function(doc) {
 
   app.get("/", (req,res) => {
   res.sendStatus(200);
-    console.log(checkBlacklisted("193104495"))
 });
   
   app.post("/update", function(req, res) {
@@ -57,6 +58,7 @@ docRef.get().then(function(doc) {
     if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
+      if (checkBlacklisted(user) == true){return}
       var docRef = db.collection("users").doc(user);
 docRef.get().then(function(doc) {
     if (doc.data().ife) {
@@ -87,6 +89,7 @@ if (doc.exists){
     if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
+      if (checkBlacklisted(user) == true){return}
       var docRef = db.collection("users").doc(user);
 docRef.get().then(function(doc) {
     if (doc.data().immigration) {
@@ -102,6 +105,7 @@ docRef.get().then(function(doc) {
       if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
+      if (checkBlacklisted(user) == true){return}
       var docRef = db.collection("users").doc(user);
 docRef.get().then(function(doc) {
     if (doc.data().staffpanel) {

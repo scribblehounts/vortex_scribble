@@ -14,7 +14,7 @@ const FieldValue = require("firebase-admin").firestore.FieldValue;
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccount.json");
 const rbx = require('noblox.js')
-
+const fs = require("fs");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
@@ -24,6 +24,8 @@ let db = admin.firestore();
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
+
+ client.categories = fs.readdirSync("./commands/");
 
 client.on("guildMemberAdd", member => {
   let channel = client.channels.get("671258373303566336");

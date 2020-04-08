@@ -12,7 +12,7 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-    if (message.member.roles.some(role => role.name === 'Mod')) {
+    if (message.member.roles.some(role => role.name === 'Owner')) {
       var username = args[1];
       if (username){
         if (args[2] === ("ife")){

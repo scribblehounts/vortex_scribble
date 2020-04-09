@@ -2,7 +2,7 @@ var Discord = require('discord.js')
 var math = require('math-expression-evaluator');
 module.exports = {
   name: "math",
-  category: "moderation",
+  category: "fun",
   description: "To request an 8ball",
   run: async(client,message,args) => {
     try {

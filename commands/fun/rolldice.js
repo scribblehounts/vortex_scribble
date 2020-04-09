@@ -5,7 +5,7 @@ const Discord = require('discord.js')
 
 module.exports = {
   name: "rolldice",
-  category: "moderation",
+  category: "fun",
   description: "To kick a member",
   run: async(client,message,args) => {
   try {

@@ -28,7 +28,7 @@ function getAll(client, message) {
     const commands = (category) => {
         return client.commands
             .filter(cmd => cmd.category === category)
-            .map(cmd => `- \`${cmd.name}\``)
+            .map(cmd => `- `+ cmd.name)
             .join("\n");
     }
 
@@ -37,7 +37,7 @@ function getAll(client, message) {
         .map(cat => stripIndents`**${cat[0].toUpperCase() + cat.slice(1)}** \n${commands(cat)}`)
         .reduce((string, category) => string + "\n" + category);
 
-    return message.channel.send(embed.setDescription(info));
+    return message.channel.send(embed.setTitle("Commands for the Vortex Server").setDescription(info));
 }
 
 function getCMD(client, message, input) {
@@ -50,12 +50,12 @@ function getCMD(client, message, input) {
 
     // If no cmd is found, send not found embed
     if (!cmd) {
-        return message.channel.send(embed.setColor("RED").setDescription(info));
+        return message.channel.send(embed.setColor("RED").setTitle("Commands for the Vortex Server").setDescription(info));
     }
 
     // Add all cmd info to the embed
     if (cmd.name) info = `**Command name**: ${cmd.name}`;
-    if (cmd.aliases) info += `\n**Aliases**: ${cmd.aliases.map(a => `\`${a}\``).join(", ")}`;
+    if (cmd.aliases) info += `\n**Aliases**: ${cmd.aliases.map(a => `\${a}\``).join(", ")}`;
     if (cmd.description) info += `\n**Description**: ${cmd.description}`;
     if (cmd.usage) {
         info += `\n**Usage**: ${cmd.usage}`;

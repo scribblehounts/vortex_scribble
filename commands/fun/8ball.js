@@ -1,6 +1,6 @@
 module.exports = {
   name: "8ball",
-  category: "moderation",
+  category: "fun",
   description: "To request an 8ball",
   run: async(client,message,args) => {
     if (message.author.bot) return;

@@ -3,7 +3,7 @@ const { getMember } = require("../../functions.js");
 
 module.exports = {
   name: "love",
-  category: "moderation",
+  category: "fun",
   description: "To love someone",
   run: async(client,message,args) => {
            let person = getMember(message, args[0]);

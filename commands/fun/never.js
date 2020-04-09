@@ -2,7 +2,7 @@ var facts = ["Never have I ever applied for Partner on Discord.","Never have I e
     
 module.exports = {
   name: "never",
-  category: "moderation",
+  category: "fun",
   description: "weirdo custom game",
   run: async(client,message,args) => {
  var fact = Math.floor(Math.random() * facts.length);

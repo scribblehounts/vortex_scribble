@@ -62,5 +62,5 @@ function getCMD(client, message, input) {
         embed.setFooter(`Syntax: <> = required, [] = optional`);
     }
 
-    return message.channel.send(embed.setColor("GREEN").setDescription(info));
+    return message.channel.send(embed.setColor("GREEN").setTitle("Commands for the Vortex Server").setDescription(info));
 }

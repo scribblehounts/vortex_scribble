@@ -20,9 +20,10 @@ if (message.member.roles.some(role => role.name === 'Owner')){
         var docRef = db.collection("users").doc(args[1]);
     docRef.get().then(function(doc) {
     if (doc.exists) {
-      db.collection('promocodes').doc(`${args[1]}`).set({CODE: "RUBEUS_"},{CATEGORY: "REBEUS"},{merge: true});
-
-            return message.channel.send(new Discord.RichEmbed().setTitle("Success!").setDescription("Your Rubeus Promo Code Is: ").setFooter("Product System").setColor("#2ecc71"))
+      roblox.getUsernameFromId(doc.id).then(function(username){
+      db.collection('promocodes').doc(`${args[1]}`).set({CODE: "RUBEUS_"+username.toUpperCase(),CATEGORY: "REBEUS"},{merge: true});
+      })
+            return message.channel.send(new Discord.RichEmbed().setTitle("Success!").setDescription("Your Rubeus Promo Code Is: "+"RUBEUS_"+username.toUpperCase()).setFooter("Product System").setColor("#2ecc71"))
       }
 
 })
@@ -35,10 +36,10 @@ if (message.member.roles.some(role => role.name === 'Owner')){
         }
           exist.forEach(doc => {
             roblox.getUsernameFromId(doc.id).then(function(username){
-                db.collection('promocodes').doc(doc.id).set({CODE: "RUBEUS_"+username.toUpperCase()},{CATEGORY: "REBEUS"},{merge: true});
+                db.collection('promocodes').doc(doc.id).set({CODE: "RUBEUS_"+username.toUpperCase(),CATEGORY: "REBEUS"},{merge: true});
             })
 
-            return message.channel.send(new Discord.RichEmbed().setTitle("Success!").setDescription("Your Rubeus Promo Code Is: ").setFooter("Product System").setColor("#2ecc71"))
+            return message.channel.send(new Discord.RichEmbed().setTitle("Success!").setDescription("Your Rubeus Promo Code Is: "+"RUBEUS_"+username.toUpperCase()).setFooter("Product System").setColor("#2ecc71"))
           })
         })
   

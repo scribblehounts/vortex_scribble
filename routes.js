@@ -86,13 +86,13 @@ if (doc.exists){
 });
   
       app.get("/checkpromo", function(req, res) {
-      //if (!getAuthorized(req) === true){return}
+     if (!getAuthorized(req) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("promocodes").doc(user);
 docRef.get().then(function(doc) {
 if (doc.exists){
-    return res.send({ success: doc.data().CODE })
+    return res.send({ success: doc.data()})
 } else {
     return res.send({ errormessage: "no promo code found" })
 }

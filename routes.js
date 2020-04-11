@@ -54,6 +54,22 @@ docRef.get().then(function(doc) {
     }
   });
 
+    app.get("/checkproduct", function(req, res) {
+  //  if (!getAuthorized(req) === true){return}
+    if (req.query.id && req.query.product){
+    var user = req.query.id;
+      if (checkBlacklisted(user) == true){return}
+      var docRef = db.collection("users").doc(user);
+docRef.get().then(function(doc) {
+    if (doc.data()[req.query.product]) {
+    return res.send({ success: "true" })
+    } else {
+    return res.send({ errormessage: "yes" })
+    }
+      })
+}
+});
+  
   app.get("/checkuser", function(req, res) {
     if (!getAuthorized(req) === true){return}
     if (req.query.id){

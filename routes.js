@@ -55,7 +55,7 @@ docRef.get().then(function(doc) {
   });
 
     app.get("/checkproduct", function(req, res) {
-  //  if (!getAuthorized(req) === true){return}
+    if (!getAuthorized(req) === true){return}
     if (req.query.id && req.query.product){
     var user = req.query.id;
       if (checkBlacklisted(user) == true){return}

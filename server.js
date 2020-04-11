@@ -112,7 +112,7 @@ config({
   path: __dirname + "/.env"
 });
 
-var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports"];
+var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports","I PUT THE FUN IN FUNERAL."];
 
 // Run the command loader
 ["command"].forEach(handler => {

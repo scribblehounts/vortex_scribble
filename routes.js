@@ -42,6 +42,7 @@ docRef.get().then(function(doc) {
 
   app.get("/", (req,res) => {
   res.sendStatus(200);
+    console.log("hi")
 });
   
   app.post("/update", function(req, res) {

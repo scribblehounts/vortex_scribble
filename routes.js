@@ -12,12 +12,13 @@ var randomString = function (len, bits)
     return outStr.toLowerCase();
 };
 
-var getAuthorized = function(req){
+var getAuthorized = function(req,res){
       if (req.headers.secretcode === "eec1e4cf51aed0f3ced58e73cfe9a63a5b7bc479e6b9ac6de067e385242eb4c5"){
         console.log("authorized access http;")
       return true
     } else {
        console.log("unauthorized access http;")
+      res.send({unauthorized: "access denied"})
       return false
     }
 }
@@ -56,7 +57,7 @@ docRef.get().then(function(doc) {
   });
 
     app.get("/checkproduct", function(req, res) {
-    if (!getAuthorized(req) === true){return}
+    if (!getAuthorized(req,res) === true){return}
     if (req.query.id && req.query.product){
     var user = req.query.id;
       if (checkBlacklisted(user) == true){return}
@@ -72,7 +73,7 @@ docRef.get().then(function(doc) {
 });
   
   app.get("/checkuser", function(req, res) {
-    if (!getAuthorized(req) === true){return}
+    if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
       if (checkBlacklisted(user) == true){return}
@@ -88,7 +89,7 @@ docRef.get().then(function(doc) {
 });
   
     app.get("/checkverified", function(req, res) {
-      if (!getAuthorized(req) === true){return}
+      if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
@@ -103,7 +104,7 @@ if (doc.exists){
 });
   
       app.get("/checkpromo", function(req, res) {
-     if (!getAuthorized(req) === true){return}
+     if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("promocodes").doc(user);
@@ -118,7 +119,7 @@ if (doc.exists){
 });
   
   app.get("/checkimmigration", function(req, res) {
-    if (!getAuthorized(req) === true){return}
+    if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
       if (checkBlacklisted(user) == true){return}
@@ -134,7 +135,7 @@ docRef.get().then(function(doc) {
 });
   
     app.get("/checkstaffpanel", function(req, res) {
-      if (!getAuthorized(req) === true){return}
+      if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
       if (checkBlacklisted(user) == true){return}
@@ -150,7 +151,7 @@ docRef.get().then(function(doc) {
 });
   
       app.get("/verify", function(req, res) {
-        if (!getAuthorized(req) === true){return}
+        if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var docRef = db.collection("verification").doc(user);
@@ -196,7 +197,7 @@ return res.send({ errormessage: "yes" });
 });
   
     app.get("/addproduct", function(req, res) {
-      if (!getAuthorized(req) === true){return}
+      if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var rating = req.query.rating;

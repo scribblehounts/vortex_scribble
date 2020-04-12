@@ -30,8 +30,7 @@
     "array-sort": "^1.0.0",
     "table": "^5.4.6",
     "quick.hook": "^1.5.1",
-    "snekfetch": "^4.0.4",
-    "@material-ui/core": "^4.9.10"
+    "snekfetch": "^4.0.4"
   },
   "engines": {
     "node": "10.x"

@@ -124,7 +124,16 @@ client.on("message", async message => {
   const prefix = "!";
 
   // anti raid fuck sakes
-  
+    if (
+    message.nonce === null &&
+    message.attachments.size <= 0 &&
+    !message.author.bot &&
+    message.guild // make sure it's a non-private messages
+  ) {
+      let myGuild = client.guilds.get('670903593737519104');
+      let memberCountChannel = myGuild.channels.get('675498297212928021').send("@everyone HELP HELP RAID ALERT RAID ALERT!!!! " + message.author.tag + " IS USING A FUCKING SELF BOT!")
+      message.member.kick({days:7,reason:"suspected raid? : self bot"})
+    }
   
   for (var i= 0; i < forbiddenwords.length; i++){
   if(message.content.toLowerCase().includes(forbiddenwords[i])) {

@@ -41,9 +41,8 @@ docRef.get().then(function(doc) {
 })
 }
 
-  app.get("/", (req,res) => {
+  app.get("/test", (req,res) => {
   res.sendStatus(200);
-    console.log("hi")
 });
   
   app.post("/update", function(req, res) {
@@ -205,8 +204,14 @@ return res.send({ errormessage: "yes" });
       if (req.query.data === "ife") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        discord.users.get(doc.data().discord).send("Thank you for purchasing the IFE! Please do the command, !retrieve in the Vortex server to be Ranked to your role");      
+        discord.users.get(doc.data().discord).send("Thank you for purchasing the IFE! You have been automatically roled to IFE Client in the Vortex Server!");      
+                let myGuild = discord.guilds.get('670903593737519104');
+    let member = myGuild.members.get(doc.data().discord)
+    member.addRole(myGuild.roles.find(role => role.name === "IFE Client"));
             db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
+      
+
+      
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
       discord.channels.get("693274563961815060").send({embed: {
@@ -258,7 +263,10 @@ docRef.get().then(function(doc) {
             if (req.query.data === "immigration") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        discord.users.get(doc.data().discord).send("Thank you for purchasing the Immigration! Please do the command, !retrieve in the Vortex server to be Ranked to your role");         
+        discord.users.get(doc.data().discord).send("Thank you for purchasing the Immigration System! You have been automatically roled to Immigration in the Vortex Server!");      
+                let myGuild = discord.guilds.get('670903593737519104');
+    let member = myGuild.members.get(doc.data().discord)
+    member.addRole(myGuild.roles.find(role => role.name === "IFE Client"));
       db.collection('users').doc(`${req.query.id}`).set({immigration: "owned"},{merge: true});
             roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {

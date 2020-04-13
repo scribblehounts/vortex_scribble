@@ -18,7 +18,7 @@ var getAuthorized = function(req,res){
       return true
     } else {
        console.log("unauthorized access http;")
-      res.send({unauthorized: "access denied"})
+      res.send('HTTP/1.1 401 Unauthorized')
       return false
     }
 }
@@ -266,7 +266,7 @@ docRef.get().then(function(doc) {
         discord.users.get(doc.data().discord).send("Thank you for purchasing the Immigration System! You have been automatically roled to Immigration in the Vortex Server!");      
                 let myGuild = discord.guilds.get('670903593737519104');
     let member = myGuild.members.get(doc.data().discord)
-    member.addRole(myGuild.roles.find(role => role.name === "IFE Client"));
+    member.addRole(myGuild.roles.find(role => role.name === "Immigration"));
       db.collection('users').doc(`${req.query.id}`).set({immigration: "owned"},{merge: true});
             roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
@@ -321,7 +321,10 @@ docRef.get().then(function(doc) {
             if (req.query.data === "staffpanel") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        discord.users.get(doc.data().discord).send("Thank you for purchasing the Staff Panel! Please do the command, !retrieve in the Vortex server to be Ranked to your role");      
+        discord.users.get(doc.data().discord).send("Thank you for purchasing the Staff Panel! You have been automatically roled to Staff Panel in the Vortex Server!");      
+                let myGuild = discord.guilds.get('670903593737519104');
+    let member = myGuild.members.get(doc.data().discord)
+    member.addRole(myGuild.roles.find(role => role.name === "Staff Panel"));
             db.collection('users').doc(`${req.query.id}`).set({staffpanel: "owned"},{merge: true});
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {

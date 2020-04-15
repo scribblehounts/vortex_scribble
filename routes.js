@@ -204,9 +204,9 @@ return res.send({ errormessage: "yes" });
       if (req.query.data === "ife") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        discord.users.get(doc.data().discord).send("Thank you for purchasing the IFE! You have been automatically roled to IFE Client in the Vortex Server!");      
-                let myGuild = discord.guilds.get('670903593737519104');
-    let member = myGuild.members.get(doc.data().discord)
+        discord.users.cache.get(doc.data().discord).send("Thank you for purchasing the IFE! You have been automatically roled to IFE Client in the Vortex Server!");      
+                let myGuild = discord.guilds.cache.get('670903593737519104');
+    let member = myGuild.members.cache.get(doc.data().discord)
     member.addRole(myGuild.roles.cache.find(role => role.name === "IFE Client"));
             db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
       
@@ -214,7 +214,7 @@ docRef.get().then(function(doc) {
       
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.get("693274563961815060").send({MessageEmbed: {
+      discord.channels.cache.get("693274563961815060").send({MessageEmbed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -232,7 +232,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                          discord.channels.get("674502197769404427").send({MessageEmbed: {
+                          discord.channels.cache.get("674502197769404427").send({MessageEmbed: {
                 color: 3447003,
         author: {
           name: info.username,
@@ -263,14 +263,14 @@ docRef.get().then(function(doc) {
             if (req.query.data === "immigration") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        discord.users.get(doc.data().discord).send("Thank you for purchasing the Immigration System! You have been automatically roled to Immigration in the Vortex Server!");      
-                let myGuild = discord.guilds.get('670903593737519104');
-    let member = myGuild.members.get(doc.data().discord)
+        discord.users.cache.get(doc.data().discord).send("Thank you for purchasing the Immigration System! You have been automatically roled to Immigration in the Vortex Server!");      
+                let myGuild = discord.guilds.cache.get('670903593737519104');
+    let member = myGuild.members.cache.get(doc.data().discord)
     member.addRole(myGuild.roles.cache.find(role => role.name === "Immigration"));
       db.collection('users').doc(`${req.query.id}`).set({immigration: "owned"},{merge: true});
             roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.get("693274563961815060").send({MessageEmbed: {
+      discord.channels.cache.get("693274563961815060").send({MessageEmbed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -290,7 +290,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                          discord.channels.get("674502197769404427").send({MessageEmbed: {
+                          discord.channels.cache.get("674502197769404427").send({MessageEmbed: {
                 color: 3447003,
         author: {
           name: info.username,
@@ -321,14 +321,14 @@ docRef.get().then(function(doc) {
             if (req.query.data === "staffpanel") {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        discord.users.get(doc.data().discord).send("Thank you for purchasing the Staff Panel! You have been automatically roled to Staff Panel in the Vortex Server!");      
-                let myGuild = discord.guilds.get('670903593737519104');
-    let member = myGuild.members.get(doc.data().discord)
+        discord.users.cache.get(doc.data().discord).send("Thank you for purchasing the Staff Panel! You have been automatically roled to Staff Panel in the Vortex Server!");      
+                let myGuild = discord.guilds.cache.get('670903593737519104');
+    let member = myGuild.members.cache.get(doc.data().discord)
     member.addRole(myGuild.roles.cache.find(role => role.name === "Staff Panel"));
             db.collection('users').doc(`${req.query.id}`).set({staffpanel: "owned"},{merge: true});
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.get("693274563961815060").send({MessageEmbed: {
+      discord.channels.cache.get("693274563961815060").send({MessageEmbed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -347,7 +347,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                discord.channels.get("674502197769404427").send({MessageEmbed: {
+                discord.channels.cache.get("674502197769404427").send({MessageEmbed: {
                 color: 3447003,
         author: {
           name: info.username,

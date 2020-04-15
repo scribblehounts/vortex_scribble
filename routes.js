@@ -214,7 +214,7 @@ docRef.get().then(function(doc) {
       
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.cache.get("693274563961815060").send({MessageEmbed: {
+      discord.channels.cache.get("693274563961815060").send({embed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -270,7 +270,7 @@ docRef.get().then(function(doc) {
       db.collection('users').doc(`${req.query.id}`).set({immigration: "owned"},{merge: true});
             roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.cache.get("693274563961815060").send({MessageEmbed: {
+      discord.channels.cache.get("693274563961815060").send({embed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -290,7 +290,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                          discord.channels.cache.get("674502197769404427").send({MessageEmbed: {
+                          discord.channels.cache.get("674502197769404427").send({embed: {
                 color: 3447003,
         author: {
           name: info.username,
@@ -328,7 +328,7 @@ docRef.get().then(function(doc) {
             db.collection('users').doc(`${req.query.id}`).set({staffpanel: "owned"},{merge: true});
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.cache.get("693274563961815060").send({MessageEmbed: {
+      discord.channels.cache.get("693274563961815060").send({embed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -347,7 +347,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                discord.channels.cache.get("674502197769404427").send({MessageEmbed: {
+                discord.channels.cache.get("674502197769404427").send({embed: {
                 color: 3447003,
         author: {
           name: info.username,

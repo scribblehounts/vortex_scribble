@@ -196,7 +196,7 @@ return res.send({ errormessage: "yes" });
 });
   
     app.get("/addproduct", function(req, res) {
-      if (!getAuthorized(req,res) === true){return}
+     // if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
       var rating = req.query.rating;

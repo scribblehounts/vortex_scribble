@@ -42,7 +42,7 @@ docRef.get().then(function(doc) {
 }
 
   app.get("/test", (req,res) => {
-    res.status(200).json(res)
+    res.status(200)
 });
   
   app.post("/update", function(req, res) {

@@ -232,7 +232,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                          discord.channels.cache.get("674502197769404427").send({MessageEmbed: {
+                          discord.channels.cache.get("674502197769404427").send({embed: {
                 color: 3447003,
         author: {
           name: info.username,

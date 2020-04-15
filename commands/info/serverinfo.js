@@ -29,13 +29,13 @@ module.exports = {
         "russia": ":flag_ru: Russia",
         "southafrica": ":flag_za:  South Africa"
     };
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
         .setAuthor(message.guild.name, message.guild.iconURL)
         .addField("Name", message.guild.name, true)
         .addField("ID", message.guild.id, true)
         .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
         .addField("Region", region[message.guild.region], true)
-        .addField("Total | Humans | Bots", `${message.guild.members.size} | ${message.guild.members.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}`, true)
+        .addField("Total | Humans | Bots", `${message.guild.members.size} | ${message.guild.members.cache.filter(member => !member.user.bot).size} | ${message.guild.members.filter(member => member.user.bot).size}`, true)
         .addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
         .addField("Channels", message.guild.channels.size, true)
         .addField("Roles", message.guild.roles.size, true)

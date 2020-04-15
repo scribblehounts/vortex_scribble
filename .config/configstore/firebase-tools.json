@@ -1,0 +1,45 @@
+{
+	"analytics-uuid": "f1e6d818-6a22-4276-a1df-66d0b0e6eca8",
+	"motd": {
+		"minVersion": "3.0.5"
+	},
+	"motd.fetched": 1580083861073,
+	"usage": false,
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "106430274701597196726",
+		"email": "edwintie1899@gmail.com",
+		"email_verified": true,
+		"at_hash": "u6T6wwPHm2Jy4q7l3BPtrg",
+		"iat": 1580083925,
+		"exp": 1580087525
+	},
+	"tokens": {
+		"expires_at": 1580087540282,
+		"refresh_token": "1//0d3mhhXmQ4MBECgYIARAAGA0SNwF-L9IrQWP3IjgDuCKMOJ3VlYp3Z3r4F9KkSJ5aIimkRO2lepg_3BHMQqG2YFghg7idR9ReEBU",
+		"scopes": [
+			"email",
+			"https://www.googleapis.com/auth/cloud-platform",
+			"https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+			"https://www.googleapis.com/auth/firebase",
+			"openid"
+		],
+		"access_token": "ya29.ImW7B34KyKZ1S8kzPBkp_jp-GJnlOjerda7j9V_Lo5byNnOGcClZCL_jCYef58MjK5h_U3q0kgGOSWipQjGqsBP8zpnKMLkn0sH-Cdnuzs668rSKS35twg3XtTltsvX049qLVhT-aA",
+		"expires_in": 3599,
+		"scope": "https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase https://www.googleapis.com/auth/cloud-platform openid https://www.googleapis.com/auth/userinfo.email",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImJhZDM5NzU0ZGYzYjI0M2YwNDI4YmU5YzUzNjFkYmE1YjEwZmZjYzAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA2NDMwMjc0NzAxNTk3MTk2NzI2IiwiZW1haWwiOiJlZHdpbnRpZTE4OTlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJyeHVhRkRZLWdNdFRibGRtUExGdUN3IiwiaWF0IjoxNTgwMDgzOTQxLCJleHAiOjE1ODAwODc1NDF9.SxupXZh0MGVuz8PjXowr7nKzO8wdqt5DlJhXpXNScSi3J6N-p-av97qLRePymRTzs9LmOQLU2tKTkilC0qplIHs12_tI5wfcT41ceLg02nP2JiZ4bB3iRjUnuij0C7G1IXikFlkqzQDynFSovJGf_1TC4lIY39lLO_IQHIvH8Cxst0C135xPl833jkFBpUm_tOKsdZmvbKs4Fh0IJuwilKFdQ2k3dp6xgFfGZ3sNT5m3cItnpk57BIit26or10cxpJhmZ5aFNqNa96LXU6iGvoCYCIZFKVr_pp16Ko0BVjo0fY4SANyvr-HO2n1V3uZBPZEGfbVedk0TUfuEo4RffA"
+	},
+	"loginScopes": [
+		"email",
+		"openid",
+		"https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+		"https://www.googleapis.com/auth/firebase",
+		"https://www.googleapis.com/auth/cloud-platform"
+	],
+	"activeProjects": {
+		"/app": "vortex"
+	}
+}

@@ -28,14 +28,14 @@ var app = express();
  client.categories = fs.readdirSync("./commands/");
 
 client.on("guildMemberAdd", member => {
-  let channel = client.channels.get("671258373303566336");
+  let channel = client.channels.cache.get("671258373303566336");
 
-  var role = member.guild.roles.find("name", "Customer");
+  var role = member.guild.roles.cache.find("name", "Customer");
   member.addRole(role).then(function(){
     
   });
 
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
     .setColor("#2ecc71")
     .setTitle(`**Welcome**`)
     .setDescription(
@@ -62,7 +62,7 @@ client.on("ready", () => {
   
   
   
-  const channel = client.channels.get("671261326483390464");
+  const channel = client.channels.cache.get("671261326483390464");
   if (!channel) return console.error("The channel does not exist!");
   channel.join().then(connection => {
     // Yay, it worked!
@@ -83,23 +83,23 @@ client.on("ready", () => {
     }
   });
   
-  let myGuild = client.guilds.get('670903593737519104');
+  let myGuild = client.guilds.cache.get('670903593737519104');
   let memberCount = myGuild.memberCount;
-  let memberCountChannel = myGuild.channels.get('671261326483390464')
+  let memberCountChannel = myGuild.channels.cache.get('671261326483390464')
   memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
 });
 
 client.on('guildMemberAdd', member => {
-  let myGuild = client.guilds.get('670903593737519104');
+  let myGuild = client.guilds.cache.get('670903593737519104');
   let memberCount = myGuild.memberCount;
-  let memberCountChannel = myGuild.channels.get('671261326483390464')
+  let memberCountChannel = myGuild.channels.cache.get('671261326483390464')
   memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
 });
 
 client.on('guildMemberRemove', member => {
-  let myGuild = client.guilds.get('670903593737519104');
+  let myGuild = client.guilds.cache.get('670903593737519104');
   let memberCount = myGuild.memberCount;
-  let memberCountChannel = myGuild.channels.get('671261326483390464')
+  let memberCountChannel = myGuild.channels.cache.get('671261326483390464')
   memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
 });
 
@@ -130,8 +130,8 @@ client.on("message", async message => {
     !message.author.bot &&
     message.guild // make sure it's a non-private messages
   ) {
-      let myGuild = client.guilds.get('670903593737519104');
-      let memberCountChannel = myGuild.channels.get('675498297212928021').send("@everyone HELP HELP RAID ALERT RAID ALERT!!!! " + message.author.tag + " IS USING A FUCKING SELF BOT!")
+      let myGuild = client.guilds.cache.get('670903593737519104');
+      let memberCountChannel = myGuild.channels.cache.get('675498297212928021').send("@everyone HELP HELP RAID ALERT RAID ALERT!!!! " + message.author.tag + " IS USING A FUCKING SELF BOT!")
       message.member.kick({days:7,reason:"suspected raid? : self bot"})
     }
   

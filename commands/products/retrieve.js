@@ -19,34 +19,34 @@ module.exports = {
           
           var retrievedlist = []
           
-           if(!message.member.roles.find(r => r.name === "IFE Client")){
+           if(!message.member.roles.cache.find(r => r.name === "IFE Client")){
           exist.forEach(doc => {
             if (doc.data().ife){
-              message.member.addRole(message.guild.roles.find(role => role.name === "IFE Client"));
+              message.member.addRole(message.guild.roles.cache.find(role => role.name === "IFE Client"));
 retrievedlist.push("IFE Client");
             }
           })
            };
-                     if(!message.member.roles.find(r => r.name === "Immigration")){
+                     if(!message.member.roles.cache.find(r => r.name === "Immigration")){
           exist.forEach(doc => {
             if (doc.data().immigration){
-              message.member.addRole(message.guild.roles.find(role => role.name === "Immigration"));
+              message.member.addRole(message.guild.roles.cache.find(role => role.name === "Immigration"));
 retrievedlist.push("Immigration");
             }
           })
            };
           
-                               if(!message.member.roles.find(r => r.name === "Staff Panel")){
+                               if(!message.member.roles.cache.find(r => r.name === "Staff Panel")){
           exist.forEach(doc => {
             if (doc.data().staffpanel){
-              message.member.addRole(message.guild.roles.find(role => role.name === "Staff Panel"));
+              message.member.addRole(message.guild.roles.cache.find(role => role.name === "Staff Panel"));
 retrievedlist.push("Staff Panel");
             }
           })
            };
              
           if(retrievedlist.length < 1 || retrievedlist === undefined){
-                        let embed = new Discord.RichEmbed()
+                        let embed = new Discord.MessageEmbed()
              .setColor(3447003)
              .setTimestamp()
              .setTitle("Couldn't find any products!")
@@ -55,7 +55,7 @@ retrievedlist.push("Staff Panel");
             return
           }
           
-            let embed = new Discord.RichEmbed()
+            let embed = new Discord.MessageEmbed()
              .setColor(3447003)
              .setTimestamp()
              .setTitle("Retrieved!")

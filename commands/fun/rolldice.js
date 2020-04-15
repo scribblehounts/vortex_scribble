@@ -14,7 +14,7 @@ module.exports = {
 
   let result = Math.floor((Math.random() * replies.length))
 
-  let ballembed = new Discord.RichEmbed()
+  let ballembed = new Discord.MessageEmbed()
   .setAuthor(message.author.tag)
   .setColor("#000000")
   .addField("Your Dice number is...", replies[result])

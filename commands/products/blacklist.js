@@ -22,7 +22,7 @@ if (message.member.roles.some(role => role.name === 'Owner')){
     if (doc.exists) {
       db.collection('users').doc(`${args[1]}`).set({blacklisted: "by: "+ message.author.id + " alias: " + message.author.tag},{merge: true});
 
-            return message.channel.send(new Discord.RichEmbed().setTitle("Blacklisted").setDescription(`**BLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
+            return message.channel.send(new Discord.MessageEmbed().setTitle("Blacklisted").setDescription(`**BLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
       }
 
 })
@@ -36,7 +36,7 @@ if (message.member.roles.some(role => role.name === 'Owner')){
           exist.forEach(doc => {
                 db.collection('users').doc(doc.id).set({blacklisted: "by: "+ message.author.id + " alias: " + message.author.tag},{merge: true});
 
-            return message.channel.send(new Discord.RichEmbed().setTitle("Blacklisted").setDescription(`**BLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
+            return message.channel.send(new Discord.MessageEmbed().setTitle("Blacklisted").setDescription(`**BLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
           })
         })
   

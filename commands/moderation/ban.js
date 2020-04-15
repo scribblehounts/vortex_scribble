@@ -7,7 +7,7 @@ module.exports = {
   category: "moderation",
   description: "To ban",
   run: async(client,message,args) => {
-const logChannel = message.guild.channels.find(c => c.name === "logs") || message.channel;
+const logChannel = message.guild.channels.cache.find(c => c.name === "logs") || message.channel;
 
         if (message.deletable) message.delete();
 
@@ -55,7 +55,7 @@ const logChannel = message.guild.channels.find(c => c.name === "logs") || messag
                 .then(m => m.delete(5000));
         }
         
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor("#ff0000")
             .setThumbnail(toBan.user.displayAvatarURL)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)
@@ -64,7 +64,7 @@ const logChannel = message.guild.channels.find(c => c.name === "logs") || messag
             **> banned by:** ${message.member} (${message.member.id})
             **> Reason:** ${args.slice(1).join(" ")}`);
 
-        const promptEmbed = new RichEmbed()
+        const promptEmbed = new MessageEmbed()
             .setColor("GREEN")
             .setAuthor(`This verification becomes invalid after 30s.`)
             .setDescription(`Do you want to ban ${toBan}?`)

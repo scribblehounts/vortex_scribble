@@ -7,7 +7,7 @@ module.exports = {
     run: async (bot, message, args) => {
 
     if(!message.member.hasPermission(["MANAGE_MESSAGES", "ADMINISTRATOR"])) return message.channel.send("You can not use this command!")
-      message.channel.send(new Discord.RichEmbed().setImage("https://imgur.com/WteCcZO.png").setColor("#4d91ff"))
+      message.channel.send(new Discord.MessageEmbed().setImage("https://imgur.com/WteCcZO.png").setColor("#4d91ff"))
       
     }
 }

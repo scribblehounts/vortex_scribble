@@ -12,7 +12,7 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-    if (message.member.roles.some(role => role.name === 'Mod')) {
+    if (message.member.roles.cache.some(role => role.name === 'Mod')) {
       var username = args[1];
       var second = args[2];
       if(!username){
@@ -28,7 +28,7 @@ docRef.get().then(function(doc) {
       
       db.collection('users').doc(`${second}`).set({ife: "owned"},{merge: true});
 
-            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
+            message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
       }
 
 })
@@ -42,7 +42,7 @@ docRef.get().then(function(doc) {
       
       db.collection('users').doc(`${second}`).set({immigration: "owned"},{merge: true});
 
-            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
+            message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
       }
 
 })
@@ -56,7 +56,7 @@ docRef.get().then(function(doc) {
       
       db.collection('users').doc(`${second}`).set({staffpanel: "owned"},{merge: true});
 
-            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
+            message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
       }
 
 })

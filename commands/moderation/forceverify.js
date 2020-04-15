@@ -75,19 +75,19 @@ module.exports = {
       var username = args[1];
       var discord = message.mentions.users.first().id.replace('<@', '').replace('>', '').replace('!', '');
       console.log(discord)
-      var chosenName = message.guild.members.get(discord);
+      var chosenName = message.guild.members.cache.get(discord);
       if (username || discord){
         roblox.getIdFromUsername(username).then(id => {
           var RealName = roblox.getUsernameFromId(id).tap(function(userna){
-            message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${args[2]} Has been force verified!**`).setFooter("Verification").setColor("#2ecc71"))
+            message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${args[2]} Has been force verified!**`).setFooter("Verification").setColor("#2ecc71"))
             chosenName.setNickname(userna);
-            chosenName.addRole(message.guild.roles.find(role => role.name === "Customer"));
-           chosenName.removeRole(message.guild.roles.find(role => role.name === "unverified"));
-                                       if(message.member.roles.find(r => r.name === "Customer")){
+            chosenName.addRole(message.guild.roles.cache.find(role => role.name === "Customer"));
+           chosenName.removeRole(message.guild.roles.cache.find(role => role.name === "unverified"));
+                                       if(message.member.roles.cache.find(r => r.name === "Customer")){
                              
                            } else {
                         message.member.addRole(
-                            message.guild.roles.find(
+                            message.guild.roles.cache.find(
                               role => role.name === "Customer"
                             )
                           );
@@ -96,7 +96,7 @@ module.exports = {
           })
         })
       } else {
-        message.channel.send(new Discord.RichEmbed().setTitle("Error").setDescription(`**You must have the persons username and discord tokenID!.**`).setFooter("Verification").setColor("#ff4757"))
+        message.channel.send(new Discord.MessageEmbed().setTitle("Error").setDescription(`**You must have the persons username and discord tokenID!.**`).setFooter("Verification").setColor("#ff4757"))
       }
     } else {
       message.reply("you dont have sufficient permissions")

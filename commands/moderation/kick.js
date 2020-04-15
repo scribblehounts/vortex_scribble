@@ -1,13 +1,13 @@
-const { RichEmbed } = require("discord.js");
+const Discord = require("discord.js");
 const { stripIndents } = require("common-tags");
 const { promptMessage } = require("../../functions.js");
 
 module.exports = {
   name: "kick",
-  category: "fun",
+  category: "moderation",
   description: "To kick a member",
   run: async(client,message,args) => {
-        const logChannel = message.guild.channels.find(c => c.name === "logs") || message.channel;
+        const logChannel = message.guild.channels.cache.find(c => c.name === "logs") || message.channel;
 
         if (message.deletable) message.delete();
 
@@ -55,7 +55,7 @@ module.exports = {
                 .then(m => m.delete(5000));
         }
                 
-        const embed = new RichEmbed()
+        const embed = new Discord.MessageEmbed()
             .setColor("#ff0000")
             .setThumbnail(toKick.user.displayAvatarURL)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)
@@ -64,7 +64,7 @@ module.exports = {
             **> Kicked by:** ${message.member} (${message.member.id})
             **> Reason:** ${args.slice(1).join(" ")}`);
 
-        const promptEmbed = new RichEmbed()
+        const promptEmbed = new Discord.MessageEmbed()
             .setColor("GREEN")
             .setAuthor(`This verification becomes invalid after 30s.`)
             .setDescription(`Do you want to kick ${toKick}?`)

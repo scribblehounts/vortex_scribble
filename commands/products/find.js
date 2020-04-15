@@ -12,7 +12,7 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-if (message.member.roles.some(role => role.name === 'Mod')){
+if (message.member.roles.cache.some(role => role.name === 'Mod')){
   
   var username = message.mentions.members.first()
   var second = args[2];
@@ -29,9 +29,9 @@ if (message.member.roles.some(role => role.name === 'Mod')){
   var docRef = db.collection('users').where('discord','==',username.id).get().then(exist => {
               exist.forEach(doc => {
             if (doc.data().ife){
-      message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
+      message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
             } else {
-    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
+    message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
   }
 })
 })
@@ -41,9 +41,9 @@ if (message.member.roles.some(role => role.name === 'Mod')){
   var docRef = db.collection('users').where('discord','==',username.id).get().then(exist => {
               exist.forEach(doc => {
             if (doc.data().immigration){
-      message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
+      message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
             } else {
-    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
+    message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
   }
 })
 })
@@ -53,9 +53,9 @@ if (message.member.roles.some(role => role.name === 'Mod')){
   var docRef = db.collection('users').where('discord','==',username.id).get().then(exist => {
               exist.forEach(doc => {
             if (doc.data().staffpanel){
-      message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
+      message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${username} owns ${second}**`).setFooter("Product System").setColor("#2ecc71"))
             } else {
-    message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
+    message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${username} doesn't own ${second}**`).setFooter("Product System").setColor("#2ecc71"))            
   }
 })
 })

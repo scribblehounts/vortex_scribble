@@ -10,30 +10,30 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "ascii-table": "^0.0.9",
+    "array-sort": "^1.0.0",
+    "ascii-table": "0.0.9",
     "bloxy": "^4.0.0-alpha3",
     "body-parser": "^1.19.0",
     "common-tags": "^1.8.0",
-    "discord.js": "^11.6.3",
+    "discord.js": "^11.6.4",
     "djs-commands": "^1.2.2",
     "dotenv": "^8.2.0",
     "enmap": "^5.2.4",
     "express": "^4.17.1",
-    "firebase": "^7.13.2",
+    "firebase": "^7.14.0",
     "firebase-admin": "^8.10.0",
-    "firebase-tools": "^8.0.1",
-    "noblox.js": "^4.5.4",
-    "satelize": "^0.2.0",
-    "request-ip": "^2.1.3",
-    "ms": "^2.1.2",
+    "firebase-tools": "^8.0.3",
     "math-expression-evaluator": "^1.2.22",
-    "array-sort": "^1.0.0",
-    "table": "^5.4.6",
+    "ms": "^2.1.2",
+    "noblox.js": "^4.5.5",
     "quick.hook": "^1.5.1",
-    "snekfetch": "^4.0.4"
+    "request-ip": "^2.1.3",
+    "satelize": "^0.2.0",
+    "snekfetch": "^4.0.4",
+    "table": "^5.4.6"
   },
   "engines": {
-    "node": "10.x"
+    "node": "13.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/brick-theater-mw39xi4x98"

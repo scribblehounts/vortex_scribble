@@ -12,7 +12,7 @@ let username = args[0]
          if (id) {
            roblox.getPlayerInfo(parseInt(id)).then(function(info) {
              let date = new Date(info.joinDate) // states join date
-             let embed = new Discord.RichEmbed() // starts a new embed
+             let embed = new Discord.MessageEmbed() // starts a new embed
 
              .setColor("#f9ae00") // sets the color of the embed
              .setURL(`https://roblox.com/users/${id}/profile`) // base link, changed by the variables 'id'

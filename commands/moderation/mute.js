@@ -10,7 +10,7 @@ if(!message.member.hasPermission("MANAGE_ROLES") || !message.guild.owner) return
 if(!message.guild.me.hasPermission(["MANAGE_ROLES", "ADMINISTRATOR"])) return message.channel.send("I don't have permission to add roles!")
 
 //define the reason and mutee
-let mutee = message.mentions.members.first() || message.guild.members.get(args[0]);
+let mutee = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 if(!mutee) return message.channel.send("Please supply a user to be muted!");
 
 let reason = args.slice(1).join(" ");
@@ -47,7 +47,7 @@ mutee.addRole(muterole.id).then(() => {
 })
 
 //send an embed to the modlogs channel
-let embed = new Discord.RichEmbed()
+let embed = new Discord.MessageEmbed()
 .setColor("#ff4757")
 .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL)
 .addField("Moderation:", "mute")
@@ -56,7 +56,7 @@ let embed = new Discord.RichEmbed()
 .addField("Reason:", reason)
 .addField("Date:", message.createdAt.toLocaleString())
 
-let sChannel = message.guild.channels.find(c => c.name === "logs")
+let sChannel = message.guild.channels.cache.find(c => c.name === "logs")
 sChannel.send(embed)
   }
 }

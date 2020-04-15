@@ -46,7 +46,7 @@ module.exports = {
         const Input = '```js\n' + message.content.slice(6) + '\n```';
         let type = typeof (evaled);
         if (func.length < 1000) {
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
                 .addField('EVAL', `**Type:** ${type}`)
                 .addField(':inbox_tray: Input', Input)
                 .addField(':outbox_tray: Output', output)
@@ -56,7 +56,7 @@ module.exports = {
         } else {
             snekfetch.post('https://www.hastebin.com/documents').send(func)
                 .then(res => {
-                    const embed = new Discord.RichEmbed()
+                    const embed = new Discord.MessageEmbed()
                         .addField('EVAL', `**Type:** ${type}`)
                         .addField(':inbox_tray: Input', Input)
                         .addField(':outbox_tray: Output', `Output was to long so it was uploaded to hastebin https://www.hastebin.com/${res.body.key}.js `, true)
@@ -65,7 +65,7 @@ module.exports = {
                 })
                 .catch(err => {
                     client.logger.error(err);
-                    const embed = new Discord.RichEmbed()
+                    const embed = new Discord.MessageEmbed()
                         .addField('EVAL', `**Type:** ${type}`)
                         .addField(':inbox_tray: Input', Input)
                         .addField(':x: ERROR', `Output was to long and could not upload to hastebin`, true)
@@ -78,7 +78,7 @@ module.exports = {
         const error = '```js\n' + errIns + '\n```';
         const Input = '```js\n' + message.content.slice(6) + '\n```';
         if (errIns.length < 1000) {
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
                 .addField('EVAL', `**Type:** Error`)
                 .addField(':inbox_tray: Input', Input)
                 .addField(':x: ERROR', error, true)
@@ -87,7 +87,7 @@ module.exports = {
         } else {
             snekfetch.post('https://www.hastebin.com/documents').send(errIns)
                 .then(res => {
-                    const embed = new Discord.RichEmbed()
+                    const embed = new Discord.MessageEmbed()
                         .setTitle('Eval Error')
                         .addField('EVAL', `**Type:** Error`)
                         .addField(':inbox_tray: Input', Input)
@@ -98,7 +98,7 @@ module.exports = {
                 })
                 .catch(err => {
                     client.logger.error(err);
-                    const embed = new Discord.RichEmbed()
+                    const embed = new Discord.MessageEmbed()
                         .addField('Eval', `**Type:** Error`)
                         .addField(':inbox_tray: Input', Input)
                         .addField(':x: ERROR', `The output was too long`, true)

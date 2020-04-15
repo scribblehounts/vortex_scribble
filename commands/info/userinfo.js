@@ -5,7 +5,7 @@ module.exports = {
   category: "moderation",
   description: "weirdo custom game",
   run: async(client,message,args) => {
- let uEmbed = new Discord.RichEmbed()
+ let uEmbed = new Discord.MessageEmbed()
     .setColor("#ff4757")
     .setTitle("Server Info")
     .setThumbnail(message.guild.iconURL)

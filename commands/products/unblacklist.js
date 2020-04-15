@@ -12,7 +12,7 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-if (message.member.roles.some(role => role.name === 'Owner')){
+if (message.member.roles.cache.some(role => role.name === 'Owner')){
   
   var username = message.mentions.members.first()
   
@@ -22,7 +22,7 @@ if (message.member.roles.some(role => role.name === 'Owner')){
     if (doc.exists) {
       db.collection('users').doc(`${args[1]}`).update({blacklisted: FieldValue.delete() });
 
-            return message.channel.send(new Discord.RichEmbed().setTitle("Unblacklisted").setDescription(`**UNBLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
+            return message.channel.send(new Discord.MessageEmbed().setTitle("Unblacklisted").setDescription(`**UNBLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
       }
 
 })
@@ -36,7 +36,7 @@ if (message.member.roles.some(role => role.name === 'Owner')){
           exist.forEach(doc => {
                 db.collection('users').doc(doc.id).update({blacklisted: FieldValue.delete()});
 
-            return message.channel.send(new Discord.RichEmbed().setTitle("Unblacklisted").setDescription(`**UNBLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
+            return message.channel.send(new Discord.MessageEmbed().setTitle("Unblacklisted").setDescription(`**UNBLACKLISTED** `  + args[1]).setFooter("Product System").setColor("#2ecc71"))
           })
         })
   

@@ -20,7 +20,7 @@ delete data["discord"];
         
 
 
-             let embed = new Discord.RichEmbed() // starts a new embed
+             let embed = new Discord.MessageEmbed() // starts a new embed
 
              .setColor(3447003) // sets the color of the embed
              .setTimestamp()

@@ -8,7 +8,7 @@ module.exports = {
     try {
     // Verify Input
     if (!args[0]) {
-            const args = new Discord.RichEmbed()
+            const args = new Discord.MessageEmbed()
         .setColor(0xffffff)
         .setFooter('Please input an expression number to evaluate');
         
@@ -29,7 +29,7 @@ module.exports = {
         
     }
         
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
   .setColor(0xffffff)
   .addField('Input', `\`\`\`js\n${args.join(' ')}\`\`\``)
   .addField('Output', `\`\`\`js\n${result}\`\`\``);

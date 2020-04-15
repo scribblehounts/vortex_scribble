@@ -42,7 +42,7 @@ docRef.get().then(function(doc) {
 }
 
   app.get("/test", (req,res) => {
-  res.sendStatus(200);
+    res.status(200).json(res)
 });
   
   app.post("/update", function(req, res) {
@@ -207,14 +207,14 @@ docRef.get().then(function(doc) {
         discord.users.get(doc.data().discord).send("Thank you for purchasing the IFE! You have been automatically roled to IFE Client in the Vortex Server!");      
                 let myGuild = discord.guilds.get('670903593737519104');
     let member = myGuild.members.get(doc.data().discord)
-    member.addRole(myGuild.roles.find(role => role.name === "IFE Client"));
+    member.addRole(myGuild.roles.cache.find(role => role.name === "IFE Client"));
             db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
       
 
       
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.get("693274563961815060").send({embed: {
+      discord.channels.get("693274563961815060").send({MessageEmbed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -232,7 +232,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                          discord.channels.get("674502197769404427").send({embed: {
+                          discord.channels.get("674502197769404427").send({MessageEmbed: {
                 color: 3447003,
         author: {
           name: info.username,
@@ -266,11 +266,11 @@ docRef.get().then(function(doc) {
         discord.users.get(doc.data().discord).send("Thank you for purchasing the Immigration System! You have been automatically roled to Immigration in the Vortex Server!");      
                 let myGuild = discord.guilds.get('670903593737519104');
     let member = myGuild.members.get(doc.data().discord)
-    member.addRole(myGuild.roles.find(role => role.name === "Immigration"));
+    member.addRole(myGuild.roles.cache.find(role => role.name === "Immigration"));
       db.collection('users').doc(`${req.query.id}`).set({immigration: "owned"},{merge: true});
             roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.get("693274563961815060").send({embed: {
+      discord.channels.get("693274563961815060").send({MessageEmbed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -290,7 +290,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                          discord.channels.get("674502197769404427").send({embed: {
+                          discord.channels.get("674502197769404427").send({MessageEmbed: {
                 color: 3447003,
         author: {
           name: info.username,
@@ -324,11 +324,11 @@ docRef.get().then(function(doc) {
         discord.users.get(doc.data().discord).send("Thank you for purchasing the Staff Panel! You have been automatically roled to Staff Panel in the Vortex Server!");      
                 let myGuild = discord.guilds.get('670903593737519104');
     let member = myGuild.members.get(doc.data().discord)
-    member.addRole(myGuild.roles.find(role => role.name === "Staff Panel"));
+    member.addRole(myGuild.roles.cache.find(role => role.name === "Staff Panel"));
             db.collection('users').doc(`${req.query.id}`).set({staffpanel: "owned"},{merge: true});
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.get("693274563961815060").send({embed: {
+      discord.channels.get("693274563961815060").send({MessageEmbed: {
         color: 3447003,
         author: {
           name: info.username,
@@ -347,7 +347,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                discord.channels.get("674502197769404427").send({embed: {
+                discord.channels.get("674502197769404427").send({MessageEmbed: {
                 color: 3447003,
         author: {
           name: info.username,

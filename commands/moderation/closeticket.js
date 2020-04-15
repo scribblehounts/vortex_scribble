@@ -8,7 +8,7 @@ module.exports = {
 if (message.author.bot) return; // Dont answer yourself.
          var args = message.content.split(/[ ]+/)
 if (message.channel.name.toString().length >= 17){
-  message.channel.send(new Discord.RichEmbed().setTitle("Support Ticket").setDescription("Closing Ticket in 5 seconds!"))
+  message.channel.send(new Discord.MessageEmbed().setTitle("Support Ticket").setDescription("Closing Ticket in 5 seconds!"))
 setTimeout(function(){
   message.channel.delete()
 },5000)

@@ -195,11 +195,35 @@ return res.send({ errormessage: "yes" });
 }
 });
   
+app.get("/rating", function(req, res) {
+  if (!getAuthorized(req,res) === true){return}
+  if (req.query.rating){
+    discord.channels.cache.get("674502197769404427").send({embed: {
+      color: 3447003,
+author: {
+name: info.username,
+icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+},
+title: user,
+
+fields: [{
+name: "Ratings",
+value: req.query.rating + " out of 100"
+}
+
+],
+timestamp: new Date(),
+footer: {
+text: "Vortex Purchasing"
+}
+}})
+  }
+});
+
     app.get("/addproduct", function(req, res) {
      if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
     var user = req.query.id;
-      var rating = req.query.rating;
       var docRef = db.collection("users").doc(user);
       if (req.query.data === "ife") {
 docRef.get().then(function(doc) {
@@ -226,25 +250,6 @@ docRef.get().then(function(doc) {
           name: "Purchase Received",
           value: "Product: IFE"
         }
-      ],
-        timestamp: new Date(),
-        footer: {
-          text: "Vortex Purchasing"
-        }
-      }})
-                          discord.channels.cache.get("674502197769404427").send({embed: {
-                color: 3447003,
-        author: {
-          name: info.username,
-          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
-        },
-        title: user,
-        
-        fields: [{
-          name: "Ratings",
-          value: rating + " out of 100"
-        }
-
       ],
         timestamp: new Date(),
         footer: {
@@ -290,25 +295,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                          discord.channels.cache.get("674502197769404427").send({embed: {
-                color: 3447003,
-        author: {
-          name: info.username,
-          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
-        },
-        title: user,
-        
-        fields: [{
-          name: "Ratings",
-          value: rating + " out of 100"
-        }
-
-      ],
-        timestamp: new Date(),
-        footer: {
-          text: "Vortex Purchasing"
-        }
-      }})
+                         
         })
       })
     return res.send({ success: "true" })
@@ -347,25 +334,7 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
-                discord.channels.cache.get("674502197769404427").send({embed: {
-                color: 3447003,
-        author: {
-          name: info.username,
-          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
-        },
-        title: user,
-        
-        fields: [{
-          name: "Ratings",
-          value: rating + " out of 100"
-        }
-
-      ],
-        timestamp: new Date(),
-        footer: {
-          text: "Vortex Purchasing"
-        }
-      }})
+                
         })
       })
 

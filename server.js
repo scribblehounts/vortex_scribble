@@ -77,8 +77,8 @@ client.on("ready", () => {
   console.log("Online!");
   client.user.setStatus("available");
   client.user.setPresence({
-    game: {
-      activites: "buy the products now",
+    activities: {
+      name: "buy the products now",
       type: "STREAMING",
     }
   });

@@ -198,6 +198,7 @@ return res.send({ errormessage: "yes" });
 app.get("/rating", function(req, res) {
   //if (!getAuthorized(req,res) === true){return}
   if (req.query.rating){
+    var user = req.query.user
     res.send({ success: "true" })
     roblox.getUsernameFromId(user).then(a => {
       roblox.getPlayerInfo(user).then(function(info) {

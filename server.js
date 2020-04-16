@@ -31,7 +31,7 @@ client.on("guildMemberAdd", member => {
   let channel = client.channels.cache.get("671258373303566336");
 
   var role = member.guild.roles.cache.find("name", "Customer");
-  member.addRole(role).then(function(){
+  member.roles.add(role).then(function(){
     
   });
 
@@ -78,7 +78,7 @@ client.on("ready", () => {
   client.user.setStatus("available");
   client.user.setPresence({
     game: {
-      name: "buy the products now",
+      activites: "buy the products now",
       type: "STREAMING",
     }
   });
@@ -153,7 +153,7 @@ client.on("message", async message => {
   
   // If message.member is uncached, cache it.
   if (!message.member)
-    message.member = await message.guild.fetchMember(message);
+    message.member = await message.guild.fetch(message);
 
   const args = message.content
     .slice(prefix.length)

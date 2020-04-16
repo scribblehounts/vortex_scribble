@@ -35,7 +35,7 @@ module.exports = {
                 .then(m => m.delete(5000));
         }
 
-        const toKick = message.mentions.members.first() || message.guild.members.get(args[0]);
+        const toKick = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
         // No member found
         if (!toKick) {

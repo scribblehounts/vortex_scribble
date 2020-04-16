@@ -40,7 +40,7 @@ if(!muterole) {
 }
 
 //add role to the mentioned user and also send the user a dm explaing where and why they were muted
-mutee.addRole(muterole.id).then(() => {
+mutee.roles.add(muterole.id).then(() => {
     message.delete()
     mutee.send(`Hello, you have been in ${message.guild.name} for: ${reason}`).catch(err => console.log(err))
     message.channel.send(`${mutee.user.username} was successfully muted.`)

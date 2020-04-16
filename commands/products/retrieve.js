@@ -22,7 +22,7 @@ module.exports = {
            if(!message.member.roles.cache.find(r => r.name === "IFE Client")){
           exist.forEach(doc => {
             if (doc.data().ife){
-              message.member.addRole(message.guild.roles.cache.find(role => role.name === "IFE Client"));
+              message.member.roles.add(message.guild.roles.cache.find(role => role.name === "IFE Client"));
 retrievedlist.push("IFE Client");
             }
           })
@@ -30,7 +30,7 @@ retrievedlist.push("IFE Client");
                      if(!message.member.roles.cache.find(r => r.name === "Immigration")){
           exist.forEach(doc => {
             if (doc.data().immigration){
-              message.member.addRole(message.guild.roles.cache.find(role => role.name === "Immigration"));
+              message.member.roles.add(message.guild.roles.cache.find(role => role.name === "Immigration"));
 retrievedlist.push("Immigration");
             }
           })
@@ -39,7 +39,7 @@ retrievedlist.push("Immigration");
                                if(!message.member.roles.cache.find(r => r.name === "Staff Panel")){
           exist.forEach(doc => {
             if (doc.data().staffpanel){
-              message.member.addRole(message.guild.roles.cache.find(role => role.name === "Staff Panel"));
+              message.member.roles.add(message.guild.roles.cache.find(role => role.name === "Staff Panel"));
 retrievedlist.push("Staff Panel");
             }
           })

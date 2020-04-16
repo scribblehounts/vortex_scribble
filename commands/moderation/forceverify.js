@@ -33,7 +33,7 @@ const collector = message.channel.createMessageCollector(filter, { time: 15000 }
          var realNmae = roblox.getUsernameFromId(id).tap(function(name){
                     message.channel.send(new Discord.RichEmbed().setTitle("Success").setDescription(`**${name} Has been verified**`).setFooter("Verification").setColor("#2ecc71"))
                     message.member.setNickname(name)
-         message.member.addRole(message.guild.roles.find(role => role.name === "Customer"));
+         message.member.roles.add(message.guild.roles.find(role => role.name === "Customer"));
          message.member.removeRole(message.guild.roles.find(role => role.name === "Non-Verified"))
            var discord = message.author.id
                 db.collection('users').doc(`${id}`).set({discord}, {merge: true});
@@ -81,12 +81,12 @@ module.exports = {
           var RealName = roblox.getUsernameFromId(id).tap(function(userna){
             message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${args[2]} Has been force verified!**`).setFooter("Verification").setColor("#2ecc71"))
             chosenName.setNickname(userna);
-            chosenName.addRole(message.guild.roles.cache.find(role => role.name === "Customer"));
+            chosenName.roles.add(message.guild.roles.cache.find(role => role.name === "Customer"));
            chosenName.removeRole(message.guild.roles.cache.find(role => role.name === "unverified"));
                                        if(message.member.roles.cache.find(r => r.name === "Customer")){
                              
                            } else {
-                        message.member.addRole(
+                        message.member.roles.add(
                             message.guild.roles.cache.find(
                               role => role.name === "Customer"
                             )

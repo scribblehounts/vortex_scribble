@@ -30,7 +30,7 @@ var app = express();
 client.on("guildMemberAdd", member => {
   let channel = client.channels.cache.get("671258373303566336");
 
-  var role = member.guild.roles.cache.find(user => user.username === "Customer");
+  var role = member.guild.roles.cache.find(user => user.username === "Customer"); // yes
   member.roles.add(role).then(function(){
     
   });

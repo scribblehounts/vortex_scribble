@@ -198,6 +198,7 @@ return res.send({ errormessage: "yes" });
 app.get("/rating", function(req, res) {
   if (!getAuthorized(req,res) === true){return}
   if (req.query.rating){
+    
     discord.channels.cache.get("674502197769404427").send({embed: {
       color: 3447003,
 author: {
@@ -217,6 +218,7 @@ footer: {
 text: "Vortex Purchasing"
 }
 }})
+return res.send({ success: "true" })
   }
 });
 

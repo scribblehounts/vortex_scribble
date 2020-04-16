@@ -199,6 +199,8 @@ app.get("/rating", function(req, res) {
   //if (!getAuthorized(req,res) === true){return}
   if (req.query.rating){
     res.send({ success: "true" })
+    roblox.getUsernameFromId(user).then(a => {
+      roblox.getPlayerInfo(user).then(function(info) {
     discord.channels.cache.get("674502197769404427").send({embed: {
       color: 3447003,
 author: {
@@ -218,7 +220,10 @@ footer: {
 text: "Vortex Purchasing"
 }
 }})
+      })
+    })
   }
+  
 });
 
     app.get("/addproduct", function(req, res) {

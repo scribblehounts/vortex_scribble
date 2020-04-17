@@ -16,6 +16,11 @@ if (message.member.roles.cache.some(role => role.name === 'Owner')){
   
   var username = message.mentions.members.first()
   
+  if(!args[2]){
+    message.reply("subject not found! you didn't specifiy wether it was rubeus or ally sir.")
+    return
+  }
+
   if (!username){
         var docRef = db.collection("users").doc(args[1]);
     docRef.get().then(function(doc) {

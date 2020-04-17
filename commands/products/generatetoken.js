@@ -21,9 +21,15 @@ if (message.member.roles.cache.some(role => role.name === 'Owner')){
     docRef.get().then(function(doc) {
     if (doc.exists) {
       roblox.getUsernameFromId(doc.id).then(function(username){
+        if (args[2].toLowerCase() ==="rubeus"){
       db.collection('promocodes').doc(`${args[1]}`).set({CODE: "RUBEUS_"+username.toUpperCase(),CATEGORY: "REBEUS"},{merge: true});
          return message.channel.send(new Discord.MessageEmbed().setTitle("Success!").setDescription("Your Rubeus Promo Code Is: "+"RUBEUS_"+username.toUpperCase()).setFooter("Product System").setColor("#2ecc71"))
-      })
+        }
+        if (args[2].toLowerCase() ==="ally"){
+          db.collection('promocodes').doc(`${args[1]}`).set({CODE: "ALLY_"+username.toUpperCase(),CATEGORY: "ALLY"},{merge: true});
+          return message.channel.send(new Discord.MessageEmbed().setTitle("Success!").setDescription("Your Ally Promo Code Is: "+"ALLY_"+username.toUpperCase()).setFooter("Product System").setColor("#2ecc71"))
+        }
+        })
            
       }
 
@@ -37,8 +43,14 @@ if (message.member.roles.cache.some(role => role.name === 'Owner')){
         }
           exist.forEach(doc => {
             roblox.getUsernameFromId(doc.id).then(function(username){
+              if (args[2].toLowerCase() === "rubeus"){
                 db.collection('promocodes').doc(doc.id).set({CODE: "RUBEUS_"+username.toUpperCase(),CATEGORY: "REBEUS"},{merge: true});
               return message.channel.send(new Discord.MessageEmbed().setTitle("Success!").setDescription("Your Rubeus Promo Code Is: "+"RUBEUS_"+username.toUpperCase()).setFooter("Product System").setColor("#2ecc71"))
+              }
+              if (args[2].toLowerCase() === "ally"){
+                db.collection('promocodes').doc(doc.id).set({CODE: "ALLY_"+username.toUpperCase(),CATEGORY: "ALLY"},{merge: true});
+                return message.channel.send(new Discord.MessageEmbed().setTitle("Success!").setDescription("Your Ally Promo Code Is: "+"ALLY_"+username.toUpperCase()).setFooter("Product System").setColor("#2ecc71"))
+              }
             })
 
             

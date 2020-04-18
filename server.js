@@ -30,8 +30,8 @@ var app = express();
 client.on("guildMemberAdd", member => {
   let channel = client.channels.cache.get("671258373303566336");
 
-  var role = member.guild.roles.cache.find(user => user.name === "Customer"); // yes
-  member.roles.add(role).then(function(){
+ // var role = member.guild.roles.cache.find(user => user.name === "Customer"); // yes
+  //member.roles.add(role).then(function(){
     
   });
 
@@ -44,7 +44,6 @@ client.on("guildMemberAdd", member => {
     .setTimestamp()
 
   channel.send(embed);
-});
 
 app.use(express.static(__dirname + '/public'));
 

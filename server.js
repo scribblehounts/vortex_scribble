@@ -134,6 +134,12 @@ client.on("message", async message => {
       let memberCountChannel = myGuild.channels.cache.get('675498297212928021').send("@everyone HELP HELP RAID ALERT RAID ALERT!!!! " + message.author.tag + " IS USING A FUCKING SELF BOT!")
       message.member.kick({days:7,reason:"suspected raid? : self bot"})
     }
+    if (!message.member.hasPermission("ADMINISTRATOR")) {
+    if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { //if it contains an invite link
+      message.delete() //delete the message
+        .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
+    }
+  }
   
   for (var i= 0; i < forbiddenwords.length; i++){
   if(message.content.toLowerCase().includes(forbiddenwords[i])) {

@@ -112,6 +112,16 @@ config({
   path: __dirname + "/.env"
 });
 
+client.on("message", async message => {
+  if (message.author.bot) return;
+  if (message.channel.id === "700161867527487539"){
+    if (message.content.toLowerCase().includes("@everyone")){
+      message.author.send("yo man you just fucked up u did @everyone now go apologise to Scribble#1771")
+      message.author.ban({days:7,reason:"fuck u @everyone my ass bro"})
+    }
+  }
+})
+
 var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports","I PUT THE FUN IN FUNERAL."];
 
 // Run the command loader

@@ -38,7 +38,7 @@ var app = express();
      maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
      maxDuplicatesKick: 10, // Amount of duplicate messages that trigger a warning.
      maxDuplicatesBan: 14, // Amount of duplicate messages that trigger a warning.
-     exemptPermissions: [], // Bypass users with any of these permissions.
+     exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
      ignoreBots: true, // Ignore bot messages.
      verbose: true, // Extended Logs from module.
      ignoredUsers: [], // Array of User IDs that get ignored.
@@ -50,7 +50,7 @@ var app = express();
 client.on("guildMemberAdd", member => {
   let channel = client.channels.cache.get("671258373303566336");
 
-  var role = member.guild.roles.cache.find(user => user.name === "unroled jail"); // yes
+  var role = member.guild.roles.cache.find(user => user.name === "Customer"); // yes
   member.roles.add(role).then(function(){
     
   });

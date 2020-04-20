@@ -44,7 +44,8 @@ var app = express();
      ignoredUsers: [], // Array of User IDs that get ignored.
      // And many more options... See the documentation.
  });
-  
+ const moment = require('moment')
+ 
  var numDaysBetween = function(d1, d2) {
   var diff = Math.abs(d1.getTime() - d2.getTime());
   return diff / (1000 * 60 * 60 * 24);

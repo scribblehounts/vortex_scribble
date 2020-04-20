@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const Discord = require("discord.js");
 const { stripIndents } = require("common-tags");
 const { promptMessage } = require("../../functions.js");
 
@@ -55,7 +55,7 @@ const logChannel = message.guild.channels.cache.find(c => c.name === "logs") || 
                 .then(m => m.delete(5000));
         }
         
-        const embed = new MessageEmbed()
+        const embed = new Discord.MessageEmbed()
             .setColor("#ff0000")
             .setThumbnail(toBan.user.displayAvatarURL)
             .setFooter(message.member.displayName, message.author.displayAvatarURL)

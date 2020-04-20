@@ -45,16 +45,30 @@ var app = express();
      // And many more options... See the documentation.
  });
   
+ var numDaysBetween = function(d1, d2) {
+  var diff = Math.abs(d1.getTime() - d2.getTime());
+  return diff / (1000 * 60 * 60 * 24);
+};
+
  client.on('message', (message) => antiSpam.message(message)); 
 
 client.on("guildMemberAdd", member => {
   let channel = client.channels.cache.get("671258373303566336");
 
-  var role = member.guild.roles.cache.find(user => user.name === "Customer"); // yes
-  member.roles.add(role).then(function(){
-    
-  });
+  var a1 = moment(member.createdAt).format("YYYY-MM-DD")
+  var a2 = moment(Date.now()).format('YYYY-MM-DD')
 
+  var d1 = new Date(a1)
+  var d2 = new Date(a2)
+  var daysbetween = numDaysBetween(d1, d2);
+
+  if (daysbetween > 7){
+  var role = member.guild.roles.cache.find(user => user.name === "Customer"); // yes
+  member.roles.add(role)
+  } else {
+    var role = member.guild.roles.cache.find(user => user.name === "unroled jail"); // yes
+    member.roles.add(role)
+  }
   const embed = new Discord.MessageEmbed()
     .setColor("#2ecc71")
     .setTitle(`**Welcome**`)

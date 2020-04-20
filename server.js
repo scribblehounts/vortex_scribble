@@ -62,7 +62,7 @@ client.on("guildMemberAdd", member => {
   var d2 = new Date(a2)
   var daysbetween = numDaysBetween(d1, d2);
 
-  if (daysbetween > 7){
+  if (daysbetween < 14){
   var role = member.guild.roles.cache.find(user => user.name === "Customer"); // yes
   member.roles.add(role)
   } else {

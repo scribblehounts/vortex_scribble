@@ -45,7 +45,7 @@ var app = express();
      // And many more options... See the documentation.
  });
  const moment = require('moment')
- 
+
  var numDaysBetween = function(d1, d2) {
   var diff = Math.abs(d1.getTime() - d2.getTime());
   return diff / (1000 * 60 * 60 * 24);
@@ -56,20 +56,9 @@ var app = express();
 client.on("guildMemberAdd", member => {
   let channel = client.channels.cache.get("671258373303566336");
 
-  var a1 = moment(member.createdAt).format("YYYY-MM-DD")
-  var a2 = moment(Date.now()).format('YYYY-MM-DD')
-
-  var d1 = new Date(a1)
-  var d2 = new Date(a2)
-  var daysbetween = numDaysBetween(d1, d2);
-
-  if (daysbetween < 14){
   var role = member.guild.roles.cache.find(user => user.name === "Customer"); // yes
   member.roles.add(role)
-  } else {
-    var role = member.guild.roles.cache.find(user => user.name === "unroled jail"); // yes
-    member.roles.add(role)
-  }
+  
   const embed = new Discord.MessageEmbed()
     .setColor("#2ecc71")
     .setTitle(`**Welcome**`)
@@ -149,12 +138,23 @@ config({
 
 client.on("message", async message => {
   if (message.author.bot) return;
-  if (message.channel.id === "700161867527487539"){
+
     if (message.content.toLowerCase().includes("@everyone")){
       message.author.send("yo man you just fucked up u did @everyone now go apologise to Scribble#1771")
       message.author.ban({days:7,reason:"fuck u @everyone my ass bro"})
+      return
     }
+    var a1 = moment(message.author.createdAt).format("YYYY-MM-DD")
+    var a2 = moment(Date.now()).format('YYYY-MM-DD')
+  
+    var d1 = new Date(a1)
+    var d2 = new Date(a2)
+    var daysbetween = numDaysBetween(d1, d2);
+  if (daysbetween < 14){
+message.roles.remove('670958811908931584')
+message.roles.add('700870006509928558')
   }
+
 })
 
 var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports","I PUT THE FUN IN FUNERAL."];

@@ -132,6 +132,22 @@ docRef.get().then(function(doc) {
       })
 }
 });
+
+app.get("/checkbagdrop", function(req, res) {
+  if (!getAuthorized(req,res) === true){return}
+  if (req.query.id){
+  var user = req.query.id;
+    if (checkBlacklisted(user) == true){return}
+    var docRef = db.collection("users").doc(user);
+docRef.get().then(function(doc) {
+  if (doc.data().bagdrop) {
+  return res.send({ success: "true" })
+  } else {
+  return res.send({ errormessage: "yes" })
+  }
+    })
+}
+});
   
     app.get("/checkstaffpanel", function(req, res) {
       if (!getAuthorized(req,res) === true){return}
@@ -351,6 +367,46 @@ docRef.get().then(function(doc) {
     }
       })
       };
+
+      if (req.query.data === "bagdrop") {
+        docRef.get().then(function(doc) {
+            if (doc.exists) {
+                discord.users.cache.get(doc.data().discord).send("Thank you for purchasing the Bag Drop! You have been automatically roled to Bag Drop in the Vortex Server!");      
+                        let myGuild = discord.guilds.cache.get('670903593737519104');
+            let member = myGuild.members.cache.get(doc.data().discord)
+            member.roles.add(myGuild.roles.cache.find(role => role.name === "Bag Drop"));
+                    db.collection('users').doc(`${req.query.id}`).set({bagdrop: "owned"},{merge: true});
+              roblox.getUsernameFromId(user).then(a => {
+                roblox.getPlayerInfo(user).then(function(info) {
+              discord.channels.cache.get("693274563961815060").send({embed: {
+                color: 3447003,
+                author: {
+                  name: info.username,
+                  icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+                },
+                title: user,
+                
+                fields: [{
+                  name: "Purchase Received",
+                  value: "Product: Bag Drop"
+                }
+        
+              ],
+                timestamp: new Date(),
+                footer: {
+                  text: "Vortex Purchasing"
+                }
+              }})
+                        
+                })
+              })
+        
+            return res.send({ success: "true" })
+            } else {
+            return res.send({ errormessage: "yes" })
+            }
+              })
+              };
 }
 });
   

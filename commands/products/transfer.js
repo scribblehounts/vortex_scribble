@@ -61,6 +61,20 @@ docRef.get().then(function(doc) {
 
 })
         }
+
+        if (args[3] === ("bagdrop")){
+          var docRef = db.collection("users").doc(username);
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+          db.collection('users').doc(`${username}`).update({ bagdrop: FieldValue.delete() })
+          
+          db.collection('users').doc(`${second}`).set({bagdrop: "owned"},{merge: true});
+    
+                message.channel.send(new Discord.MessageEmbed().setTitle("Success").setDescription(`**${args[1]} Has been transfered to ${args[2]}!**`).setFooter("Product System").setColor("#2ecc71"))
+          }
+    
+    })
+            }
         
       }
   }

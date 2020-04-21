@@ -44,6 +44,15 @@ retrievedlist.push("Staff Panel");
             }
           })
            };
+
+           if(!message.member.roles.cache.find(r => r.name === "Bag Drop")){
+            exist.forEach(doc => {
+              if (doc.data().staffpanel){
+                message.member.roles.add(message.guild.roles.cache.find(role => role.name === "Bag Drop"));
+  retrievedlist.push("Bag Drop");
+              }
+            })
+             };
              
           if(retrievedlist.length < 1 || retrievedlist === undefined){
                         let embed = new Discord.MessageEmbed()

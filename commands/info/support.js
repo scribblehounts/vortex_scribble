@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-  name: "supporttest",
+  name: "support",
   category: "moderation",
   description: "To request a support",
   run: async(client, message, args) => {

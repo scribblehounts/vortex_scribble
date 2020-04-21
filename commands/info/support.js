@@ -35,7 +35,7 @@ if (message.author.bot) return; // Dont answer yourself.
                  SEND_MESSAGES: true
     })
 
-        channel.send(new Discord.MessageEmbed().setAuthor(`${message.author.username}'s Ticket`,message.guild.iconURL).setFooter("Support").setColor("#2ecc71").setDescription(`Reason: **${reason}**`))
+        channel.send(new Discord.MessageEmbed().setAuthor(`${message.author.username}'s Ticket`,message.guild.iconURL).setFooter("Support").setColor("#2ecc71").addField("Information","Thank you for starting a Ticket! Please wait until a \nSupport Staff has claimed this ticket!",true).addField("Issue:",reason,true))
   }).catch(console.error);
       
     } else {

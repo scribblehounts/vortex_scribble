@@ -176,6 +176,13 @@ client.on("message", async message => {
 }
   //
   
+  // mass mentions
+if (message.mentions.users.size > 4){
+  message.channel.send(client.emojis.cache.get("702435214428733471").toString() + " " + message.author.username + " you stinky poo you will now be in jail for that!")
+  message.member.removeRoles()
+  message.member.roles.add('700870006509928558')
+}
+
 
   
   if (!message.guild) return;

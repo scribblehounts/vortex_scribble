@@ -132,8 +132,8 @@ client.on("message", async message => {
     var d2 = new Date(a2)
     var daysbetween = numDaysBetween(d1, d2);
   if (daysbetween < 14){
-message.roles.remove('670958811908931584')
-message.roles.add('700870006509928558')
+message.roles.remove(message.guild.roles.cache.find(role => role.name === "Customer"))
+message.roles.add(message.guild.roles.cache.find(role => role.name === "unroled jail"))
   }
 
 })
@@ -179,8 +179,8 @@ client.on("message", async message => {
   // mass mentions
 if (message.mentions.users.size > 4){
   message.channel.send(client.emojis.cache.get("702435214428733471").toString() + " " + message.author.username + " you stinky poo you will now be in jail for that!")
-  message.member.removeRoles()
-  message.member.roles.add('700870006509928558')
+  message.member.roles.remove(message.guild.roles.cache.find(role => role.name === "Customer"))
+  message.member.roles.add(message.guild.roles.cache.find(role => role.name === "unroled jail"))
 }
 
 

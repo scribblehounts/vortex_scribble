@@ -12,7 +12,7 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-if (message.member.roles.some(role => role.name === 'Owner')){
+if (message.member.roles.cache.some(role => role.name === 'Owner')){
   
   var username = message.mentions.members.first()
   

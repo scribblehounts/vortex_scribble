@@ -37,8 +37,10 @@ module.exports = {
   
                for (var i in data) {
                  products.push(i)
-  }
-  embed.addField("Products",products, true)
+                }
+                if (products.length > 0){
+                embed.addField("Products",products, true)
+                }
                         message.channel.send({embed})
                                                      
   })

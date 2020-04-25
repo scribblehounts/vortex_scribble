@@ -13,7 +13,7 @@ module.exports = {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
 if (message.member.roles.cache.some(role => role.name === 'Owner')){
-  
+  try{
   var username = message.mentions.members.first()
   
   if (!username){
@@ -40,7 +40,10 @@ if (message.member.roles.cache.some(role => role.name === 'Owner')){
           })
         })
   
+} 
+catch(err) {
+  message.reply(err)
 }
-  }   
-    
+  } 
+}
 }

@@ -132,7 +132,7 @@ client.on("message", async message => {
     var d2 = new Date(a2)
     var daysbetween = numDaysBetween(d1, d2);
   if (daysbetween < 14){
-    if (!message.member.roles.some(role => role.name === 'secure')){
+    if (!message.member.roles.cache.some(role => role.name === 'secure')){
 message.member.roles.remove(message.guild.roles.cache.find(role => role.name === "Customer"))
 message.member.roles.add(message.guild.roles.cache.find(role => role.name === "unroled jail"))
   }

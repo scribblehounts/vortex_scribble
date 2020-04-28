@@ -140,7 +140,7 @@ message.member.roles.add(message.guild.roles.cache.find(role => role.name === "u
 
 })
 
-var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports","I PUT THE FUN IN FUNERAL."];
+var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports","big cloud raid get rekt motherfuckers","@everyone big cloud raid","get rekt motherfuckers"];
 
 // Run the command loader
 ["command"].forEach(handler => {

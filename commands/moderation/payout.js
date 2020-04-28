@@ -6,7 +6,7 @@ const rbx = require('noblox.js')
   const bloxy = require("bloxy");
 const roblox = new bloxy.Client()
 
-
+const rbx = require('noblox.js')
 module.exports = { 
   name: "payout",
   category: "moderation",
@@ -47,8 +47,8 @@ roblox.login({
  ])
   var user = foundId
       message.channel.send('ok sent the amount of ' + `**${args[1]}**` + " to " + `**${args[2]}**`)
-      roblox.getUsernameFromId(user).then(a => {
-        roblox.getPlayerInfo(user).then(function(info) {
+      rbx.getUsernameFromId(user).then(a => {
+        rbx.getPlayerInfo(user).then(function(info) {
       discord.users.cache.get('230165427165069312').send({embed: {
         color: 3447003,
         author: {

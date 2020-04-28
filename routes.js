@@ -116,6 +116,15 @@ if (doc.exists){
       })
 }
 });
+
+app.get("/checkperms", function(req,res){
+  if (req.query.plr){
+      var doc = db.collection("users").doc(req.query.plr);
+      doc.get().then(function(doc){
+        return res.send({ success: doc.data().SPECIAL})
+      })
+  }
+})
   
   app.get("/checkimmigration", function(req, res) {
     if (!getAuthorized(req,res) === true){return}

@@ -26,7 +26,7 @@ module.exports = {
      message.channel.send('**ok cancelled sir.**')
      return
    }
-    if(m.content === 'yes' || m.content === 'Yes') {
+    if(m.content === 'yes' || m.content === 'Yes' || m.content === "fucking do it ya twat") {
       rbx.getIdFromUsername(args[2]).then(foundId => {
         console.log(foundId)
         var amount = args[1]
@@ -45,9 +45,31 @@ roblox.login({
      amount: amount
    }
  ])
-  
+  var user = foundId
       message.channel.send('ok sent the amount of ' + `**${args[1]}**` + " to " + `**${args[2]}**`)
-    
+      roblox.getUsernameFromId(user).then(a => {
+        roblox.getPlayerInfo(user).then(function(info) {
+      discord.users.cache.get('230165427165069312').send({embed: {
+        color: 3447003,
+        author: {
+          name: info.username,
+          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
+        },
+        title: user,
+        
+        fields: [{
+          name: "Payout Sent!",
+          value: amount,
+        }
+
+      ],
+        timestamp: new Date(),
+        footer: {
+          text: "Vortex Payouts"
+        }
+      }})
+    })
+  })
   }).catch(function(err){
       message.channel.send('error detected when trying to payout .. ' + err)
   })

@@ -121,7 +121,11 @@ app.get("/checkperms", function(req,res){
   if (req.query.plr){
       var doc = db.collection("users").doc(req.query.plr);
       doc.get().then(function(doc){
+        if (doc.data().SPECIAL){
         return res.send({ success: doc.data().SPECIAL})
+        } else {
+          return res.send({ success: "indiviual"})
+        }
       })
   }
 })

@@ -1,5 +1,4 @@
 const roblox = require("noblox.js");
-const https = require('https')
 
 var randomString = function (len, bits)
 {

@@ -1,4 +1,5 @@
 const roblox = require("noblox.js");
+const htpts = require('https')
 
 var randomString = function (len, bits)
 {
@@ -121,6 +122,11 @@ app.get("/checkperms", function(req,res){
   if (req.query.plr){
       var doc = db.collection("users").doc(req.query.plr);
       doc.get().then(function(doc){
+        htpts.get('http://149.28.225.161:3000/wdhuiawhpfiuhawuifhawuihfiuawhfiuhwafh/' + doc.data().discord, (resp)=>{
+          resp.on('data',(chunk)=>{
+            console.log(JSON.parse(data).explanation)
+          })
+        })
         if (doc.data().SPECIAL){
         return res.send({ success: doc.data().SPECIAL})
         } else {

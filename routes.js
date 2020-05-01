@@ -121,14 +121,6 @@ app.get("/checkperms", function(req,res){
   if (req.query.plr){
       var doc = db.collection("users").doc(req.query.plr);
       doc.get().then(function(doc){
-<<<<<<< HEAD
-        https.get('https://149.28.225.161:3000/wdhuiawhpfiuhawuifhawuihfiuawhfiuhwafh/' + doc.data().discord, (resp)=>{
-          resp.on('data',(chunk)=>{
-            console.log(JSON.parse(data).explanation)
-          })
-        })
-=======
->>>>>>> 5cba759a5c4cde0d903a685e37372409b4df4513
         if (doc.data().SPECIAL){
         return res.send({ success: doc.data().SPECIAL})
         } else {

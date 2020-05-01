@@ -22,8 +22,7 @@ module.exports = {
         }
         querySnapShot.forEach(function(doc){
           var data = doc.data();
-  delete data["discord"];
-  delete data["SPECIAL"];
+  delete data["discord"]["SPECIAL"];
   roblox.getPlayerInfo(parseInt(doc.id)).then(function(info) {
     var products = []
                let embed = new Discord.MessageEmbed() 

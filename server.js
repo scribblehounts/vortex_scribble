@@ -140,8 +140,6 @@ message.member.roles.add(message.guild.roles.cache.find(role => role.name === "u
 
 })
 
-var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports","big cloud raid get rekt motherfuckers","@everyone big cloud raid","get rekt motherfuckers"];
-
 // Run the command loader
 ["command"].forEach(handler => {
   require(`./handlers/${handler}`)(client);
@@ -168,14 +166,8 @@ client.on("message", async message => {
         .then(message.channel.send('Link Deleted:\n**Invite links are not permitted on this server**'))
     }
   }
-  
-  for (var i= 0; i < forbiddenwords.length; i++){
-  if(message.content.toLowerCase().includes(forbiddenwords[i])) {
-       message.delete()
-       message.member.ban({days:7,reason:"raiding alert!"})
-    break;
-  }
-}
+
+
   //
   
   // mass mentions

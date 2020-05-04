@@ -279,12 +279,12 @@ docRef.get().then(function(doc) {
     })
   })
 
-  if (item.setup == null){
+  if (product.setup == null){
     setup = false
   }
         discord.users.cache.get(doc.data().discord).send({embed: {
           title:("Purchase Received!"),
-          description: ("Thank you for purchasing the " + item.name + " you have automatically been roled to " + item.role + ` You can get the Model by clicking on this link(${item.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`)}});      
+          description: ("Thank you for purchasing the " + product.name + " you have automatically been roled to " + product.role + ` You can get the Model by clicking on this link(${product.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`)}});      
                 
     let myGuild = discord.guilds.cache.get('670903593737519104');
     let member = myGuild.members.cache.get(doc.data().discord)
@@ -305,7 +305,7 @@ docRef.get().then(function(doc) {
         
         fields: [{
           name: "Purchase Received",
-          value: "Product: " + item.name
+          value: "Product: " + product.name
         }
       ],
         timestamp: new Date(),

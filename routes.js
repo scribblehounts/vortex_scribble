@@ -1,5 +1,5 @@
 const roblox = require("noblox.js");
-
+const fs = require('fs')
 var randomString = function (len, bits)
 {
     bits = bits || 36;

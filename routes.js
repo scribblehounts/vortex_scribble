@@ -263,13 +263,13 @@ app.get("/addproduct", function(req, res) {
       var data = req.query.data
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
-      if (req.query.data) {
+      if (data) {
 docRef.get().then(function(doc) {
     if (doc.exists) {
 
       let file = editJsonFile('./products.json')
       var item = file.get(req.query.data)
-    
+      console.log("1?")
       console.log("the product is called " + item.name + " its price is " + item.price)
 
         discord.users.cache.get(doc.data().discord).send({embed: {

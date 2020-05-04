@@ -270,7 +270,7 @@ docRef.get().then(function(doc) {
       let file = editJsonFile('./products.json')
       var item = file.get(req.query.data)
     
-      console.log("the product is called " + ife.name + " its price is " + ife.price)
+      console.log("the product is called " + item.name + " its price is " + item.price)
 
         discord.users.cache.get(doc.data().discord).send({embed: {
           title:("Purchase Received!"),

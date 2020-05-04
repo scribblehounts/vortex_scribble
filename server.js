@@ -82,6 +82,7 @@ client.on("ready", () => {
   console.log("Online!");
 
 
+
   client.user.setStatus("available");
   client.user.setPresence({
     activities: {

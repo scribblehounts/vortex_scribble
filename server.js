@@ -78,10 +78,10 @@ client.on("ready", () => {
   });
 });
 
+const editJsonFile = require('edit-json-file')
+
 client.on("ready", () => {
   console.log("Online!");
-
-
 
   client.user.setStatus("available");
   client.user.setPresence({

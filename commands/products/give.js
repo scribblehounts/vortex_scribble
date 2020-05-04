@@ -21,7 +21,7 @@ if (message.member.roles.cache.some(role => role.name === 'Owner')){
     return
   }
 
-  if (!args[2].toLowerCase() === "ally" || !args[2].toLowerCase() === "rubeus" || !args[2].toLowerCase() === "staff"){
+  if (!args[2].toLowerCase() === "ally"  || !args[2].toLowerCase() === "staff"){
     message.reply("invalid subject!")
     return
   }

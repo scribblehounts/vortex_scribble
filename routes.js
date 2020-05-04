@@ -256,99 +256,43 @@ text: "Vortex Purchasing"
   
 });
 
-    app.get("/addproduct", function(req, res) {
-     if (!getAuthorized(req,res) === true){return}
+app.get("/addproduct", function(req, res) {
+    if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
+      var data = req.query.data
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
-      if (req.query.data === "ife") {
+      if (req.query.data) {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-        discord.users.cache.get(doc.data().discord).send("Thank you for purchasing the IFE! You have been automatically roled to IFE Client in the Vortex Server!");      
-                let myGuild = discord.guilds.cache.get('670903593737519104');
-    let member = myGuild.members.cache.get(doc.data().discord)
-    member.roles.add(myGuild.roles.cache.find(role => role.name === "IFE Client"));
-            db.collection('users').doc(`${req.query.id}`).set({ife: "owned"},{merge: true});
-      
-
-      
-      roblox.getUsernameFromId(user).then(a => {
-        roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.cache.get("693274563961815060").send({embed: {
-        color: 3447003,
-        author: {
-          name: info.username,
-          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
-        },
-        title: user,
         
-        fields: [{
-          name: "Purchase Received",
-          value: "Product: IFE"
-        }
-      ],
-        timestamp: new Date(),
-        footer: {
-          text: "Vortex Purchasing"
-        }
-      }})
-        })
-      })
-    return res.send({ success: "true" })
-    } else {
-    return res.send({ errormessage: "yes" })
-    }
-      })
-      };
-      
-            if (req.query.data === "immigration") {
-docRef.get().then(function(doc) {
-    if (doc.exists) {
-        discord.users.cache.get(doc.data().discord).send("Thank you for purchasing the Immigration System! You have been automatically roled to Immigration in the Vortex Server!");      
-                let myGuild = discord.guilds.cache.get('670903593737519104');
-    let member = myGuild.members.cache.get(doc.data().discord)
-    member.roles.add(myGuild.roles.cache.find(role => role.name === "Immigration"));
-      db.collection('users').doc(`${req.query.id}`).set({immigration: "owned"},{merge: true});
-            roblox.getUsernameFromId(user).then(a => {
-        roblox.getPlayerInfo(user).then(function(info) {
-      discord.channels.cache.get("693274563961815060").send({embed: {
-        color: 3447003,
-        author: {
-          name: info.username,
-          icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
-        },
-        title: user,
-        
-        fields: [{
-          name: "Purchase Received",
-          value: "Product: Immigration"
-        }
-      ],
-
+  fs.readFile('products.json','utf8',function(err,data){
+    if (err) throw err;
+    var product
+    var setup = true
+    var products = JSON.parse(data)
     
-        timestamp: new Date(),
-        footer: {
-          text: "Vortex Purchasing"
-        }
-      }})
-                         
-        })
-      })
-    return res.send({ success: "true" })
-    } else {
-    return res.send({ errormessage: "yes" })
-    }
-      })
-      };
-      
-            if (req.query.data === "staffpanel") {
-docRef.get().then(function(doc) {
-    if (doc.exists) {
-        discord.users.cache.get(doc.data().discord).send("Thank you for purchasing the Staff Panel! You have been automatically roled to Staff Panel in the Vortex Server!");      
-                let myGuild = discord.guilds.cache.get('670903593737519104');
+    products.forEach(function(item){
+      if (item.id === data){
+        product = item
+      }
+    })
+  })
+
+  if (item.setup == null){
+    setup = false
+  }
+        discord.users.cache.get(doc.data().discord).send({embed: {
+          title:("Purchase Received!"),
+          description: ("Thank you for purchasing the " + item.name + " you have automatically been roled to " + item.role + ` You can get the Model by clicking on this link(${item.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`)}});      
+                
+    let myGuild = discord.guilds.cache.get('670903593737519104');
     let member = myGuild.members.cache.get(doc.data().discord)
-    member.roles.add(myGuild.roles.cache.find(role => role.name === "Staff Panel"));
-            db.collection('users').doc(`${req.query.id}`).set({staffpanel: "owned"},{merge: true});
+    member.roles.add(myGuild.roles.cache.find(role => role.name === product.role));
+            db.collection('users').doc(`${req.query.id}`).set({product: "owned"},{merge: true});
+      
+
+      
       roblox.getUsernameFromId(user).then(a => {
         roblox.getPlayerInfo(user).then(function(info) {
       discord.channels.cache.get("693274563961815060").send({embed: {
@@ -361,65 +305,22 @@ docRef.get().then(function(doc) {
         
         fields: [{
           name: "Purchase Received",
-          value: "Product: Staff Panel"
+          value: "Product: " + item.name
         }
-
       ],
         timestamp: new Date(),
         footer: {
           text: "Vortex Purchasing"
         }
       }})
-                
         })
       })
-
     return res.send({ success: "true" })
     } else {
     return res.send({ errormessage: "yes" })
     }
       })
       };
-
-      if (req.query.data === "bagdrop") {
-        docRef.get().then(function(doc) {
-            if (doc.exists) {
-                discord.users.cache.get(doc.data().discord).send("Thank you for purchasing the Bag Drop! You have been automatically roled to Bag Drop in the Vortex Server!");      
-                        let myGuild = discord.guilds.cache.get('670903593737519104');
-            let member = myGuild.members.cache.get(doc.data().discord)
-            member.roles.add(myGuild.roles.cache.find(role => role.name === "Bag Drop"));
-                    db.collection('users').doc(`${req.query.id}`).set({bagdrop: "owned"},{merge: true});
-              roblox.getUsernameFromId(user).then(a => {
-                roblox.getPlayerInfo(user).then(function(info) {
-              discord.channels.cache.get("693274563961815060").send({embed: {
-                color: 3447003,
-                author: {
-                  name: info.username,
-                  icon_url: (`https://www.roblox.com/bust-thumbnail/image?userId=${user}&width=420&height=420&format=png`)
-                },
-                title: user,
-                
-                fields: [{
-                  name: "Purchase Received",
-                  value: "Product: Bag Drop"
-                }
-        
-              ],
-                timestamp: new Date(),
-                footer: {
-                  text: "Vortex Purchasing"
-                }
-              }})
-                        
-                })
-              })
-        
-            return res.send({ success: "true" })
-            } else {
-            return res.send({ errormessage: "yes" })
-            }
-              })
-              };
 }
 });
   

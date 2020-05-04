@@ -284,7 +284,7 @@ docRef.get().then(function(doc) {
     var obj = {}
     obj[item.id] = "owned"
             db.collection('users').doc(`${req.query.id}`).set(obj,{merge: true});
-      
+            res.send({ success: "true" })
 
       
       roblox.getUsernameFromId(user).then(a => {
@@ -311,7 +311,6 @@ docRef.get().then(function(doc) {
         })
         
       })
-    return res.send({ success: "true" })
   }
 })
 })

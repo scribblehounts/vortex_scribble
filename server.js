@@ -64,7 +64,7 @@ var server = app.listen(3000, function() {
 
 client.on("ready", () => {
   
-  
+
   
   
   const channel = client.channels.cache.get("671261326483390464");
@@ -80,6 +80,8 @@ client.on("ready", () => {
 
 client.on("ready", () => {
   console.log("Online!");
+
+
   client.user.setStatus("available");
   client.user.setPresence({
     activities: {
@@ -138,9 +140,9 @@ message.member.roles.add(message.guild.roles.cache.find(role => role.name === "u
   }
 }
 
-})
+});
 
-var forbiddenwords = ["you have been raided","brokensecurity@protonmail.com","broken security","instagram @darkports","big cloud raid get rekt motherfuckers","@everyone big cloud raid","get rekt motherfuckers"];
+
 
 // Run the command loader
 ["command"].forEach(handler => {
@@ -169,13 +171,27 @@ client.on("message", async message => {
     }
   }
   
+
+  fs.readFile('forbidden.txt',function(err,data){
+    if (err) throw err;
+    var array = data.toString().split("\n");
+
+    var forbiddenwords = []
+
+    for (i in array) {
+      forbiddenwords.push(array[i])
+    }
+
+
   for (var i= 0; i < forbiddenwords.length; i++){
   if(message.content.toLowerCase().includes(forbiddenwords[i])) {
        message.delete()
-       message.member.ban({days:7,reason:"raiding alert!"})
+       message.channel.send("suspected raid : <@" + message.author.id + "> has been put into countermeasures")
+       //message.member.ban({days:7,reason:"raiding alert!"})
     break;
   }
 }
+  });
   //
   
   // mass mentions

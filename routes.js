@@ -258,43 +258,38 @@ text: "Vortex Purchasing"
 app.get("/addproduct", function(req, res) {
     if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
-      console.log("0")
       var data = req.query.data
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
       if (req.query.data) {
-        console.log("0.2")
 docRef.get().then(function(doc) {
-  console.log("0.25")
     if (doc.exists) {
-      console.log("0.3")
   fs.readFile('products.json','utf8',function(err,data){
     if (err) throw err;
     var setup = true
     var products = JSON.parse(data)
     
     products.forEach(function(item){
-      console.log("0.5")
       if (item.id === data){
-        console.log("1")
   if (item.setup == null){
     setup = false
   }
+} else {
+  res.send(item.id)
+}
+})
         discord.users.cache.get(doc.data().discord).send({embed: {
           title:("Purchase Received!"),
           description: ("Thank you for purchasing the " + item.name + " you have automatically been roled to " + item.role + ` You can get the Model by clicking on this link(${item.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`)
         }});      
-          console.log("2")
     let myGuild = discord.guilds.cache.get('670903593737519104');
     let member = myGuild.members.cache.get(doc.data().discord)
     member.roles.add(myGuild.roles.cache.find(role => role.name === item.role));
-    console.log("3")
     var obj = {}
     obj[item.id] = "owned"
-    console.log("4")
             db.collection('users').doc(`${req.query.id}`).set(obj,{merge: true});
+
             res.send({ success: "true" })
-            console.log("5")
 
       
       roblox.getUsernameFromId(user).then(a => {
@@ -321,8 +316,7 @@ docRef.get().then(function(doc) {
         })
         
       })
-  }
-})
+
 })
     }
     

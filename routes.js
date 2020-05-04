@@ -263,8 +263,11 @@ app.get("/addproduct", function(req, res) {
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);
       if (req.query.data) {
+        console.log("0.2")
 docRef.get().then(function(doc) {
+  console.log("0.25")
     if (doc.exists) {
+      console.log("0.3")
   fs.readFile('products.json','utf8',function(err,data){
     if (err) throw err;
     var setup = true

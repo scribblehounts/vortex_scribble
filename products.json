@@ -1,0 +1,35 @@
+[
+        {
+            "id": "ife",
+            "name": "IFE",
+            "price": "250",
+            "role": "IFE Client",
+            "model": "https://www.roblox.com/library/4657641491/IFE-public",
+            "setup": "https://www.youtube.com/watch?v=iYJ3pNw0byI"
+        },
+        {
+            "id": "immigration",
+            "name": "Immigration System",
+            "price": "250",
+            "role": "Immigration",
+            "model": "https://www.roblox.com/library/4831372741/Immigration-System",
+            "setup": null
+        },
+        {
+            "id": "bagdrop",
+            "name": "Bag Drop",
+            "price": "650",
+            "role": "Bag Drop",
+            "model": "https://www.roblox.com/library/4925615241/Bag-Drop",
+            "setup": "https://youtu.be/msLX9liGFTs"
+        },
+        {
+            "id": "staffpanel",
+            "name": "Staff Panel",
+            "price": "500",
+            "role": "Staff Panel",
+            "model": "https://www.roblox.com/library/4860140651/Staff",
+            "setup": "https://youtu.be/NyvbgPgTY_s"
+        }
+    
+    ]

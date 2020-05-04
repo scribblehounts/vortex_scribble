@@ -270,13 +270,12 @@ docRef.get().then(function(doc) {
     var products = JSON.parse(data)
     
     products.forEach(function(item){
+      console.log(item.id)
       if (item.id === data){
   if (item.setup == null){
     setup = false
   }
-} else {
-  res.send(item.id)
-}
+} 
 })
         discord.users.cache.get(doc.data().discord).send({embed: {
           title:("Purchase Received!"),

@@ -312,8 +312,6 @@ docRef.get().then(function(doc) {
         
       })
     return res.send({ success: "true" })
-    } else {
-    return res.send({ errormessage: "yes" })
   }
 })
 })

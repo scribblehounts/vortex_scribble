@@ -255,7 +255,7 @@ text: "Vortex Purchasing"
   }
   
 });
-
+var product
 app.get("/addproduct", function(req, res) {
     if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
@@ -268,7 +268,6 @@ docRef.get().then(function(doc) {
         
   fs.readFile('products.json','utf8',function(err,data){
     if (err) throw err;
-    var product
     var setup = true
     var products = JSON.parse(data)
     

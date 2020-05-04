@@ -276,9 +276,9 @@ var item
         products.forEach(function(item){
           for (const i in item.id){
             if (!i.id === req.query.data){return}
+            item = i
       if (item.setup == null){
         setup = false
-        item = i
       }
     } 
     })

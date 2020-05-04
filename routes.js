@@ -264,7 +264,6 @@ app.get("/addproduct", function(req, res) {
       if (req.query.data) {
 docRef.get().then(function(doc) {
     if (doc.exists) {
-      var product
   fs.readFile('products.json','utf8',function(err,data){
     if (err) throw err;
     var setup = true
@@ -272,22 +271,19 @@ docRef.get().then(function(doc) {
     
     products.forEach(function(item){
       if (item.id === data){
-        product = item
-      }
-    })
-  })
-
-  if (product.setup == null){
+  if (item.setup == null){
     setup = false
   }
         discord.users.cache.get(doc.data().discord).send({embed: {
           title:("Purchase Received!"),
-          description: ("Thank you for purchasing the " + product.name + " you have automatically been roled to " + product.role + ` You can get the Model by clicking on this link(${product.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`)}});      
+          description: ("Thank you for purchasing the " + item.name + " you have automatically been roled to " + item.role + ` You can get the Model by clicking on this link(${item.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`)}});      
                 
     let myGuild = discord.guilds.cache.get('670903593737519104');
     let member = myGuild.members.cache.get(doc.data().discord)
-    member.roles.add(myGuild.roles.cache.find(role => role.name === product.role));
-            db.collection('users').doc(`${req.query.id}`).set({product: "owned"},{merge: true});
+    member.roles.add(myGuild.roles.cache.find(role => role.name === item.role));
+    var obj = {}
+    obj[item.id] = "owned"
+            db.collection('users').doc(`${req.query.id}`).set(obj,{merge: true});
       
 
       
@@ -303,7 +299,7 @@ docRef.get().then(function(doc) {
         
         fields: [{
           name: "Purchase Received",
-          value: "Product: " + product.name
+          value: "Product: " + item.name
         }
       ],
         timestamp: new Date(),
@@ -311,14 +307,22 @@ docRef.get().then(function(doc) {
           text: "Vortex Purchasing"
         }
       }})
+      
         })
+        
       })
     return res.send({ success: "true" })
     } else {
     return res.send({ errormessage: "yes" })
+  }
+})
+})
     }
+    
       })
+      
       };
+      
 }
 });
   

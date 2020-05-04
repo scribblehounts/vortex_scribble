@@ -274,6 +274,7 @@ docRef.get().then(function(doc) {
     var products = JSON.parse(data)
     
     products.forEach(function(item){
+      console.log("0.5")
       if (item.id === data){
         console.log("1")
   if (item.setup == null){

@@ -273,10 +273,10 @@ var item
         var setup = true
         var products = JSON.parse(data)
         
-        products.forEach(function(item){
-          for (const i in item.id){
+        products.forEach(function(itema){
+          for (const i in itema.id){
             if (!i.id === req.query.data){return}
-            item = i
+            item = itema
       if (item.setup == null){
         setup = false
       }

@@ -258,6 +258,7 @@ text: "Vortex Purchasing"
 app.get("/addproduct", function(req, res) {
     if (!getAuthorized(req,res) === true){return}
     if (req.query.id){
+      console.log("0")
       var data = req.query.data
     var user = req.query.id;
       var docRef = db.collection("users").doc(user);

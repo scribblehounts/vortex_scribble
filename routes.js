@@ -1,5 +1,6 @@
 const roblox = require("noblox.js");
 const fs = require("fs")
+const editJsonFile = require('edit-json-file')
 
 var randomString = function (len, bits)
 {
@@ -266,24 +267,11 @@ app.get("/addproduct", function(req, res) {
 docRef.get().then(function(doc) {
     if (doc.exists) {
 
-var item
+      let file = editJsonFile('./products.json')
+      var item = file.get(req.query.data)
+    
+      console.log("the product is called " + ife.name + " its price is " + ife.price)
 
-      fs.readFile('products.json','utf8',function(err,data){
-        if (err) throw err;
-        var setup = true
-        var products = JSON.parse(data)
-        
-        products.forEach(function(itema){
-          for (var i in itema.id){
-            if (!i.id === req.query.data){return}
-            item = i
-            console.log(item)
-      if (item.setup == null){
-        setup = false
-      }
-    } 
-    })
-  })
         discord.users.cache.get(doc.data().discord).send({embed: {
           title:("Purchase Received!"),
           description: ("Thank you for purchasing the " + item.name + " you have automatically been roled to " + item.role + ` You can get the Model by clicking on this link(${item.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`)

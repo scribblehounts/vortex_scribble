@@ -21,6 +21,7 @@
     "discord.js": "^12.2.0",
     "djs-commands": "^1.2.2",
     "dotenv": "^8.2.0",
+    "edit-json-file": "^1.4.0",
     "enmap": "^5.2.4",
     "express": "^4.17.1",
     "firebase": "^7.14.0",

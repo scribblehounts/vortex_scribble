@@ -70,9 +70,6 @@ roblox.getPlayerInfo(parseInt(doc.id)).then(function(info) {
              .addField("User ID", doc.id || 'Unresolvable', true)
              .setThumbnail(`https://www.roblox.com/headshot-thumbnail/image?userId=${doc.id}&width=420&height=420&format=png`) 
 
-             for (var i in data) {
-               products.push(i)
-}
 for (var i in data) {
   products.push(i)
  }

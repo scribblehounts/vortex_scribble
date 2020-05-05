@@ -79,13 +79,10 @@ app.get("/getproducts", function(req, res) {
     
     db.collection("users").doc(req.query.id).get().then(querySnapShot => {
       if (querySnapShot.empty){
-        message.reply("user is not linked")
         return;
       }
 
-      querySnapShot.forEach(function(doc){
-
-        var data = doc.data();
+        var data = querySnapShot.data();
 
 delete data['discord']
 delete data['SPECIAL']
@@ -96,7 +93,6 @@ delete data['SPECIAL']
 }
 return res.send(products)
 })
-    })
   }
 });
 

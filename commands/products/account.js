@@ -73,8 +73,13 @@ roblox.getPlayerInfo(parseInt(doc.id)).then(function(info) {
              for (var i in data) {
                products.push(i)
 }
-embed.addField("Products",products, true)
-                      message.channel.send({embed})
+for (var i in data) {
+  products.push(i)
+ }
+ if (products.length > 0){
+ embed.addField("Products",products, true)
+ }
+         message.channel.send({embed})
                                                    
 })
       })

@@ -77,7 +77,7 @@ app.get("/getproducts", function(req, res) {
   if (!getAuthorized(req,res) === true){return}
   if (req.query.id){
     
-    db.collection("users").doc(req.query.id).get().then(function(querySnapShot){
+    db.collection("users").doc(req.query.id).get().then(querySnapShot => {
       if (querySnapShot.empty){
         message.reply("user is not linked")
         return;

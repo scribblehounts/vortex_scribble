@@ -72,6 +72,34 @@ docRef.get().then(function(doc) {
       })
 }
 });
+
+app.get("/getproducts", function(req, res) {
+  if (!getAuthorized(req,res) === true){return}
+  if (req.query.id){
+    
+    db.collection("users").doc(req.query.id).get().then(function(querySnapShot){
+      if (querySnapShot.empty){
+        message.reply("user is not linked")
+        return;
+      }
+
+      querySnapShot.forEach(function(doc){
+
+        var data = doc.data();
+
+delete data['discord']
+delete data['SPECIAL']
+  var products = []
+
+             for (var i in data) {
+               products.push(i)
+}
+return res.send(products)
+})
+    })
+  }
+});
+
   
   app.get("/checkuser", function(req, res) {
     if (!getAuthorized(req,res) === true){return}

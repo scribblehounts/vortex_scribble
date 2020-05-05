@@ -89,7 +89,9 @@ delete data['SPECIAL']
   var products = []
 
              for (var i in data) {
-               products.push(i)
+              let file = editJsonFile('./products.json')
+              var item = file.get(i)
+               products.push(item.name)
 }
 return res.send(products)
 })

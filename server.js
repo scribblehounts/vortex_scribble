@@ -84,12 +84,7 @@ client.on("ready", () => {
   console.log("Online!");
 
   client.user.setStatus("available");
-  client.user.setPresence({
-    activities: {
-      name: "buy the products now",
-      type: "STREAMING",
-    }
-  });
+  client.user.setActivity('vortex slaviboos', { type: 'WATCHING' });
   
   let myGuild = client.guilds.cache.get('670903593737519104');
   let memberCount = myGuild.memberCount;

@@ -308,7 +308,7 @@ docRef.get().then(function(doc) {
           }]
         }});
 
-        if (!item.setup === undefined){
+        if (item.setup){
           discord.users.cache.get(doc.data().discord).send({embed: {
            fields: [{
              name: "Setup Video:",

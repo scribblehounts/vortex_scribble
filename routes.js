@@ -48,7 +48,7 @@ docRef.get().then(function(doc) {
     for (var i in file){
     var item = file.get(i)
 
-    res.send(i)
+    res.send(i.name)
     }
     
 });

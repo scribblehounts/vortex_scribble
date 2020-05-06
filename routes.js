@@ -43,8 +43,14 @@ docRef.get().then(function(doc) {
 })
 }
 
-  app.get("/test", (req,res) => {
-    res.status(200)
+  app.get("/getproducts", (req,res) => {
+    let file = editJsonFile('./products.json')
+    for (var i in file){
+    var item = file.get(i)
+
+    res.send(i)
+    }
+    
 });
   
   app.post("/update", function(req, res) {

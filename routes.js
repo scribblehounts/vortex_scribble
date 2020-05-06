@@ -303,7 +303,7 @@ docRef.get().then(function(doc) {
           description: ("Thank you for purchasing the " + item.name + " you have automatically been roled to " + item.role),
           
           fields:[{
-            name: "Setup Video:",
+            name: "Model:",
             value: `You can get the Model by clicking on this [link](${item.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`,
           }]
         }});

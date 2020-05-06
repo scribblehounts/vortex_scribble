@@ -300,8 +300,22 @@ docRef.get().then(function(doc) {
 
         discord.users.cache.get(doc.data().discord).send({embed: {
           title:("Purchase Received!"),
-          description: ("Thank you for purchasing the " + item.name + " you have automatically been roled to " + item.role + ` You can get the Model by clicking on this link(${item.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`)
-        }});      
+          description: ("Thank you for purchasing the " + item.name + " you have automatically been roled to " + item.role),
+          
+          fields:[{
+            name: "Setup Video:",
+            value: `You can get the Model by clicking on this [link](${item.model}) Make sure to read the README inside it and if you have any questions, create a support ticket in #commands by doing, !support [ reason ]`,
+          }]
+        }});
+
+        if (!item.setup === null){
+          discord.users.cache.get(doc.data().discord).send({embed: {
+           fields: [{
+             name: "Setup Video:",
+             value: `There is a setup video available for this product! To watch it press this [link](${item.setup})`
+           }]
+          }});
+        }
     let myGuild = discord.guilds.cache.get('670903593737519104');
     let member = myGuild.members.cache.get(doc.data().discord)
     member.roles.add(myGuild.roles.cache.find(role => role.name === item.role));

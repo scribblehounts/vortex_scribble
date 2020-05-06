@@ -44,12 +44,9 @@ docRef.get().then(function(doc) {
 }
 
   app.get("/products", (req,res) => {
-    let file = editJsonFile('./products.json')
-    for (var i in file){
-    var item = file.get(i)
+    let file = editJsonFile('./products.json').read()
 
-    res.send(i.name)
-    }
+    res.send(file)
     
 });
   

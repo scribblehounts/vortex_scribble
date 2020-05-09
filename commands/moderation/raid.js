@@ -12,8 +12,8 @@ module.exports = {
     run: async (bot, message, args) => {
     if(!message.author.id == ownerid || !message.author.id == omrooshi || !message.author.id == papo) return message.channel.send("You can not use this command!");
 message.reply(args.slice(0).join(" "))
-    fs.appendFile('././forbidden.txt', args.slice(0).join(" ") + "\n",function(err){
+   // fs.appendFile('././forbidden.txt', args.slice(0).join(" ") + "\n",function(err){
       message.channel.send('Saved!');
-    })
+    //})
     }
 }

@@ -182,12 +182,8 @@ client.on("message", async message => {
   for (var i= 0; i < forbiddenwords.length; i++){
   if(message.content.toLowerCase().includes(forbiddenwords[i])) {
        message.delete()
-       try {
        message.member.roles.set([])
        message.channel.send("suspected raid : <@" + message.author.id + "> has been put into countermeasures")
-       } catch (err){
-      message.reply(err)
-      }
        //message.member.ban({days:7,reason:"raiding alert!"})
     break;
   }

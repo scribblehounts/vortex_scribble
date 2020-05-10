@@ -5,7 +5,7 @@ const rbx = require('noblox.js')
 
   const bloxy = require("bloxy");
 const roblox = new bloxy.Client()
-
+var settings = require('./././settings.json')
 module.exports = { 
   name: "payout",
   category: "moderation",
@@ -31,7 +31,7 @@ module.exports = {
         var amount = args[1]
 
 
-roblox.login(roblox.cookieLogin(process.env.COOKIE)).then(()=>{
+roblox.login(roblox.cookieLogin(settings.cookie)).then(()=>{
   
   roblox.getGroup(5563351).then(group=>{
 

@@ -51,7 +51,6 @@ docRef.get().then(function(doc) {
 });
 
   app.get("/:generatedevproduct",(req,res) => {
-    roblox.login(process.env.TOKEN).then(()=>{
       if (!getAuthorized(req,res) === true){return}
 
       const universeId = parseInt(req.body.universeId)
@@ -79,8 +78,6 @@ docRef.get().then(function(doc) {
           error: err.message
         })
       })
-
-    })
   })
   
   app.post("/update", function(req, res) {
@@ -400,7 +397,6 @@ docRef.get().then(function(doc) {
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
-  sendErr(res, {error: 'Internal server error'})
 })
 
 function login () {

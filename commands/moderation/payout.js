@@ -31,9 +31,7 @@ module.exports = {
         var amount = args[1]
 
 
-roblox.login({
-    cookie: process.env.TOKEN
-}).then(()=>{
+roblox.login(process.env.TOKEN).then(()=>{
   
   roblox.getGroup(5563351).then(group=>{
 

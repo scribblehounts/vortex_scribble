@@ -1,6 +1,7 @@
-const roblox = require("noblox.js");
 const fs = require("fs")
 const editJsonFile = require('edit-json-file')
+const bloxy = require("bloxy");
+const roblox = new bloxy.Client()
 
 var randomString = function (len, bits)
 {
@@ -20,9 +21,31 @@ var getAuthorized = function(req,res){
       return true
     } else {
        console.log("unauthorized access http;")
-      res.send('HTTP/1.1 401 Unauthorized')
+    res.status(403).json({
+        error: "You do not have permission to use this."
+    })
       return false
     }
+}
+
+function logIn(newCookie) {
+  rbx.cookieLogin(newCookie).then(function() {
+    console.log("Listening on port "+port)
+    
+    return app.listen(port)
+  }).catch(function(err) {
+    console.log("Failed to log in. Error: "+err.message)
+    
+    const errorApp = express()
+    
+    errorApp.get("/*", function(req, res, next) {
+      return res.status(503).json({
+        error: err.message
+      })
+    })
+    
+    return errorApp.listen(port)
+  })
 }
 
 var routes = function(app, db, discord) {
@@ -45,10 +68,41 @@ docRef.get().then(function(doc) {
 
   app.get("/products", (req,res) => {
     let file = editJsonFile('./products.json').read()
-
     res.send(file)
-    
 });
+
+  app.get("/:generatedevproduct",(req,res) => {
+    roblox.login(process.env.TOKEN).then(()=>{
+      if (!getAuthorized(req,res) === true){return}
+
+      const universeId = parseInt(req.body.universeId)
+      const name = req.body.name
+      const price = parseInt(req.body.price)
+
+      const args = {
+        universeId: universeId,
+        name: name,
+        priceInRobux: price
+      }
+
+      rbx.addDeveloperProduct(args).then(function(productDetails) {
+        productId = productDetails.productId
+        console.log("["+universeId+"] Created product "+name+" for "+price+" Robux.")
+
+        return res.status(200).json({
+          message: "["+universeId+"] Created product "+name+" for "+price+" Robux.",
+          productId: parseInt(productId)
+        })
+      }).catch(function(err) {
+        console.log("["+universeId+"] Failed to create product "+name+" for "+price+" Robux: "+err.message)
+        
+        return res.status(400).json({
+          error: err.message
+        })
+      })
+
+    })
+  })
   
   app.post("/update", function(req, res) {
     if (!req.body.username || !req.body.data) {
@@ -381,5 +435,5 @@ docRef.get().then(function(doc) {
     }
   });
 };
-
+const server = logIn(process.env.COOKIE)
 module.exports = routes;

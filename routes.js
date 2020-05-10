@@ -50,35 +50,6 @@ docRef.get().then(function(doc) {
     res.send(file)
 });
 
-  app.get("/:generatedevproduct",(req,res) => {
-      if (!getAuthorized(req,res) === true){return}
-
-      const universeId = parseInt(req.body.universeId)
-      const name = req.body.name
-      const price = parseInt(req.body.price)
-
-      const args = {
-        universeId: universeId,
-        name: name,
-        priceInRobux: price
-      }
-
-      roblox.addDeveloperProduct(args).then(function(productDetails) {
-        productId = productDetails.productId
-        console.log("["+universeId+"] Created product "+name+" for "+price+" Robux.")
-
-        return res.status(200).json({
-          message: "["+universeId+"] Created product "+name+" for "+price+" Robux.",
-          productId: parseInt(productId)
-        })
-      }).catch(function(err) {
-        console.log("["+universeId+"] Failed to create product "+name+" for "+price+" Robux: "+err.message)
-        
-        return res.status(400).json({
-          error: err.message
-        })
-      })
-  })
   
   app.post("/update", function(req, res) {
     if (!req.body.username || !req.body.data) {
@@ -393,7 +364,38 @@ docRef.get().then(function(doc) {
       
 }
 });
-  
+
+  app.get("/generatedevproduct",(req,res) => {
+      if (!getAuthorized(req,res) === true){return}
+
+      const universeId = parseInt(req.body.universeId)
+      const name = req.body.name
+      const price = parseInt(req.body.price)
+
+      const args = {
+        universeId: universeId,
+        name: name,
+        priceInRobux: price
+      }
+
+      roblox.addDeveloperProduct(args).then(function(productDetails) {
+        productId = productDetails.productId
+        console.log("["+universeId+"] Created product "+name+" for "+price+" Robux.")
+
+        return res.status(200).json({
+          message: "["+universeId+"] Created product "+name+" for "+price+" Robux.",
+          productId: parseInt(productId)
+        })
+      }).catch(function(err) {
+        console.log("["+universeId+"] Failed to create product "+name+" for "+price+" Robux: "+err.message)
+        
+        return res.status(400).json({
+          error: err.message
+        })
+      })
+  })  
+
+
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)

@@ -1,8 +1,6 @@
 const roblox = require('noblox.js')
 const fs = require("fs")
 const editJsonFile = require('edit-json-file')
-const bloxy = require("bloxy");
-const rbx = new bloxy.Client()
 
 var randomString = function (len, bits)
 {
@@ -30,7 +28,7 @@ var getAuthorized = function(req,res){
 }
 
 function logIn(newCookie) {
-  rbx.cookieLogin(newCookie).then(function() {
+  roblox.cookieLogin(newCookie).then(function() {
     console.log("Listening on port "+port)
     
     return app.listen(port)
@@ -73,7 +71,7 @@ docRef.get().then(function(doc) {
 });
 
   app.get("/:generatedevproduct",(req,res) => {
-    rbx.login(process.env.TOKEN).then(()=>{
+    roblox.login(process.env.TOKEN).then(()=>{
       if (!getAuthorized(req,res) === true){return}
 
       const universeId = parseInt(req.body.universeId)
@@ -86,7 +84,7 @@ docRef.get().then(function(doc) {
         priceInRobux: price
       }
 
-      rbx.addDeveloperProduct(args).then(function(productDetails) {
+      roblox.addDeveloperProduct(args).then(function(productDetails) {
         productId = productDetails.productId
         console.log("["+universeId+"] Created product "+name+" for "+price+" Robux.")
 

@@ -5,7 +5,6 @@ const rbx = require('noblox.js')
 
   const bloxy = require("bloxy");
 const roblox = new bloxy.Client()
-var settings = require('../../../settings.json')
 module.exports = { 
   name: "payout",
   category: "moderation",

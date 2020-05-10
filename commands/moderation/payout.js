@@ -7,7 +7,7 @@ const rbx = require('noblox.js')
 const roblox = new bloxy.Client()
 
 module.exports = { 
-  name: "payoutest",
+  name: "payout",
   category: "moderation",
   description: "To payout an amount of funds",
     run: async (bot, message, args) => {
@@ -31,7 +31,7 @@ module.exports = {
         var amount = args[1]
 
 
-roblox.login(process.env.TOKEN).then(()=>{
+roblox.login(process.env.COOKIE).then(()=>{
   
   roblox.getGroup(5563351).then(group=>{
 

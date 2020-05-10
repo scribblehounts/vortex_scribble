@@ -27,26 +27,6 @@ var getAuthorized = function(req,res){
     }
 }
 
-function logIn(newCookie) {
-  roblox.cookieLogin(newCookie).then(function() {
-    console.log("Listening on port "+port)
-    
-    return app.listen(port)
-  }).catch(function(err) {
-    console.log("Failed to log in. Error: "+err.message)
-    
-    const errorApp = express()
-    
-    errorApp.get("/*", function(req, res, next) {
-      return res.status(503).json({
-        error: err.message
-      })
-    })
-    
-    return errorApp.listen(port)
-  })
-}
-
 var routes = function(app, db, discord) {
   /*app.get("/", function(req, res) {
     console.log("Received GET");
@@ -417,22 +397,30 @@ docRef.get().then(function(doc) {
 }
 });
   
-  app.get("/update", function(req, res) {
-    console.log(req.query.id);
-    console.log("Received GET: " + JSON.stringify(req.body));
-    if (!req.query.id) {
-      return res.send({ errormessage: "cannot find user" });
-    } else if (req.query.data === "ife") {
-      var getUser = db.collection("users").doc(req.query.id);
-      getUser.get().then(function(doc) {
-        if (doc.exists) {
-          return res.send({ success: doc.data().ife });
-        } else {
-          return res.send({ errormessage: "cannot find data" });
-        }
-      });
-    }
-  });
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  sendErr(res, {error: 'Internal server error'})
+})
+
+function login () {
+  return rbx.cookieLogin("_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_82DE2BC3EDD3E944A845279D3C2F248AD64C2BF785C263F4E5E7399455BD5AEC30824FBA7B0244C50DEB46080D64EE0DCFDB07E5C83BE0FF60A68A87463196A9CEAE512614E54003C98EFEFE7C97D3A81E3BC1A026AEA7EE2A29AADCC76E238DA0C03848055C1C36137F47057DE56F04124AA0ECEF4C941791ED7DBC4F012170389727E4A2DA9F7156F7335C12D3B2436A36C9C21C588A914167C0E922FFD42A0EA21D530592871C6E0F78A94B8C645211041000700BACF16B2450A36C41C28EA9C77C3ACE4DE4DA9BE4AD5FA295890288974999314D4AA3ED705159A75EFD946928C288278EECB0B2999ADBA3E032553C108FA16B297E7A3E0A66900EDF253D1BA57D6EC533F071EA098B8AE555DCE14032291B7D14653520033EA3987D820505C8353A19CEFE062DE75EF04814FB871977D84A")
+}
+login().then(function () {
+  app.listen(port, function () {
+    console.log('Listening on port ' + port)
+  })
+})
+  .catch(function (err) {
+    var errorApp = express()
+    errorApp.get('/*', function (req, res, next) {
+      res.json({error: 'Server configuration error: ' + err.message})
+    })
+    errorApp.listen(port, function () {
+      console.log('Configuration error page listening')
+    })
+  })
 };
-const server = logIn("_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_82DE2BC3EDD3E944A845279D3C2F248AD64C2BF785C263F4E5E7399455BD5AEC30824FBA7B0244C50DEB46080D64EE0DCFDB07E5C83BE0FF60A68A87463196A9CEAE512614E54003C98EFEFE7C97D3A81E3BC1A026AEA7EE2A29AADCC76E238DA0C03848055C1C36137F47057DE56F04124AA0ECEF4C941791ED7DBC4F012170389727E4A2DA9F7156F7335C12D3B2436A36C9C21C588A914167C0E922FFD42A0EA21D530592871C6E0F78A94B8C645211041000700BACF16B2450A36C41C28EA9C77C3ACE4DE4DA9BE4AD5FA295890288974999314D4AA3ED705159A75EFD946928C288278EECB0B2999ADBA3E032553C108FA16B297E7A3E0A66900EDF253D1BA57D6EC533F071EA098B8AE555DCE14032291B7D14653520033EA3987D820505C8353A19CEFE062DE75EF04814FB871977D84A")
+
+
 module.exports = routes;

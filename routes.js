@@ -1,7 +1,8 @@
+const roblox = require('noblox.js')
 const fs = require("fs")
 const editJsonFile = require('edit-json-file')
 const bloxy = require("bloxy");
-const roblox = new bloxy.Client()
+const rbx = new bloxy.Client()
 
 var randomString = function (len, bits)
 {
@@ -72,7 +73,7 @@ docRef.get().then(function(doc) {
 });
 
   app.get("/:generatedevproduct",(req,res) => {
-    roblox.login(process.env.TOKEN).then(()=>{
+    rbx.login(process.env.TOKEN).then(()=>{
       if (!getAuthorized(req,res) === true){return}
 
       const universeId = parseInt(req.body.universeId)

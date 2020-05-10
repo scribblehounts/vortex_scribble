@@ -365,7 +365,7 @@ docRef.get().then(function(doc) {
 }
 });
 
-  app.get("/generatedevproduct",(req,res) => {
+  app.post("/generatedevproduct",(req,res) => {
       if (!getAuthorized(req,res) === true){return}
 
       const universeId = parseInt(req.body.universeId)

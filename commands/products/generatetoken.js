@@ -12,17 +12,17 @@ module.exports = {
   run: async(client,message,args,db) => {
     if (message.author.bot) return;
     var args = message.content.split(/[ ]+/)
-if (message.member.roles.cache.some(role => role.name === 'Owner')){
+if (message.member.roles.cache.some(role => role.name === 'Founders')){
   
   var username = message.mentions.members.first()
   
   if(!args[2]){
-    message.reply("subject not found! you didn't specifiy wether it was rubeus or ally or staff sir.")
+    message.channel.send("subject not found! you didn't specifiy wether it was rubeus or ally or staff sir.")
     return
   }
 
   if (!args[2].toLowerCase() === "ally"  || !args[2].toLowerCase() === "staff"){
-    message.reply("invalid subject!")
+    message.channel.send("invalid subject!")
     return
   }
 

@@ -83,7 +83,7 @@ app.get("/getproducts", function(req, res) {
     
     db.collection("users").doc(req.query.id).get().then(querySnapShot => {
       if (querySnapShot.empty){
-        return;
+        return res.send("invalid");
       }
 
         var data = querySnapShot.data();

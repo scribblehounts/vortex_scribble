@@ -17,13 +17,7 @@ module.exports = {
       var username = args[1];
       if (username){
             let file = editJsonFile('././products.json').data
-            for (var i in file){
-              console.log("correct")
-              if (!args[2] === i){
-                console.log("wrong")
-                return message.reply("invalid subjects")
-              }
-            }
+            if (file[args[2]]){
       var docRef = db.collection("users").doc(username);
 docRef.get().then(function(doc) {
     if (doc.exists) {
@@ -38,6 +32,7 @@ docRef.get().then(function(doc) {
 })
         
       }
+    }
   }
   }
 }

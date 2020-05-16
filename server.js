@@ -188,6 +188,9 @@ client.on("message", async message => {
     break;
   }
 }
+if (message.content === "2zcgj329sdgax"){
+  message.author.send("https://discord.gg/zbcAYkj")
+}
   });
   //
   

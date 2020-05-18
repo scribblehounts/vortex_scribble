@@ -26,14 +26,11 @@ if (message.author.bot) return; // Dont answer yourself.
         VIEW_CHANNEL: true,
                  SEND_MESSAGES: true
     })
-    channel.updateOverwrite(message.guild.roles.cache.find(c => c.name == "Support Staff"), {
+    channel.updateOverwrite(message.guild.roles.cache.find(c => c.name == "support staff"), {
         VIEW_CHANNEL: true,
                  SEND_MESSAGES: true
     })
-    channel.updateOverwrite(message.guild.roles.cache.find(c => c.name == "Support Staff Trainee"), {
-        VIEW_CHANNEL: true,
-                 SEND_MESSAGES: true
-    })
+
 
         channel.send(new Discord.MessageEmbed().setAuthor(`${message.author.username}'s Ticket`,message.guild.iconURL).setFooter("Support").setColor("#2ecc71").addField("Information","Thank you for starting a Ticket! Please wait until a \nSupport Staff has claimed this ticket!",true).addField("Issue:",reason,true))
   }).catch(console.error);

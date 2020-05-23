@@ -41,12 +41,12 @@
         },
         "seatbook":{
             "id": "seatbook",
-            "name": "Seat Book",
+            "name": "Pre-Order SeatBook",
             "price": "410",
             "paypal": "4",
-            "role": "",
+            "role": "Seat Book",
             "model": "https://pastebin.com/SCbgQz0U",
-            "description": "PRE ORDER For the Seat Book!"
+            "description": "The Seat Booking authentically an engenderment that deserves apperception, with its modern and simple design makes the seat booking look astounding."
         }
     
     }

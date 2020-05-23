@@ -38,6 +38,15 @@
             "model": "https://www.roblox.com/library/4860140651/Staff",
             "setup": "https://youtu.be/NyvbgPgTY_s",
             "description": "This is Staff Panel has an amazing UI Design and has many features!"
+        },
+        "seatbook":{
+            "id": "seatbook",
+            "name": "Seat Book",
+            "price": "410",
+            "paypal": "4",
+            "role": "",
+            "model": "https://pastebin.com/SCbgQz0U",
+            "description": "PRE ORDER For the Seat Book!"
         }
     
     }

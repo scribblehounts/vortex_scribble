@@ -53,6 +53,15 @@ retrievedlist.push("Staff Panel");
               }
             })
              };
+
+             if(!message.member.roles.cache.find(r => r.name === "Seat Book")){
+              exist.forEach(doc => {
+                if (doc.data().seatbook){
+                  message.member.roles.add(message.guild.roles.cache.find(role => role.name === "Seat Book"));
+    retrievedlist.push("Seat Book");
+                }
+              })
+               };
              
           if(retrievedlist.length < 1 || retrievedlist === undefined){
                         let embed = new Discord.MessageEmbed()

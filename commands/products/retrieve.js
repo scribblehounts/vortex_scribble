@@ -7,7 +7,7 @@ const editJsonFile = require('edit-json-file')
 let FieldValue = require('firebase-admin').firestore.FieldValue;
 
 module.exports = {
-  name: "retrievetest",
+  name: "retrieve",
   category: "moderation",
   description: "To verify another player",
   run: async(client,message,args,db) => {

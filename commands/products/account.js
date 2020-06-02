@@ -24,6 +24,7 @@ module.exports = {
           var data = doc.data();
           console.log(data)
           delete data['discord']
+          delete data['boostednitro']
           delete data['SPECIAL']
   roblox.getPlayerInfo(parseInt(doc.id)).then(function(info) {
     var products = []

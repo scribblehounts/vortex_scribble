@@ -90,6 +90,7 @@ app.get("/getproducts", function(req, res) {
 
 delete data['discord']
 delete data['SPECIAL']
+delete data['boostednitro']
   var products = []
 
              for (var i in data) {

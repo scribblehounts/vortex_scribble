@@ -65,10 +65,8 @@ return message.channel.send("Invalid product! Do !products to retrieve the corre
               .setTimestamp()
               .setTitle("Retrieved!")
              console.log(retrievedlist)
-                 retrievedlist.forEach(function(i){
-                embed.addField("Given Role:",i + "\n")
-                          })
-
+                embed.addField("Given Product!")
+                message.channel.send(embed)
                 } else {
                   let embed = new Discord.MessageEmbed()
                   .setColor(3447003)

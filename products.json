@@ -51,8 +51,8 @@
         "foodpack":{
             "id": "foodpack",
             "name": "Food Pack",
-            "price": "205",
-            "paypal": "2",
+            "price": "125",
+            "paypal": "1.2",
             "role": "Buyers",
             "model": "https://drive.google.com/file/d/14Kw9aegGMf8Pkp31hSmTuf-R349fh0oS/view?usp=sharing",
             "description": "This aliment pack engendered with love is a pack that includes 10 or more repasts with 4 drinks or more is a rudimentary victuals pack that your airline must have, it includes a menu for Premium and Economy. This is something an airline needs as it is very detailed and precise."

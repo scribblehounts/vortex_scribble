@@ -39,15 +39,6 @@
             "setup": "https://youtu.be/NyvbgPgTY_s",
             "description": "This is Staff Panel has an amazing UI Design and has many features!"
         },
-        "seatbook":{
-            "id": "seatbook",
-            "name": "Seatbook",
-            "price": "600",
-            "paypal": "6",
-            "role": "Seat Book",
-            "model": "https://pastebin.com/SCbgQz0U",
-            "description": "The Seat Booking authentically an engenderment that deserves apperception, with its modern and simple design makes the seat booking look astounding."
-        },
         "foodpack":{
             "id": "foodpack",
             "name": "Food Pack",

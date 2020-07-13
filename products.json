@@ -45,13 +45,23 @@
             "price": "600",
             "paypal": "6",
             "role": "Seat Book",
-            "model": "https://pastebin.com/SCbgQz0U",
+            "model": "https://www.roblox.com/library/5341496765/Seat-Booking",
+            "setup": "https://www.youtube.com/watch?v=c5FcgbhXueQ",
             "description": "The Seat Booking authentically an engenderment that deserves apperception, with its modern and simple design makes the seat booking look astounding."
+        },
+        "checkin":{
+            "id": "checkin",
+            "name": "Check-in Pack",
+            "price": "400",
+            "paypal": "4",
+            "role": "Buyers",
+            "model": "https://drive.google.com/file/d/1DOiRlZ9wSI6e_lLo6ggFqDd0mvV6dZ9v/view?usp=sharing",
+            "description": "This resplendent checkin consists of a Checkin, information desk and waiting chairs. This pack is designed to be utilized for a modern setting in your game that makes the people feel astonished and stunned the building style of the check in pack is to make it modern and something that will brighten up your airport."
         },
         "foodpack":{
             "id": "foodpack",
             "name": "Food Pack",
-            "price": "125",
+            "price": "75",
             "paypal": "1.2",
             "role": "Buyers",
             "model": "https://drive.google.com/file/d/14Kw9aegGMf8Pkp31hSmTuf-R349fh0oS/view?usp=sharing",

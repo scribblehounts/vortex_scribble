@@ -21,7 +21,7 @@ if (message.member.roles.cache.some(role => role.name === 'Founders')){
     return
   }
 
-  if (!args[2].toLowerCase() === "ally"  || !args[2].toLowerCase() === "staff"){
+  if (!args[2].toLowerCase() === "ally"  || !args[2].toLowerCase() === "staff" || !args[2].toLowerCase() === "giveaway"){
     message.channel.send("invalid subject!")
     return
   }

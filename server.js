@@ -86,12 +86,12 @@ client.on("ready", () => {
   client.user.setStatus("available");
   client.user.setActivity('vortex slaviboos', { type: 'WATCHING' });
   
-  let myGuild = client.guilds.cache.get('670903593737519104');
-  let memberCount = myGuild.memberCount;
-  let memberCountChannel = myGuild.channels.cache.get('671261326483390464')
-  memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
+  //let myGuild = client.guilds.cache.get('670903593737519104');
+  //let memberCount = myGuild.memberCount;
+  //let memberCountChannel = myGuild.channels.cache.get('671261326483390464')
+  //memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
 });
-
+/*
 client.on('guildMemberAdd', member => {
   let myGuild = client.guilds.cache.get('670903593737519104');
   let memberCount = myGuild.memberCount;
@@ -105,7 +105,7 @@ client.on('guildMemberRemove', member => {
   let memberCountChannel = myGuild.channels.cache.get('671261326483390464')
   memberCountChannel.setName('Members: ' + memberCount).then(function(success){})
 });
-
+*/
 
 // Collections
 client.commands = new Collection();

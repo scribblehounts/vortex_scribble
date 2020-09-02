@@ -3,7 +3,7 @@ const roblox = require('noblox.js');
 
 
 module.exports = {
-  name: "alink",
+  name: "link",
   category: "verification",
   description: "link ur acc",
   run: async(client,message,args,db) => {

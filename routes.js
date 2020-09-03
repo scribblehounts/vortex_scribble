@@ -127,7 +127,6 @@ docRef.get().then(function(doc) {
 
       var docRef = db.collection("users").doc(user);
 docRef.get().then(function(doc) {
-  console.log(doc.data().discord)
 if (doc.exists && doc.data().discord){
     return res.send({ success: "true" })
 } else {

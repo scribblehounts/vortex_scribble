@@ -28,7 +28,7 @@
     "firebase-admin": "^8.10.0",
     "firebase-tools": "^8.0.3",
     "math-expression-evaluator": "^1.2.22",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ms": "^2.1.2",
     "noblox.js": "^4.5.5",
     "pm2": "^4.4.1",

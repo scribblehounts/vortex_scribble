@@ -23,7 +23,7 @@
     "dotenv": "^8.2.0",
     "edit-json-file": "^1.4.0",
     "enmap": "^5.2.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^7.14.0",
     "firebase-admin": "^8.10.0",
     "firebase-tools": "^8.0.3",
